@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'area_riservata/registroElettronico'
+
+  get 'area_riservata/comunicazioniPersonali'
+
   get 'scuola/storia'
 
   get 'scuola/obiettivi'

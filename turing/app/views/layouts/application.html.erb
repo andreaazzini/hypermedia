@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Turing</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <title><%= yield(:title) %></title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="/scuola/storia"<%= check_li_active(yield(:li_title), "scuo") %>>La Scuola</a>
+        <ul>
+          <li><a href="#"<%= check_li_active(yield(:li_title), "pers") %>>Personale</a></li>
+          <li><a href="#"<%= check_li_active(yield(:li_title), "serv") %>>Servizi di Supporto</a></li>
+        </ul>
+      </li>
+      <li><a href="#"<%= check_li_active(yield(:li_title), "offe") %>>Offerta Formativa</a>
+        <ul>
+          <li><a href="#"<%= check_li_active(yield(:li_title), "modu") %>>Modulistica</a></li>
+          <li><a href="#"<%= check_li_active(yield(:li_title), "cale") %>>Calendario</a></li>
+        </ul>
+      </li>
+      <li><a href="#"<%= check_li_active(yield(:li_title), "clas") %>>Classi</a></li>
+      <li><a href="#"<%= check_li_active(yield(:li_title), "doce") %>>Docenti</a></li>
+      <li><a href="#"<%= check_li_active(yield(:li_title), "circ") %>>Circolari</a></li>
+      <li><a href="#"<%= check_li_active(yield(:li_title), "atti") %>>Attivit&agrave; Extra</a></li>
+      <li><a href="#"<%= check_li_active(yield(:li_title), "stru") %>>Strutture</a></li>
+      <li><a href="#"<%= check_li_active(yield(:li_title), "news") %>>News</a></li>
+    </ul>
+  </nav>
+</header>
+
 <%= yield %>
+
+<footer>
+  <nav>
+    <ul>
+      <li><a href="/area_riservata/comunicazioniPersonali"<%= check_li_active(yield(:li_title), "area") %>>Area Riservata</a></li>
+      <li><a href="#"<%= check_li_active(yield(:li_title), "conc") %>>Contatti</a></li>
+      <li><a href="#"<%= check_li_active(yield(:li_title), "info") %>>Informazioni Legali</a></li>
+    </ul>
+  </nav>
+</footer>
 
 </body>
 </html>
