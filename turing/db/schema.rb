@@ -11,7 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627172734) do
+ActiveRecord::Schema.define(version: 20140627204644) do
+
+  create_table "activities", force: true do |t|
+    t.integer  "structure_id"
+    t.string   "type"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "circulars", force: true do |t|
+    t.date     "date"
+    t.text     "text"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "circulars_school_classes", id: false, force: true do |t|
+    t.integer "school_class_id", null: false
+    t.integer "circular_id",     null: false
+  end
+
+  add_index "circulars_school_classes", ["circular_id"], name: "index_circulars_school_classes_on_circular_id"
+  add_index "circulars_school_classes", ["school_class_id"], name: "index_circulars_school_classes_on_school_class_id"
+
+  create_table "materials", force: true do |t|
+    t.string   "name"
+    t.string   "isbn"
+    t.string   "publisher"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "materials_school_classes", id: false, force: true do |t|
+    t.integer "school_class_id", null: false
+    t.integer "material_id",     null: false
+  end
+
+  add_index "materials_school_classes", ["material_id"], name: "index_materials_school_classes_on_material_id"
+  add_index "materials_school_classes", ["school_class_id"], name: "index_materials_school_classes_on_school_class_id"
 
   create_table "office_hours", force: true do |t|
     t.integer  "teacher_id"
@@ -20,6 +60,32 @@ ActiveRecord::Schema.define(version: 20140627172734) do
     t.datetime "updated_at"
     t.integer  "hour"
     t.integer  "minute"
+  end
+
+  create_table "school_classes", force: true do |t|
+    t.integer  "year"
+    t.string   "section"
+    t.text     "timetable"
+    t.text     "council"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "school_classes_teachers", id: false, force: true do |t|
+    t.integer "teacher_id",      null: false
+    t.integer "school_class_id", null: false
+    t.string  "subject"
+    t.integer "coordinator"
+  end
+
+  add_index "school_classes_teachers", ["school_class_id"], name: "index_school_classes_teachers_on_school_class_id"
+  add_index "school_classes_teachers", ["teacher_id"], name: "index_school_classes_teachers_on_teacher_id"
+
+  create_table "structures", force: true do |t|
+    t.string   "room"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "teachers", force: true do |t|
