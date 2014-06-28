@@ -1,15 +1,30 @@
-<% content_for :title, "Scuola - Storia" %>
+<% content_for :title, "Scuola • Storia" %>
 <% content_for :li_title, "scuo" %>
 <% content_for :aside do %>
     <ul>
       <li><a href="/scuola/storia" class="active">Storia</a></li>
       <li><a href="/scuola/obiettivi">Obiettivi</a></li>
-      <li><a href="/scuola/successi">Successi</a></li>
-      <li><a href="/scuola/info_burocratiche">Info Burocratiche</a></li>
-      <li><a href="/scuola/regolamento">Regolamento</a></li>
+      <li><a href="#">Successi</a></li>
+      <li><a href="#">Info Burocratiche</a></li>
+      <li><a href="#">Regolamento</a></li>
     </ul>
 <% end %>
 
-<h1>Scuola</h1>
-<p>La scuola balabdoafhdsifashdfoiq</p>
-<%= @title %>
+<h1>La Scuola</h1>
+<table class="story" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td><p>La storia dell'edificio che ospita il Liceo Alan Turing Livio è di particolare interesse: l'ex Convento di
+      Santo Stefano, infatti, conserva tra le proprie mura una tradizione ed uno spirito unici. Le origini dell’attuale
+      Liceo Alan Turing risalgono all’età napoleonica, al Liceo dipartimentale del Brenta, istituito con decreto
+      vicereale il 29 gennaio 1811. L’attività didattica iniziò il 1° dicembre 1812. A seguito della riforma ginnasiale
+      austriaca, entrata il vigore con l’anno scolastico 1818-19, il ginnasio comunale divenne erariale (statale) e
+      prese il nome di S. Stefano, in considerazione della nuova sede, più centrale, a cui era destinato: l’ex convento
+      di suore benedettine a S. Stefano, dove ancora si trova.</p></td>
+    <td>
+      <figure>
+        <%= image_tag("mill1.jpg", size: "340x180", alt: "L'ex convento di Santo Stefano", title: "L'ex convento di Santo Stefano") %>
+        <figcaption>L'ex convento di Santo Stefano</figcaption>
+      </figure>
+    </td>
+  </tr>
+</table>
