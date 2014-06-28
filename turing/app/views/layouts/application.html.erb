@@ -33,15 +33,23 @@
   </nav>
 </header>
 
-<%= yield %>
+<aside>
+<%# TODO %>
+</aside>
+
+<section>
+  <%= yield %>
+</section>
 
 <footer>
   <nav>
     <ul>
-      <li><a href="/area_riservata/comunicazioniPersonali"<%= check_li_active(yield(:li_title), "area") %>>Area Riservata</a></li>
+      <li><a href="/area_riservata/comunicazioniPersonali"<%= check_li_active(yield(:li_title), "area") %>>Area
+        Riservata</a></li>
       <li><a href="#"<%= check_li_active(yield(:li_title), "conc") %>>Contatti</a></li>
       <li><a href="#"<%= check_li_active(yield(:li_title), "info") %>>Informazioni Legali</a></li>
     </ul>
+    <span>&copy; 1960-2014, <a href="/">liceoalanturing.it</a></span>
   </nav>
 </footer>
 

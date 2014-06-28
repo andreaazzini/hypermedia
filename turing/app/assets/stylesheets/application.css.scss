@@ -15,6 +15,10 @@
  *= require normalize-rails
  */
 
+$light_grey:#eee;
+$white:#fff;
+$blu_nav:#0099ff;
+
 html, body {
   height: 100%;
 }
@@ -28,9 +32,9 @@ body {
   width: 940px;
   display: table-cell;
   vertical-align: top;
-  border-left: 2px solid #eee;
-  border-right: 2px solid #eee;
-  box-shadow: 0px -5px 50px #eee;
+  border-left: 2px solid $light_grey;
+  border-right: 2px solid $light_grey;
+  box-shadow: 0px -5px 50px $light_grey;
 }
 
 header {
@@ -58,8 +62,8 @@ nav {
   height: 30px;
   margin: 0px;
   padding: 0px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-top: 1px solid $light_grey;
+  border-bottom: 1px solid $light_grey;
 }
 
 nav ul,
@@ -87,10 +91,6 @@ nav ul li {
   vertical-align: middle;
 }
 
-nav ul li.active a {
-  color: #fff;
-}
-
 nav ul li:hover {
   position: relative;
 }
@@ -99,7 +99,7 @@ nav ul li a,
 nav ul li a:link,
 nav ul li a:visited,
 nav ul li a:active {
-  background: #fff;
+  background: $white;
 
   padding-right: 10px;
   padding-left: 10px;
@@ -110,13 +110,13 @@ nav ul li a:active {
 }
 
 nav ul li a.active {
-  background: #0099ff;
-  color: #fff;
+  background: $blu_nav;
+  color: $white;
 }
 
 nav ul li a:hover {
-  color: #fff;
-  background: #0099ff;
+  color: $white;
+  background: $blu_nav;
 }
 
 nav ul ul {
@@ -129,10 +129,11 @@ nav ul ul {
 
 nav ul ul li {
   border: 1px solid #ccc;
+  border-bottom: 0px;
 }
 
 nav ul ul li:last-child {
-  border-top: 0px;
+  border-bottom: 1px solid #ccc;
 }
 
 nav ul ul ul {
@@ -142,4 +143,33 @@ nav ul ul ul {
 
 nav ul li:hover > ul {
   visibility: visible;
+}
+
+footer nav span {
+  position: absolute;
+  right: 10px;
+  line-height: 30px;
+  vertical-align: middle;
+}
+
+footer nav span a,
+footer nav span a.link,
+footer nav span a.visited,
+footer nav span a.active {
+  color: #aaa;
+  text-decoration: none;
+}
+
+footer nav span a:hover {
+  text-decoration: underline;
+}
+
+aside {
+  float: left;
+  max-width: 300px;
+}
+
+section {
+  float: right;
+  min-width: 620px;
 }

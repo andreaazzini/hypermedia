@@ -3,8 +3,8 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+#   eate([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create(namcities = City.cre: 'Emanuel', city: cities.first)
 
 teachers_list = [
   [0, 'Francesca', 'Febbo', 32, '#', ''],

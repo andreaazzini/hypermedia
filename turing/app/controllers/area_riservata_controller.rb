@@ -4,4 +4,7 @@ class AreaRiservataController < ApplicationController
 
   def comunicazioniPersonali
   end
+
+  def login
+  end
 end
