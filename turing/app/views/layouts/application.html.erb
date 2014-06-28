@@ -33,9 +33,11 @@
   </nav>
 </header>
 
-<aside>
-<%# TODO %>
-</aside>
+<% if content_for?(:aside) %>
+    <aside>
+      <%= yield(:aside) %>
+    </aside>
+<% end %>
 
 <section>
   <%= yield %>

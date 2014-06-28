@@ -15,9 +15,9 @@
  *= require normalize-rails
  */
 
-$light_grey:#eee;
-$white:#fff;
-$blu_nav:#0099ff;
+$light_grey: #eee;
+$white: #fff;
+$blu_nav: #0099ff;
 
 html, body {
   height: 100%;
@@ -76,15 +76,11 @@ nav ul ul {
 
 nav ul {
   position: relative;
-  z-index: 597;
   float: left;
 }
 
 nav ul li {
   float: left;
-  line-height: 1.3em;
-  vertical-align: middle;
-  zoom: 1;
   border-right: 1px solid #ccc;
   min-height: 30px;
   line-height: 30px;
@@ -100,7 +96,6 @@ nav ul li a:link,
 nav ul li a:visited,
 nav ul li a:active {
   background: $white;
-
   padding-right: 10px;
   padding-left: 10px;
   height: 30px;
@@ -109,11 +104,7 @@ nav ul li a:active {
   display: table;
 }
 
-nav ul li a.active {
-  background: $blu_nav;
-  color: $white;
-}
-
+nav ul li a.active,
 nav ul li a:hover {
   color: $white;
   background: $blu_nav;
@@ -124,7 +115,6 @@ nav ul ul {
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: 598;
 }
 
 nav ul ul li {
@@ -165,11 +155,52 @@ footer nav span a:hover {
 }
 
 aside {
+  padding: 0px;
+  margin: 0px;
   float: left;
-  max-width: 300px;
+  width: 189px;
+  border-right: 1px solid $light_grey;
+}
+
+aside ul {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+  margin-top: 50px;
+  width: 100%;
+}
+
+aside ul li {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  line-height: 30px;
+  vertical-align: middle;
+  border-top: 1px solid $light_grey;
+}
+
+aside ul li:last-child {
+  border-bottom: 1px solid $light_grey;
+}
+
+aside ul li a,
+aside ul li a:link,
+aside ul li a:active,
+aside ul li a:visited {
+  padding-left: 10px;
+  width: 100%;
+  height: 30px;
+  color: #000;
+  display: table;
+  text-decoration: none;
+}
+
+aside ul li a.active,
+aside ul li a:hover {
+  text-decoration: underline;
 }
 
 section {
   float: right;
-  min-width: 620px;
+  min-width: 730px;
 }
