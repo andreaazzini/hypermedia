@@ -1,3 +1,32 @@
 // Place all the styles related to the Scuola controller here.
 // They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.story {
+  margin-top: 20px;
+  height: 100%;
+  width: 100%;
+}
+
+div.story p {
+  margin: 0px;
+  padding: 0px;
+  font-size: 14px;
+  text-align: justify;
+  float: left;
+  width: 350px;
+}
+
+div.story figure,
+div.story figure img,
+div.story figure figcaption {
+  margin: 0px;
+  padding: 0px;
+}
+
+div.story figure {
+  float: right;
+  margin-right: 20px;
+  font-size: 12px;
+  text-align: right;
+}

@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
             ["#", "Modulistica", 0],
             ["#", "Calendario", 2],
             ["#", "Classi", 0],
-            ["#", "Docenti", 0],
+            ["/docente/tutti_i_docenti", "Docenti", 0],
             ["#", "Circolari", 0],
             ["#", "Attivit&agrave; Extra", 0],
             ["#", "Strutture", 0],

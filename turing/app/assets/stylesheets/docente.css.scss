@@ -1,0 +1,25 @@
+// Place all the styles related to the Docente controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.column {
+  margin: 0px;
+  padding: 0px;
+
+  margin-top: 20px;
+  margin-right: 20px;
+  float: left;
+  width: 310px;
+}
+
+.column a,
+.column a:link,
+.column a:visited,
+.column a:active {
+  text-decoration: underline;
+  color: #000fff;
+}
+
+.column a:hover {
+  text-transform: uppercase;
+}

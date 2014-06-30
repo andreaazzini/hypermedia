@@ -16,7 +16,6 @@
  */
 
 $light_grey: #eee;
-$white: #fff;
 $blu_nav: #0099ff;
 
 html, body {
@@ -95,7 +94,7 @@ nav ul li a,
 nav ul li a:link,
 nav ul li a:visited,
 nav ul li a:active {
-  background: $white;
+  background: #fff;
   padding-right: 10px;
   padding-left: 10px;
   height: 30px;
@@ -106,7 +105,7 @@ nav ul li a:active {
 
 nav ul li a.active,
 nav ul li a:hover {
-  color: $white;
+  color: #fff;
   background: $blu_nav;
 }
 
@@ -187,8 +186,9 @@ aside ul li a,
 aside ul li a:link,
 aside ul li a:active,
 aside ul li a:visited {
+  font-size: 12px;
   padding-left: 10px;
-  width: 100%;
+  width: 180px;
   height: 30px;
   color: #000;
   display: table;
@@ -197,7 +197,8 @@ aside ul li a:visited {
 
 aside ul li a.active,
 aside ul li a:hover {
-  text-decoration: underline;
+  background: $blu_nav;
+  color: #fff;
 }
 
 section {
@@ -209,29 +210,4 @@ section h1 {
   margin: 0px;
   margin-top: 20px;
   padding: 0px;
-}
-
-section table.story {
-  margin-top: 20px;
-  margin-right: 20px;
-  height: 100%;
-}
-
-section table.story p {
-  margin: 0px;
-  margin-right: 20px;
-  padding: 0px;
-  font-size: 14px;
-}
-
-section table.story figure,
-section table.story figure img,
-section table.story figure figcaption {
-  margin: 0px;
-  padding: 0px;
-}
-
-section table.story figure figcaption {
-  font-size: 12px;
-  float: right;
 }

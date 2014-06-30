@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'docente/tutti_i_docenti'
+
+  get 'docente/:surname', to: 'docente#curriculum'
+
+  get 'docente/:surname/curriculum', to: 'docente#curriculum'
+
+  get 'docente/:surname/orario_ricevimenti', to: 'docente#orario_ricevimenti'
+
   get 'area_riservata/login'
 
   get 'home/index'
