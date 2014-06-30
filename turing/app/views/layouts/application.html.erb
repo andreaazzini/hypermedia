@@ -10,26 +10,7 @@
 
 <header>
   <nav>
-    <ul>
-      <li><a href="/scuola/storia"<%= check_li_active(yield(:li_title), "scuo") %>>La Scuola</a>
-        <ul>
-          <li><a href="#"<%= check_li_active(yield(:li_title), "pers") %>>Personale</a></li>
-          <li><a href="#"<%= check_li_active(yield(:li_title), "serv") %>>Servizi di Supporto</a></li>
-        </ul>
-      </li>
-      <li><a href="#"<%= check_li_active(yield(:li_title), "offe") %>>Offerta Formativa</a>
-        <ul>
-          <li><a href="#"<%= check_li_active(yield(:li_title), "modu") %>>Modulistica</a></li>
-          <li><a href="#"<%= check_li_active(yield(:li_title), "cale") %>>Calendario</a></li>
-        </ul>
-      </li>
-      <li><a href="#"<%= check_li_active(yield(:li_title), "clas") %>>Classi</a></li>
-      <li><a href="#"<%= check_li_active(yield(:li_title), "doce") %>>Docenti</a></li>
-      <li><a href="#"<%= check_li_active(yield(:li_title), "circ") %>>Circolari</a></li>
-      <li><a href="#"<%= check_li_active(yield(:li_title), "atti") %>>Attivit&agrave; Extra</a></li>
-      <li><a href="#"<%= check_li_active(yield(:li_title), "stru") %>>Strutture</a></li>
-      <li><a href="#"<%= check_li_active(yield(:li_title), "news") %>>News</a></li>
-    </ul>
+    <%= print_nav(ApplicationController.new.header_nav) %>
   </nav>
 </header>
 
@@ -45,12 +26,7 @@
 
 <footer>
   <nav>
-    <ul>
-      <li><a href="/area_riservata/comunicazioniPersonali"<%= check_li_active(yield(:li_title), "area") %>>Area
-        Riservata</a></li>
-      <li><a href="#"<%= check_li_active(yield(:li_title), "conc") %>>Contatti</a></li>
-      <li><a href="#"<%= check_li_active(yield(:li_title), "info") %>>Informazioni Legali</a></li>
-    </ul>
+    <%= print_nav(ApplicationController.new.footer_nav) %>
     <span>&copy; 1960-2014, <a href="/">liceoalanturing.it</a></span>
   </nav>
 </footer>

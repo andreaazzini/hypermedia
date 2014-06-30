@@ -4,4 +4,14 @@ class ScuolaController < ApplicationController
 
   def obiettivi
   end
+
+  # url
+  # name
+  def aside
+    return [["/scuola/storia", "Storia"],
+            ["/scuola/obiettivi", "Obiettivi"],
+            ["#", "Successi"],
+            ["#", "Info Burocratiche"],
+            ["#", "Regolamento"]]
+  end
 end

@@ -1,14 +1,5 @@
 <% content_for :title, "Scuola • Storia" %>
-<% content_for :li_title, "scuo" %>
-<% content_for :aside do %>
-    <ul>
-      <li><a href="/scuola/storia" class="active">Storia</a></li>
-      <li><a href="/scuola/obiettivi">Obiettivi</a></li>
-      <li><a href="#">Successi</a></li>
-      <li><a href="#">Info Burocratiche</a></li>
-      <li><a href="#">Regolamento</a></li>
-    </ul>
-<% end %>
+<% content_for :aside, print_aside(ScuolaController.new.aside) %>
 
 <h1>La Scuola</h1>
 <table class="story" cellpadding="0" cellspacing="0">
@@ -22,7 +13,7 @@
       di suore benedettine a S. Stefano, dove ancora si trova.</p></td>
     <td>
       <figure>
-        <%= image_tag("mill1.jpg", size: "340x180", alt: "L'ex convento di Santo Stefano", title: "L'ex convento di Santo Stefano") %>
+        <%= image_tag("school.jpg", size: "340x180", alt: "L'ex convento di Santo Stefano", title: "L'ex convento di Santo Stefano") %>
         <figcaption>L'ex convento di Santo Stefano</figcaption>
       </figure>
     </td>

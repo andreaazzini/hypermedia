@@ -1,14 +1,5 @@
 <% content_for :title, "Scuola • Obiettivi" %>
-<% content_for :li_title, "scuo" %>
-<% content_for :aside do %>
-    <ul>
-      <li><a href="/scuola/storia">Storia</a></li>
-      <li><a href="/scuola/obiettivi" class="active">Obiettivi</a></li>
-      <li><a href="#">Successi</a></li>
-      <li><a href="#">Info Burocratiche</a></li>
-      <li><a href="#">Regolamento</a></li>
-    </ul>
-<% end %>
+<% content_for :aside, print_aside(ScuolaController.new.aside) %>
 
 <h1>Scuola#obiettivi</h1>
 <p>Find me in app/views/scuola/obiettivi.html.erb</p>
