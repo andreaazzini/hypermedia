@@ -1,4 +1,6 @@
-<% content_for :title, "Docenti • " %>
+<% content_for :title, "Docenti • " + complete_name(params[:surname]) %>
+<% content_for :aside, print_aside(DocenteController.new.aside(params[:surname])) %>
 
-<h1>Docente#orario_ricevimenti</h1>
-<p>Find me in app/views/docente/orario_ricevimenti.html.erb</p>
+<%= create_teacher_path %>
+
+<%= create_back_to_index %>

@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
             ["#", "Offerta Formativa", 1],
             ["#", "Modulistica", 0],
             ["#", "Calendario", 2],
-            ["#", "Classi", 0],
+            ["/classe/tutte_le_classi", "Classi", 0],
             ["/docente/tutti_i_docenti", "Docenti", 0],
             ["#", "Circolari", 0],
             ["#", "Attivit&agrave; Extra", 0],

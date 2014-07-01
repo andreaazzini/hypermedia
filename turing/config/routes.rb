@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
+  get 'classe', to: 'classe#tutte_le_classi'
+
+  get 'classe/tutte_le_classi'
+
+  get 'classe/:year/:section', to: 'classe#bacheca'
+
+  get 'classe/:year/:section/bacheca', to: 'classe#bacheca'
+
+  get 'classe/:year/:section/coordinamento_e_consiglio_di_classe', to: 'classe#coordinamento_e_consiglio_di_classe'
+
+  get 'classe/:year/:section/materiale', to: 'classe#materiale'
+
+  get 'classe/:year/:section/orario', to: 'classe#orario'
+
   get 'docente/tutti_i_docenti'
+
+  get 'docente', to: 'docente#tutti_i_docenti'
 
   get 'docente/:surname', to: 'docente#curriculum'
 

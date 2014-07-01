@@ -11,8 +11,8 @@
  * file per style scope.
  *
  *= require_tree .
- *= require_self
  *= require normalize-rails
+ *= require_self
  */
 
 $light_grey: #eee;
@@ -41,6 +41,19 @@ header {
   background: image-url("highSchool.png") no-repeat;
   background-size: auto;
   position: relative;
+}
+
+aside {
+  padding: 0px;
+  margin: 0px;
+  float: left;
+  width: 189px;
+  border-right: 1px solid $light_grey;
+}
+
+section {
+  float: right;
+  width: 730px;
 }
 
 footer {
@@ -153,14 +166,6 @@ footer nav span a:hover {
   text-decoration: underline;
 }
 
-aside {
-  padding: 0px;
-  margin: 0px;
-  float: left;
-  width: 189px;
-  border-right: 1px solid $light_grey;
-}
-
 aside ul {
   padding: 0px;
   margin: 0px;
@@ -201,13 +206,42 @@ aside ul li a:hover {
   color: #fff;
 }
 
-section {
-  float: right;
-  width: 730px;
-}
-
 section h1 {
   margin: 0px;
   margin-top: 20px;
   padding: 0px;
+}
+
+.path,
+.back_to_index {
+  margin: 0px;
+  padding: 0px;
+  color: #000;
+}
+
+.path {
+  margin-top: 10px;
+}
+
+.back_to_index {
+  position: absolute;
+  bottom: 0px;
+  margin-bottom: 10px;
+}
+
+.path a,
+.path a:link,
+.path a:visited,
+.path a:active,
+.back_to_index a,
+.back_to_index a:link,
+.back_to_index a:visited,
+.back_to_index a:active {
+  text-decoration: underline;
+  color: #00f;;
+}
+
+.path a:hover,
+.back_to_index a:hover {
+  color: #09f;
 }

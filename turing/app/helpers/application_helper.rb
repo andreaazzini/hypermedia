@@ -34,8 +34,7 @@ module ApplicationHelper
     for link in links
       s += "<li><a href='" + link[0] + "'"
 
-      c = link[0].split("/")
-      if params[:action] == c[2]
+      if link[0].include? params[:action]
         s += " class='active'"
       end
 

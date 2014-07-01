@@ -6,7 +6,6 @@ class DocenteController < ApplicationController
   end
 
   def tutti_i_docenti
-
     teachers = Teacher.count / 2
     if Teacher.count % 2 != 0
       teachers += 1
@@ -36,6 +35,13 @@ class DocenteController < ApplicationController
     end
 
     return s.html_safe
+  end
+
+  # url
+  # name
+  def aside(surname)
+    return [["/docente/" + surname + "/curriculum", "Curriculum"],
+            ["/docente/" + surname + "/orario_ricevimenti", "Orario Ricevimento"]]
   end
 
 end
