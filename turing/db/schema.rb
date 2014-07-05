@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140628013324) do
+ActiveRecord::Schema.define(version: 20140627204955) do
 
   create_table "activities", force: true do |t|
     t.integer  "structure_id"
@@ -102,11 +102,6 @@ ActiveRecord::Schema.define(version: 20140628013324) do
     t.integer  "age"
     t.string   "photo_url"
     t.string   "curriculum"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "users", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
