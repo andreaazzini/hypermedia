@@ -7,16 +7,37 @@ class DocenteController < ApplicationController
 
   def tutti_i_docenti
     teachers = Teacher.count / 2
-    if Teacher.count % 2 != 0
+
+    n = Teacher.count
+    #if params.has_key?("year") && params.has_key?("section")
+    if params[:controller]
+      year = params[:year]
+      section = params[:section]
+      n = Teacher.joins(:school_classes).where(school_classes: {year: year, section: section}).count
+    end
+
+    if n % 2 != 0
       teachers += 1
     end
 
     s = ""
     (0..1).step(1) do |column|
-      old = Teacher.order(:surname).pluck(:surname)[teachers * column][0]
+      if (year && section)
+        old = Teacher.joins(:school_classes).where(school_classes: {year: year, section: section}).order(:surname).pluck(:surname)[teachers * column][0]
+      else
+        old = Teacher.order(:surname).pluck(:surname)[teachers * column][0]
+      end
+
       s += "<div class='column'>"
       (0..teachers - 1).step(1) do |n|
-        if docente_id = Teacher.order(:surname).pluck(:id)[teachers * column + n]
+
+        if (year && section)
+          docente_id = Teacher.joins(:school_classes).where(school_classes: {year: year, section: section}).order(:surname).pluck(:id)[teachers * column + n]
+        else
+          docente_id = Teacher.order(:surname).pluck(:id)[teachers * column + n]
+        end
+
+        if docente_id
           surname = Teacher.find_by_id(docente_id).surname
           current = surname[0]
           if current != old
