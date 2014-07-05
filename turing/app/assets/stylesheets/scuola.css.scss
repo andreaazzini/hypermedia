@@ -2,14 +2,14 @@
 // They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-div.story {
+.story {
   margin-top: 20px;
   height: 100%;
   width: 100%;
   vertical-align: top;
 }
 
-div.story p {
+.story p {
   margin: 0px;
   padding: 0px;
   font-size: 14px;
@@ -18,15 +18,16 @@ div.story p {
   width: 350px;
 }
 
-div.story figure,
-div.story figure img,
-div.story figure figcaption {
+.story figure,
+.story figure img,
+.story figure figcaption {
   margin: 0px;
   padding: 0px;
 }
 
-div.story figure {
+.story figure {
   float: right;
+  margin-left: 20px;
   margin-right: 20px;
   font-size: 12px;
   text-align: right;

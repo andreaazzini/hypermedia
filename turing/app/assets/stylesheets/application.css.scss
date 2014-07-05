@@ -10,15 +10,16 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require normalize-rails
  *= require_self
  */
 
 $light_grey: #eee;
 $blu_nav: #0099ff;
+$width_page: 940px;
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -28,8 +29,7 @@ html {
 }
 
 body {
-  width: 940px;
-  display: table-cell;
+  width: $width_page;
   vertical-align: top;
   border-left: 2px solid $light_grey;
   border-right: 2px solid $light_grey;
@@ -43,7 +43,13 @@ header {
   position: relative;
 }
 
+main {
+  height: 100%;
+  width: 100%;
+}
+
 aside {
+  height: 100%;
   padding: 0px;
   margin: 0px;
   float: left;
@@ -52,6 +58,8 @@ aside {
 }
 
 section {
+  height: 100%;
+  position: relative;
   float: right;
   width: 730px;
 }
@@ -59,8 +67,7 @@ section {
 footer {
   width: inherit;
   height: 32px;
-  position: absolute;
-  bottom: 0px;
+  position: relative;
 }
 
 header nav {
@@ -84,6 +91,8 @@ nav ul ul {
   list-style: none;
   margin: 0;
   padding: 0;
+
+  z-index: 9999;
 }
 
 nav ul {
@@ -132,6 +141,8 @@ nav ul ul {
 nav ul ul li {
   border: 1px solid #ccc;
   border-bottom: 0px;
+
+  z-index: 9999;
 }
 
 nav ul ul li:last-child {
@@ -237,11 +248,12 @@ section h1 {
 .back_to_index a:link,
 .back_to_index a:visited,
 .back_to_index a:active {
-  text-decoration: underline;
+  text-decoration: none;
   color: #00f;;
 }
 
 .path a:hover,
 .back_to_index a:hover {
   color: #09f;
+  text-decoration: underline;
 }
