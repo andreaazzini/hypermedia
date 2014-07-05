@@ -57,13 +57,13 @@ class ClasseController < ApplicationController
   def year_to_s(year)
     if (year == 1)
       return "Prima"
-    elsif(year == 2)
+    elsif (year == 2)
       return "Seconda"
-    elsif(year == 3)
+    elsif (year == 3)
       return "Terza"
-    elsif(year == 4)
+    elsif (year == 4)
       return "Quarta"
-    elsif(year == 5)
+    elsif (year == 5)
       return "Quinta"
     end
   end
