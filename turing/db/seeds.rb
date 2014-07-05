@@ -41,15 +41,21 @@ school_classes_list = [
 ]
 
 teachers_list.each do |id, name, surname, age, photo_url, curriculum|
-  Teacher.create(id: id, name: name, surname: surname, age: age,
-                 photo_url: photo_url, curriculum: curriculum)
+  if !Teacher.find_by_id(id)
+    Teacher.create(id: id, name: name, surname: surname, age: age,
+                   photo_url: photo_url, curriculum: curriculum)
+  end
 end
 
 office_hours_list.each do |id, teacher_id, day, hour, minute|
-  OfficeHour.create(id: id, teacher_id: teacher_id, day: day, hour: hour, minute: minute)
+  if !OfficeHour.find_by_id(id)
+    OfficeHour.create(id: id, teacher_id: teacher_id, day: day, hour: hour, minute: minute)
+  end
 end
 
 school_classes_list.each do |id, yaer, section, timetable, council|
-  SchoolClass.create(id: id, year: yaer, section: section,
-                     timetable: timetable, council: council)
+  if !SchoolClass.find_by_id(id)
+    SchoolClass.create(id: id, year: yaer, section: section,
+                       timetable: timetable, council: council)
+  end
 end
