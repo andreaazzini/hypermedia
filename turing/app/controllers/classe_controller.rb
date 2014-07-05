@@ -32,7 +32,7 @@ class ClasseController < ApplicationController
 
           url = classe[0].to_s + "/" + classe[1]
           s += "<a href='/classe/" + url + "'>"
-          s += classe[0].to_s
+          s += year_to_s(classe[0])
           s += " "
           s += classe[1]
           s += "</a><br />"
@@ -52,5 +52,19 @@ class ClasseController < ApplicationController
             ["/classe/" + class_name + "/coordinamento_e_consiglio_di_classe", "Coordinamento e Consiglio di Classe"],
             ["/classe/" + class_name + "/materiale", "Materiale"],
             ["/classe/" + class_name + "/orario", "Orario"]]
+  end
+
+  def year_to_s(year)
+    if (year == 1)
+      return "Prima"
+    elsif(year == 2)
+      return "Seconda"
+    elsif(year == 3)
+      return "Terza"
+    elsif(year == 4)
+      return "Quarta"
+    elsif(year == 5)
+      return "Quinta"
+    end
   end
 end

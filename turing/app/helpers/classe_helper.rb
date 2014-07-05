@@ -37,5 +37,4 @@ module ClasseHelper
     s += "</a></div>"
     return s.html_safe
   end
-
 end
