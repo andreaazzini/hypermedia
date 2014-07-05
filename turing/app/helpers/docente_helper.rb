@@ -35,16 +35,16 @@ module DocenteHelper
     return teacher[0].name + " " + teacher[0].surname
   end
 
-  def create_back_to_index
+  def back_to_index_docente
     s = "<div class='back_to_index'><a href='"
 
     if params[:controller] == "docente"
-      s += "/docente"
+      s += "/docente'>Torna a Tutti i Docenti"
     elsif params[:controller] == "classe"
-      s += "/classe/" + params[:year] + "/" + params[:section] + "/docenti_della_classe"
+      s += "/classe/" + params[:year] + "/" + params[:section] + "/docenti_della_classe'>Torna a Docenti della classe"
     end
 
-    s += "'>Torna a Tutti i Docenti</a></div>"
+    s += "</a></div>"
     return s.html_safe
   end
 

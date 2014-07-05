@@ -25,16 +25,16 @@ module ClasseHelper
     return params[:year] + " " + params[:section]
   end
 
-  def create_back_to_index
+  def back_to_index_classe
     s = "<div class='back_to_index'><a href='"
 
     if params[:controller] == "classe"
-      s += "/classe"
+      s += "/classe'>Torna a Tutte le classi"
     elsif params[:controller] == "docente"
-      s += "/docente/" + params[:surname] + "/classi_in_cui_insegna"
+      s += "/docente/" + params[:surname] + "/classi_in_cui_insegna'>Torna a Classi in cui insegna"
     end
 
-    s += "'>Torna a Classi in cui insegna</a></div>"
+    s += "</a></div>"
     return s.html_safe
   end
 
