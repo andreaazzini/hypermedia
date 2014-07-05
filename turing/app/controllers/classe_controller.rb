@@ -20,10 +20,10 @@ class ClasseController < ApplicationController
 
     s = ""
     (0..1).step(1) do |column|
-      old = SchoolClass.order(:year, :section).all[school_classes * column].year
+      old = SchoolClass.order(:year, :section).pluck(:year)[school_classes * column]
       s += "<div class='column'>"
       (0..school_classes - 1).step(1) do |n|
-        if classe = SchoolClass.order(:year, :section).all[school_classes * column + n]
+        if classe = SchoolClass.order(:year, :section).pluck(:year)[school_classes * column + n]
           current = classe.year
           if current != old
             s += "<br />"
