@@ -11,16 +11,37 @@
 
 .story p {
   margin: 0px;
+  margin-bottom: 15px;
   padding: 0px;
-  font-size: 14px;
   text-align: justify;
   float: left;
 }
 
 .story img {
-	padding: 0;
+  padding: 0;
   margin: 15px;
   margin-top: 0;
   float: right;
-  text-align: right;
+}
+
+.obiettivi {
+  margin-top: 20px;
+  height: 100%;
+  width: 100%;
+  vertical-align: top;
+}
+
+.obiettivi p {
+  margin: 0px;
+  margin-bottom: 15px;
+  padding: 0px;
+  text-align: justify;
+  float: left;
+}
+
+.obiettivi img {
+  padding: 0;
+  margin: 15px;
+  margin-top: 0;
+  float: right;
 }

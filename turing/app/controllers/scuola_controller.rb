@@ -10,8 +10,8 @@ class ScuolaController < ApplicationController
   def aside
     return [["/scuola/storia", "Storia"],
             ["/scuola/obiettivi", "Obiettivi"],
-            ["#", "Successi"],
-            ["#", "Info Burocratiche"],
-            ["#", "Regolamento"]]
+            ["/scuola/successi", "Successi"],
+            ["/scuola/info_burocratiche", "Info Burocratiche"],
+            ["/scuola/regolamento", "Regolamento"]]
   end
 end

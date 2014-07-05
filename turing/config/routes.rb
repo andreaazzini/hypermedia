@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'scuola/successi'
+
+  get 'scuola/info_burocratiche'
+
+  get 'scuola/regolamento'
+
   get 'classe', to: 'classe#tutte_le_classi'
 
   get 'classe/tutte_le_classi'
