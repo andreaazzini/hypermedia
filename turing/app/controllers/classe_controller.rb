@@ -23,14 +23,14 @@ class ClasseController < ApplicationController
       old = SchoolClass.order(:year, :section).pluck(:year)[school_classes * column]
       s += "<div class='column'>"
       (0..school_classes - 1).step(1) do |n|
-        if classe = SchoolClass.order(:year, :section).pluck(:year)[school_classes * column + n]
+        if classe = SchoolClass.order(:year, :section).pluck(:year, :section)[school_classes * column + n]
           current = classe.year
           if current != old
             s += "<br />"
             old = current
           end
 
-          url = classe.year + "/" + classe.section
+          url = classe.year.to_s + "/" + classe.section
           s += "<a href='/classe/" + url + "'>"
           s += classe.year
           s += " "
