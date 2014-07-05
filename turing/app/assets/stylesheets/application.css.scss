@@ -40,7 +40,7 @@ main {
 
 aside {
   float: left;
-  width: 190px;
+  width: 189px;
   min-height: 1px;
   height: 100%;
 }
@@ -48,7 +48,7 @@ aside {
 section {
   float: left;
   width: 730px;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
   padding-left: 15px;
   border-left: 1px solid $light_grey;
 }
