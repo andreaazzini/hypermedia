@@ -16,11 +16,9 @@
   </nav>
 </header>
 
-<% if content_for?(:aside) %>
-    <aside>
-      <%= yield(:aside) %>
-    </aside>
-<% end %>
+<aside>
+  <%= yield(:aside) %>
+</aside>
 
 <section>
   <%= yield %>

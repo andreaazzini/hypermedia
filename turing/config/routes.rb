@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'classe/:year/:section/orario', to: 'classe#orario'
 
+  get 'classe/:year/:section/docenti_della_classe', to: 'docente#tutti_i_docenti'
+
   get 'docente/tutti_i_docenti'
 
   get 'docente', to: 'docente#tutti_i_docenti'
@@ -22,6 +24,8 @@ Rails.application.routes.draw do
   get 'docente/:surname/curriculum', to: 'docente#curriculum'
 
   get 'docente/:surname/orario_ricevimenti', to: 'docente#orario_ricevimenti'
+
+  get 'docente/:surname/classi_in_cui_insegna', to: 'classe#tutte_le_classi'
 
   get 'area_riservata/login'
 
