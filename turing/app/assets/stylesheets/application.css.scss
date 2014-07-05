@@ -18,38 +18,45 @@ $light_grey: #eee;
 $blu_nav: #0099ff;
 $width_page: 940px;
 
+html {
+  height: 100%;
+}
+
 body {
+  position: relative;
   margin: 0 auto;
   width: $width_page;
   vertical-align: top;
   border-left: 2px solid $light_grey;
   border-right: 2px solid $light_grey;
   box-shadow: 0px -5px 50px $light_grey;
+  min-height: 100%;
 }
 
 header {
   height: 232px;
   background: image-url("highSchool.png") no-repeat;
-  position: relative;	
+  position: relative;
 }
 
 main {
-	position: relative;
-	overflow: hidden;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 32px;
+  height: 100%;
 }
 
 aside {
   float: left;
-  width: 190px;
+  width: 189px;
   min-height: 1px;
-  height: 100%;
 }
 
 section {
   float: left;
-  width: 730px;
-  margin-bottom: 20px;
+  width: 731px;
   padding-left: 15px;
+  padding-bottom: 20px;
   border-left: 1px solid $light_grey;
 }
 
@@ -57,6 +64,8 @@ footer {
   clear: both;
   height: 32px;
   width: $width_page;
+  position: absolute;
+  bottom: 0;
 }
 
 header nav {
@@ -80,8 +89,7 @@ nav ul ul {
   list-style: none;
   margin: 0;
   padding: 0;
-
-  z-index: 9999;
+  z-index: 5;
 }
 
 nav ul {
@@ -104,10 +112,11 @@ nav ul li a,
 nav ul li a:link,
 nav ul li a:visited,
 nav ul li a:active {
+  display: block;
   background: #fff;
   padding-right: 10px;
   padding-left: 10px;
-  height: 30px;
+  min-height: 30px;
   color: #000;
   text-decoration: none;
 }
@@ -128,6 +137,7 @@ nav ul ul {
 nav ul ul li {
   border: 1px solid #ccc;
   border-bottom: 0px;
+  width: calc(100% - 1px);
 
   z-index: 9999;
 }
@@ -189,6 +199,7 @@ aside ul li a,
 aside ul li a:link,
 aside ul li a:active,
 aside ul li a:visited {
+  display: block;
   font-size: 12px;
   padding-left: 10px;
   width: 180px;
@@ -199,8 +210,8 @@ aside ul li a:visited {
 
 aside ul li a.active,
 aside ul li a:hover {
-  background: $blu_nav;
   color: #fff;
+  background: $blu_nav;
 }
 
 section h1 {

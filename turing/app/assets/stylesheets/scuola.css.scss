@@ -15,19 +15,12 @@
   font-size: 14px;
   text-align: justify;
   float: left;
-  width: 350px;
 }
 
-.story figure,
-.story figure img,
-.story figure figcaption {
-  margin: 0px;
-  padding: 0px;
-}
-
-.story figure {
+.story img {
+	padding: 0;
+  margin: 15px;
+  margin-top: 0;
   float: right;
-  margin-right: 5px;
-  font-size: 12px;
   text-align: right;
 }
