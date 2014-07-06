@@ -88,6 +88,16 @@ ActiveRecord::Schema.define(version: 20140706140202) do
     t.datetime "updated_at"
   end
 
+  create_table "school_classes_teachers", id: false, force: true do |t|
+    t.integer "teacher_id",      null: false
+    t.integer "school_class_id", null: false
+    t.string  "subject"
+    t.integer "coordinator"
+  end
+
+  add_index "school_classes_teachers", ["school_class_id"], name: "index_school_classes_teachers_on_school_class_id"
+  add_index "school_classes_teachers", ["teacher_id"], name: "index_school_classes_teachers_on_teacher_id"
+
   create_table "structures", force: true do |t|
     t.string   "room"
     t.text     "description"
@@ -110,11 +120,6 @@ ActiveRecord::Schema.define(version: 20140706140202) do
     t.integer  "school_class_id"
     t.string   "subject"
     t.string   "coordinator"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "users", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

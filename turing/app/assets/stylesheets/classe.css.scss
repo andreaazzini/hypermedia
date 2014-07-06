@@ -51,13 +51,36 @@ $light_grey: #eee;
 	border-bottom: 0
 }
 
-.circular {
-	width: 160px;
-	height: 160px;
-	-webkit-border-radius: 80px;
-	   -moz-border-radius: 80px;
-	        border-radius: 80px;
+.coordinamento p {
+	clear: both;
+}
+
+.student-1,
+.student-2 {
+	clear: both;
+	float: left;
+	width: 120px;
+	height: 120px;
+	-webkit-border-radius: 60px;
+	   -moz-border-radius: 60px;
+	        border-radius: 60px;
+	margin-bottom: 10px;
+	margin-right: 20px;
+}
+
+.student-1 {
 	background: url(student-1.jpg) no-repeat;
 	background-position: center;
-	background-size: 300px;
+	background-size: 220px;
+}
+
+.student-2 {
+	background: url(student-2.jpg) no-repeat;
+	background-position: center;
+	background-size: 150px;
+}
+
+div.student {
+	width: 800px;
+	height: 120px;
 }
