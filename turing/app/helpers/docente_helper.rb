@@ -3,17 +3,18 @@ module DocenteHelper
   def create_teacher_path
     s = "<div class='path'>"
 
-    if params[:controller] == "docente"
-      s += "<a href='/docente'>Docenti</a> &gt; "
-      s += complete_name(params[:surname])
-    elsif params[:controller] == "classe"
+    if params.has_key?(:year) && params.has_key?(:section)
       s += "<a href='/classe'>Classi</a> &gt; "
 
       s += "<a href='/classe/" + params[:year] + "/" + params[:section] + "'>"
-      s += params[:year] + " " + params[:section].upcase
+      s += year_to_s(params[:year])
+      s += " " + params[:section].upcase
       s += "</a> &gt; "
 
       s += "<a href='/classe/" + params[:year] + "/" + params[:section] + "/docenti_della_classe'>Docenti della Classe</a> &gt; "
+      s += complete_name(params[:surname])
+    else
+      s += "<a href='/docente'>Docenti</a> &gt; "
       s += complete_name(params[:surname])
     end
 
@@ -21,27 +22,13 @@ module DocenteHelper
     return s.html_safe
   end
 
-  def correct_surname(string)
-    str = string.split("_")
-    for s in str
-      s[0] = s[0].upcase
-    end
-    return str.join(" ")
-  end
-
-  def complete_name(surname)
-    s = correct_surname(surname)
-    teacher = Teacher.where(surname: s)
-    return teacher[0].name + " " + teacher[0].surname
-  end
-
   def back_to_index_docente
     s = "<div class='back_to_index'><a href='"
 
-    if params[:controller] == "docente"
-      s += "/docente'>Torna a Tutti i Docenti"
-    elsif params[:controller] == "classe"
+    if params.has_key?(:year) && params.has_key?(:section)
       s += "/classe/" + params[:year] + "/" + params[:section] + "/docenti_della_classe'>Torna a Docenti della classe"
+    else
+      s += "/docente'>Torna a Tutti i Docenti"
     end
 
     s += "</a></div>"

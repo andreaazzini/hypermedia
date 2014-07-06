@@ -3,17 +3,17 @@ module ClasseHelper
   def create_class_path
     s = "<div class='path'>"
 
-    if params[:controller] == "classe"
-      s += "<a href='/classe'>Classi</a> &gt; "
-      s += complete_class_name
-    elsif params[:controller] == "docente"
+    if params.has_key?(:surname)
       s += "<a href='/docente'>Docenti</a> &gt; "
 
       s += "<a href='/docente/" + params[:surname] + "'>"
-      s += DocenteHelper.new.complete_name
+      s += complete_name(params[:surname])
       s += "</a> &gt; "
 
       s += "<a href='/docente/" + params[:surname] + "/classi_in_cui_insegna'>Classi in cui Insegna</a> &gt; "
+      s += complete_class_name
+    else
+      s += "<a href='/classe'>Classi</a> &gt; "
       s += complete_class_name
     end
 
@@ -28,10 +28,10 @@ module ClasseHelper
   def back_to_index_classe
     s = "<div class='back_to_index'><a href='"
 
-    if params[:controller] == "classe"
-      s += "/classe'>Torna a Tutte le classi"
-    elsif params[:controller] == "docente"
+    if params.has_key?(:surname)
       s += "/docente/" + params[:surname] + "/classi_in_cui_insegna'>Torna a Classi in cui insegna"
+    else
+      s += "/classe'>Torna a Tutte le classi"
     end
 
     s += "</a></div>"

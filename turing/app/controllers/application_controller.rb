@@ -29,4 +29,39 @@ class ApplicationController < ActionController::Base
             ["#", "Contatti", 0],
             ["#", "Informazioni Legali", 0]]
   end
+
+  def year_to_s(year)
+    if (year == 1 || year == "1")
+      return "Prima"
+    elsif (year == 2 || year == "2")
+      return "Seconda"
+    elsif (year == 3 || year == "3")
+      return "Terza"
+    elsif (year == 4 || year == "4")
+      return "Quarta"
+    elsif (year == 5 || year == "5")
+      return "Quinta"
+    end
+  end
+
+  helper_method :year_to_s
+
+
+  def correct_surname(string)
+    str = string.split("_")
+    for s in str
+      s[0] = s[0].upcase
+    end
+    return str.join(" ")
+  end
+
+  helper_method :correct_surname
+
+  def complete_name(surname)
+    s = correct_surname(surname)
+    teacher = Teacher.where(surname: s)
+    return teacher[0].name + " " + teacher[0].surname
+  end
+
+  helper_method :complete_name
 end

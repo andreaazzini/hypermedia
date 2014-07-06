@@ -6,9 +6,9 @@ class DocenteController < ApplicationController
   end
 
   def tutti_i_docenti
-    teachers = Teacher.count / 2
+    teachers = Teacher.count
 
-    if params.has_key?("year") && params.has_key?("section")
+    if params.has_key?(:year) && params.has_key?(:section)
       year = params[:year]
       section = params[:section]
 
@@ -16,7 +16,9 @@ class DocenteController < ApplicationController
     end
 
     if teachers % 2 != 0
-      teachers += 1
+      teachers = (teachers / 2) + 1
+    else
+      teachers = teachers / 2
     end
 
     s = ""

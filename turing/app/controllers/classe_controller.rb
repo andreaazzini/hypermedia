@@ -13,16 +13,18 @@ class ClasseController < ApplicationController
 
 
   def tutte_le_classi
-    school_classes = SchoolClass.count / 2
+    school_classes = SchoolClass.count
 
-    if params.has_key?("surname")
+    if params.has_key?(:surname)
       surname = params[:surname].capitalize
 
       school_classes = Teacher.where(:surname => surname)[0].school_classes.count
     end
 
     if school_classes % 2 != 0
-      school_classes += 1
+      school_classes = (school_classes / 2) + 1
+    else
+      school_classes = school_classes / 2
     end
 
     s = ""
@@ -79,19 +81,5 @@ class ClasseController < ApplicationController
             ["/classe/" + class_name + "/coordinamento_e_consiglio_di_classe", "Coordinamento e Consiglio di Classe"],
             ["/classe/" + class_name + "/materiale", "Materiale"],
             ["/classe/" + class_name + "/orario", "Orario"]]
-  end
-
-  def year_to_s(year)
-    if (year == 1)
-      return "Prima"
-    elsif (year == 2)
-      return "Seconda"
-    elsif (year == 3)
-      return "Terza"
-    elsif (year == 4)
-      return "Quarta"
-    elsif (year == 5)
-      return "Quinta"
-    end
   end
 end

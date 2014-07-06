@@ -1,49 +1,42 @@
 Rails.application.routes.draw do
-  get 'scuola/successi'
-
-  get 'scuola/info_burocratiche'
-
-  get 'scuola/regolamento'
 
   get 'classe', to: 'classe#tutte_le_classi'
-
   get 'classe/tutte_le_classi'
-
   get 'classe/:year/:section', to: 'classe#bacheca'
-
   get 'classe/:year/:section/bacheca', to: 'classe#bacheca'
-
   get 'classe/:year/:section/coordinamento_e_consiglio_di_classe', to: 'classe#coordinamento_e_consiglio_di_classe'
-
   get 'classe/:year/:section/materiale', to: 'classe#materiale'
-
   get 'classe/:year/:section/orario', to: 'classe#orario'
-
   get 'classe/:year/:section/docenti_della_classe', to: 'docente#tutti_i_docenti'
 
+  get 'classe/:year/:section/:surname', to: 'docente#curriculum'
+  get 'classe/:year/:section/:surname/curriculum', to: 'docente#curriculum'
+  get 'classe/:year/:section/:surname/orario_ricevimenti', to: 'docente#orario_ricevimenti'
+
   get 'docente/tutti_i_docenti'
-
   get 'docente', to: 'docente#tutti_i_docenti'
-
   get 'docente/:surname', to: 'docente#curriculum'
-
   get 'docente/:surname/curriculum', to: 'docente#curriculum'
-
   get 'docente/:surname/orario_ricevimenti', to: 'docente#orario_ricevimenti'
-
   get 'docente/:surname/classi_in_cui_insegna', to: 'classe#tutte_le_classi'
 
-  get 'area_riservata/login'
-
-  get 'home/index'
+  get 'docente/:surname/:year/:section', to: 'classe#bacheca'
+  get 'docente/:surname/:year/:section/bacheca', to: 'classe#bacheca'
+  get 'docente/:surname/:year/:section/coordinamento_e_consiglio_di_classe', to: 'classe#coordinamento_e_consiglio_di_classe'
+  get 'docente/:surname/:year/:section/materiale', to: 'classe#materiale'
+  get 'docente/:surname/:year/:section/orario', to: 'classe#orario'
 
   get 'area_riservata/registroElettronico'
-
   get 'area_riservata/comunicazioniPersonali'
+  get 'area_riservata/login'
 
   get 'scuola/storia'
-
   get 'scuola/obiettivi'
+  get 'scuola/successi'
+  get 'scuola/info_burocratiche'
+  get 'scuola/regolamento'
+
+  get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
