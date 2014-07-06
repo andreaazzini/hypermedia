@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   # name
   # 0 normal li, 1 has children, 2 last child
   def header_nav
-    return [["/scuola/storia", "La Scuola &#x25BE;", 1],
+    return [["/scuola", "La Scuola &#x25BE;", 1],
             ["#", "Personale", 0],
             ["#", "Servizi di Supporto", 2],
             ["#", "Offerta Formativa &#x25BE;", 1],
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
             ["/classe/tutte_le_classi", "Classi", 0],
             ["/docente/tutti_i_docenti", "Docenti", 0],
             ["#", "Circolari", 0],
-            ["#", "Attivit&agrave; Extra", 0],
+            ["/attivita_extra", "Attivit&agrave; Extra", 0],
             ["#", "Strutture", 0],
             ["#", "News", 0]]
   end

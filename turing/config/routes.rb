@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'attivita_extra', to: 'attivita_extra#tutte_le_attivita'
+  get 'attivita_extra/tutte_le_attivita'
+  get 'attivita_extra/:type', to: 'attivita_extra#tutte_le_attivita'
+  get 'attivita_extra/:type/tutte_le_attivita', to: 'attivita_extra#tutte_le_attivita'
+  get 'attivita_extra/:id/descrizione', to: 'attivita_extra#descrizione'
+
+  get 'attivita_extra/:id/:surname', to: 'docente#curriculum'
+  get 'attivita_extra/:id/:surname/curriculum', to: 'docente#curriculum'
+  get 'attivita_extra/:id/:surname/orario_ricevimenti', to: 'docente#orario_ricevimenti'
+
   get 'classe', to: 'classe#tutte_le_classi'
   get 'classe/tutte_le_classi'
   get 'classe/:year/:section', to: 'classe#bacheca'
@@ -19,6 +29,8 @@ Rails.application.routes.draw do
   get 'docente/:surname/curriculum', to: 'docente#curriculum'
   get 'docente/:surname/orario_ricevimenti', to: 'docente#orario_ricevimenti'
   get 'docente/:surname/classi_in_cui_insegna', to: 'classe#tutte_le_classi'
+  get 'docente/:surname/attivita_che_coordina', to: 'attivita_extra#tutte_le_attivita'
+  get 'docente/:surname/:id', to: 'attivita_extra#descrizione'
 
   get 'docente/:surname/:year/:section', to: 'classe#bacheca'
   get 'docente/:surname/:year/:section/bacheca', to: 'classe#bacheca'
@@ -30,6 +42,7 @@ Rails.application.routes.draw do
   get 'area_riservata/comunicazioniPersonali'
   get 'area_riservata/login'
 
+  get 'scuola', to: 'scuola#storia'
   get 'scuola/storia'
   get 'scuola/obiettivi'
   get 'scuola/successi'

@@ -1,6 +1,6 @@
 <% content_for :title, "Classe • " + complete_class_name %>
 <% content_for :aside do %>
-	<h1><%= "Classe " + params[:year].to_s.capitalize + " " + params[:section].to_s.capitalize %></h1>
+    <h1><%= "Classe " + year_to_s(params[:year]).capitalize + " " + params[:section].to_s.capitalize %></h1>
 	<%= print_aside(classe_aside) %>
 
     <%= print_link_teachers %>

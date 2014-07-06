@@ -25,9 +25,9 @@ class DocenteController < ApplicationController
     (0..1).step(1) do |column|
 
       if (year && section)
-        old = SchoolClass.where(:year => year, :section => section)[0].teachers.order(:surname).pluck(:surname)[0][0]
+        old = SchoolClass.where(:year => year, :section => section)[0].teachers.order(:surname).pluck(:surname)[teachers * column]
       else
-        old = Teacher.order(:surname).pluck(:surname)[teachers * column][0]
+        old = Teacher.order(:surname).pluck(:surname)[teachers * column]
       end
 
       s += "<div class='column'>"
@@ -40,6 +40,8 @@ class DocenteController < ApplicationController
         end
 
         if docente_id
+          old = old[0]
+
           surname = Teacher.find_by_id(docente_id).surname
           current = surname[0]
           if current != old

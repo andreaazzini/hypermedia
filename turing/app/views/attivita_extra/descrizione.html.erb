@@ -1,0 +1,7 @@
+<% content_for :title, "Attività Extra • " + complete_activity_name %>
+<% content_for :aside do %>
+    <%= print_aside(attivita_aside) %>
+<% end %>
+<%= create_attivita_path %>
+
+<%= back_to_index_attivita %>

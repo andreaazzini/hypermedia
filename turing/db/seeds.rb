@@ -23,7 +23,10 @@ office_hours_list = [
 ]
 
 school_classes_list = [
-    [0, 1, 'A', "", ""],
+    [0, 1, 'A', "",
+        "Il Consiglio di Classe della classe Prima A, in attivit&agrave
+        dal 2 ottobre 2013 e per tutto l'Anno Scolastico 2013-2014, &egrave;
+        composto dai 2 alunni di seguito.<br /><div class='circular'></div>"],
     [1, 1, 'B', "", ""],
     [2, 1, 'C', "", ""],
     [3, 2, 'A', "", ""],
@@ -48,22 +51,25 @@ teaching_list = [
 ]
 
 board_list = [
-    [0, 0, "2014-02-03", "Si ricorda che l'ultima rata di iscrizione al
+    [0, 0, "03-02-2014", "Si ricorda che l'ultima rata di iscrizione al
         corrente Anno Scolastico deve essere versata entro e non oltre il
         giorno 04 marzo 2014, pena la non iscrizione all'anno scolastico
         successivo."],
-    [1, 0, "2014-02-03", "Si ricorda che l'ultima rata di iscrizione al
-        corrente Anno Scolastico deve essere versata entro e non oltre il
-        giorno 04 marzo 2014, pena la non iscrizione all'anno scolastico
-        successivo."],
-    [2, 0, "2014-02-03", "Si ricorda che l'ultima rata di iscrizione al
-        corrente Anno Scolastico deve essere versata entro e non oltre il
-        giorno 04 marzo 2014, pena la non iscrizione all'anno scolastico
-        successivo."],
-    [3, 0, "2014-02-03", "Si ricorda che l'ultima rata di iscrizione al
-        corrente Anno Scolastico deve essere versata entro e non oltre il
-        giorno 04 marzo 2014, pena la non iscrizione all'anno scolastico
-        successivo."],
+    [1, 0, "18-01-2014", "In accordo con i Rappresentanti e i Coordinatori
+        di Classe, la gita di quest'anno avr&agrave; come destinazione
+        Genova. La giornata prevista per l'occasione &egrave; il giorno
+        19 marzo 2014, con partenza alle ore 7:00 dalla Sede Centrale e
+        arrivo previsto per le 9:30. Durante il prossimo Consiglio di Classe
+        saranno decise le tappe in maniera definitiva. Il costo totale
+        verr&agrave; comunicato in tale occasione."],
+    [2, 0, "23-12-2013", "La Dirigenza, unitamente con i Professori e gli
+        altri dipendenti del Liceo Alan Turing, augura a tutti gli alunni
+        Buon Natale e Felice Anno Nuovo."],
+    [3, 0, "05-10-2013", "Il Consiglio di Classe ricorda che in data 17
+        ottobre 2013, gli alunni della classe Prima A sono tenuti a
+        partecipare alle elezioni del nuovo Consiglio d'Istituto. Per questo
+        motivo, i genitori sono avvisati della sospensione delle lezioni
+        nella stessa data dalle ore 11:10 alle 13:15."],
 ]
 
 teachers_list.each do |id, name, surname, age, photo_url, curriculum|
@@ -81,8 +87,17 @@ end
 
 school_classes_list.each do |id, yaer, section, timetable, council|
   if !SchoolClass.find_by_id(id)
-    SchoolClass.create(id: id, year: yaer, section: section,
-                       timetable: timetable, council: council)
+      SchoolClass.create(id: id, year: yaer, section: section,
+                         timetable: timetable, council: council)
+  else
+      if !SchoolClass.find_by(timetable: timetable)
+          board = SchoolClass.find_by_id(id)
+          board.update(timetable: timetable)
+      end
+      if !SchoolClass.find_by(council: council)
+          board = SchoolClass.find_by_id(id)
+          board.update(council: council)
+      end
   end
 end
 
@@ -96,8 +111,17 @@ teaching_list.each do |id, teacher_id, school_class_id, subject, coordinator|
 end
 
 board_list.each do |id, school_class_id, date, description|
-  if !Board.find_by_id(id)
     school_class = SchoolClass.find_by_id(school_class_id)
-    Board.create(id: id, :school_class => school_class, date: date, description: description)
-  end
+    if !Board.find_by_id(id)
+        Board.create(id: id, :school_class => school_class, date: date, description: description)
+    else
+        if !Board.find_by(description: description)
+            board = Board.find_by_id(id)
+            board.update(description: description)
+        end
+        if !Board.find_by(date: date)
+            board = Board.find_by_id(id)
+            board.update(date: date)
+        end
+    end
 end

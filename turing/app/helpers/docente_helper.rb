@@ -13,6 +13,12 @@ module DocenteHelper
 
       s += "<a href='/classe/" + params[:year] + "/" + params[:section] + "/docenti_della_classe'>Docenti della Classe</a> &gt; "
       s += complete_name(params[:surname])
+    elsif params.has_key?(:id)
+      s += "<a href='/attivita_extra'>Attivit&agrave; Extracurriculari</a> &gt; "
+
+      s += "<a href='/attivita_extra/" + params[:id] + "'>"
+      s += Activity.find_by_id(params[:id]).name
+      s += "</a> &gt; "
     else
       s += "<a href='/docente'>Docenti</a> &gt; "
       s += complete_name(params[:surname])
@@ -27,6 +33,8 @@ module DocenteHelper
 
     if params.has_key?(:year) && params.has_key?(:section)
       s += "/classe/" + params[:year] + "/" + params[:section] + "/docenti_della_classe'>Torna a Docenti della classe"
+    elsif params.has_key?(:id)
+      s += "/attivita_extra/" + params[:id] + "'>Torna all'attivit&agrave;: " + Activity.find_by_id(params[:id]).name
     else
       s += "/docente'>Torna a Tutti i Docenti"
     end
@@ -36,10 +44,20 @@ module DocenteHelper
   end
 
   def print_link_school_classes
-    if !(params.has_key?(:year) && params.has_key?(:section))
+    if !(params.has_key?(:year) || params.has_key?(:section) || params.has_key?(:id))
       s = "<ul class='group_link'><li><a href='/docente/"
       s += params[:surname]
       s += "/classi_in_cui_insegna'>Classi in cui insegna</a></li></ul>"
+
+      return s.html_safe
+    end
+  end
+
+  def print_link_activities
+    if !(params.has_key?(:year) || params.has_key?(:section) || params.has_key?(:id))
+      s = "<ul class='group_link'><li><a href='/docente/"
+      s += params[:surname]
+      s += "/attivita_che_coordina'>Attivit&agrave; che coordina</a></li></ul>"
 
       return s.html_safe
     end
