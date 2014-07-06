@@ -11,7 +11,7 @@ class AttivitaExtraController < ApplicationController
   helper_method :attivita_aside
 
   def tutte_le_attivita
-    if params.has_key?(:tpye) || params.has_key?(:surname)
+    if params.has_key?(:type) || params.has_key?(:surname)
       if params.has_key?(:surname)
         surname = params[:surname]
 
