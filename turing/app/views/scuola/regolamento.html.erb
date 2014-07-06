@@ -1,2 +1,8 @@
-<h1>Scuola#regolamento</h1>
+<% content_for :title, "Scuola • Regolamento" %>
+<% content_for :aside do %>
+	<h1>In <%= params[:controller].capitalize %>...</h1>
+	<%= print_aside(ScuolaController.new.aside) %>
+<% end %>
+
+<h1>Regolamento</h1>
 <p>Find me in app/views/scuola/regolamento.html.erb</p>

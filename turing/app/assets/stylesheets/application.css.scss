@@ -1,240 +1,270 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require normalize-rails
- *= require_self
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require normalize-rails
+*= require_self
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:300,700);
 
 $light_grey: #eee;
-$blu_nav: #0099ff;
+$blu_nav: rgb(28, 39, 79);
 $width_page: 940px;
 
 html {
-  height: 100%;
+	height: 100%;
 }
 
 body {
-  position: relative;
-  margin: 0 auto;
-  width: $width_page;
-  vertical-align: top;
-  border-left: 2px solid $light_grey;
-  border-right: 2px solid $light_grey;
-  box-shadow: 0px -5px 50px $light_grey;
-  min-height: 100%;
+	font-family: 'Roboto', sans-serif;
+	position: relative;
+	margin: 0 auto;
+	width: $width_page;
+	vertical-align: top;
+	border-left: 2px solid $light_grey;
+	border-right: 2px solid $light_grey;
+	box-shadow: 0px -5px 50px $light_grey;
+	min-height: 100%;
 }
 
-header {
-  height: 232px;
-  background: image-url("highSchool.png") no-repeat;
-  position: relative;
+h1 {
+	font-size: 25px;
+	color: $blu_nav;
 }
 
-main {
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 32px;
-  height: 100%;
+h2 {
+	font-size: 20px;
+	color: $blu_nav;
 }
 
-aside {
-  float: left;
-  width: 189px;
-  min-height: 1px;
-}
-
-section {
-  float: left;
-  width: 731px;
-  padding-left: 15px;
-  padding-bottom: 20px;
-  border-left: 1px solid $light_grey;
-}
-
-footer {
-  clear: both;
-  height: 32px;
-  width: $width_page;
-  position: absolute;
-  bottom: 0;
-}
-
-header nav {
-  position: absolute;
-  bottom: 0px;
+p, li {
+	font-size: 13px;
+	color: $blu_nav;
 }
 
 nav {
-  font-size: 12px;
-  width: 100%;
-  height: 30px;
-  margin: 0px;
-  padding: 0px;
-  border-top: 1px solid $light_grey;
-  border-bottom: 1px solid $light_grey;
+	font-size: 13px;
+	color: $blu_nav;
+}
+
+header {
+	height: 232px;
+	background: image-url("highSchool.png") no-repeat;
+	position: relative;
+}
+
+header nav {
+	position: absolute;
+	bottom: 1px;
+	min-width: 100%;
+	height: 30px;
+	margin: 0px;
+	padding: 0px;
+	border-bottom: 1px solid $light_grey;
+	background: $blu_nav;
 }
 
 nav ul,
 nav ul li,
 nav ul ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  z-index: 5;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	z-index: 5;
 }
 
 nav ul {
-  float: left;
+	float: left;
 }
 
 nav ul li {
-  float: left;
-  border-right: 1px solid #ccc;
-  min-height: 30px;
-  line-height: 30px;
-  vertical-align: middle;
+	float: left;
+	min-height: 30px;
+	line-height: 30px;
 }
 
 nav ul li:hover {
-  position: relative;
+	position: relative;
 }
 
 nav ul li a,
 nav ul li a:link,
 nav ul li a:visited,
 nav ul li a:active {
-  display: block;
-  background: #fff;
-  padding-right: 10px;
-  padding-left: 10px;
-  min-height: 30px;
-  color: #000;
-  text-decoration: none;
+	display: block;
+	padding-right: 10px;
+	padding-left: 10px;
+	min-height: 30px;
+	color: #fff;
+	text-decoration: none;
 }
 
 nav ul li a.active,
 nav ul li a:hover {
-  color: #fff;
-  background: $blu_nav;
+	text-decoration: underline;
 }
 
 nav ul ul {
-  visibility: hidden;
-  position: absolute;
-  top: 100%;
-  left: 0;
+	visibility: hidden;
+	position: absolute;
+	top: 100%;
+	min-width: 100%;
 }
 
 nav ul ul li {
-  border: 1px solid #ccc;
-  border-bottom: 0px;
-  width: calc(100% - 1px);
-
-  z-index: 9999;
+	min-width: 124px;
+	z-index: 9999;
 }
 
-nav ul ul li:last-child {
-  border-bottom: 1px solid #ccc;
+nav ul ul li a,
+nav ul ul li a:link,
+nav ul ul li a:visited,
+nav ul ul li a:active {
+	background: $blu_nav;
+	color: #fff;
+	opacity: 0.9;
 }
 
-nav ul ul ul {
-  top: 1px;
-  left: 99%;
+nav ul ul li a:hover {
+	text-decoration: underline;
 }
 
 nav ul li:hover > ul {
-  visibility: visible;
+	visibility: visible;
 }
 
-footer nav span {
-	float: right;
-	margin-right: 10px;
-  line-height: 30px;
-  vertical-align: middle;
+main {
+	overflow: hidden;
+	padding-bottom: 32px;
+	height: 100%;
 }
 
-footer nav span a,
-footer nav span a.link,
-footer nav span a.visited,
-footer nav span a.active {
-  color: #aaa;
-  text-decoration: none;
+aside {
+	float: left;
+	width: 189px;
+	min-height: 1px;
+	padding-top: 10px;
 }
 
-footer nav span a:hover {
-  text-decoration: underline;
+aside h1 {
+	font-size: 20px;
+	margin-left: 10px;
 }
 
 aside ul {
-  padding: 0px;
-  margin: 0px;
-  list-style: none;
-  margin-top: 50px;
-  width: 100%;
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+	width: 100%;
 }
 
 aside ul li {
-  padding: 0px;
-  margin: 0px;
-  width: 100%;
-  min-height: 30px;
-  line-height: 30px;
-  vertical-align: middle;
-  border-top: 1px solid $light_grey;
-}
-
-aside ul li:last-child {
-  border-bottom: 1px solid $light_grey;
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	min-height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
 }
 
 aside ul li a,
 aside ul li a:link,
 aside ul li a:active,
 aside ul li a:visited {
-  display: block;
-  font-size: 12px;
-  padding-left: 10px;
-  width: 180px;
-  color: #000;
-  text-decoration: none;
+	display: block;
+	font-size: 12px;
+	padding-left: 10px;
+	width: 180px;
+	color: #000;
+	text-decoration: none;
 }
 
 aside ul li a.active,
 aside ul li a:hover {
-  color: #fff;
-  background: $blu_nav;
+	text-decoration: underline;
+}
+
+section {
+	float: left;
+	width: 731px;
+	padding-left: 15px;
+	padding-bottom: 20px;
+	border-left: 1px solid $light_grey;
 }
 
 section h1 {
-  margin: 0px;
-  margin-top: 20px;
-  padding: 0px;
+	margin: 0px;
+	margin-top: 20px;
+	padding: 0px;
+}
+
+footer {
+	clear: both;
+	height: 32px;
+	width: $width_page;
+	position: absolute;
+	bottom: 0;
+}
+
+footer nav {
+	border-top: 1px solid $light_grey;
+}
+
+footer nav span {
+	float: right;
+	margin-right: 10px;
+	line-height: 30px;
+	vertical-align: middle;
+}
+
+footer nav ul li a,
+footer nav ul li a:link,
+footer nav ul li a:visited,
+footer nav ul li a:active {
+	color: #000;
+	text-decoration: none;
+}
+
+footer nav ul li a:hover {
+	text-decoration: underline;
+}
+
+footer nav span a,
+footer nav span a:link,
+footer nav span a:visited,
+footer nav span a:active {
+	color: $blu_nav;
+	text-decoration: none;
+}
+
+footer nav span a:hover {
+	text-decoration: underline;
 }
 
 .path,
 .back_to_index {
-  margin: 0px;
-  padding: 0px;
-  color: #000;
+	margin: 0px;
+	padding: 0px;
+	color: #000;
 }
 
 .path {
-  margin-top: 10px;
+	margin-top: 10px;
 }
 
 .back_to_index {
-  position: absolute;
-  bottom: 0px;
-  margin-bottom: 10px;
+	position: absolute;
+	bottom: 0px;
+	margin-bottom: 10px;
 }
 
 .path a,
@@ -245,12 +275,12 @@ section h1 {
 .back_to_index a:link,
 .back_to_index a:visited,
 .back_to_index a:active {
-  text-decoration: none;
-  color: #00f;;
+	text-decoration: none;
+	color: #00f;;
 }
 
 .path a:hover,
 .back_to_index a:hover {
-  color: #09f;
-  text-decoration: underline;
+	color: #09f;
+	text-decoration: underline;
 }

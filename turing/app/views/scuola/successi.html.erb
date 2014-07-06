@@ -1,2 +1,17 @@
-<h1>Scuola#successi</h1>
-<p>Find me in app/views/scuola/successi.html.erb</p>
+<% content_for :title, "Scuola • Successi" %>
+<% content_for :aside do %>
+	<h1>In <%= params[:controller].capitalize %>...</h1>
+	<%= print_aside(ScuolaController.new.aside) %>
+<% end %>
+
+<h1>Successi</h1>
+<div class="successes">
+<p><%= image_tag("awards.png", size: "324x214", alt: "L'ex convento di Santo Stefano", title: "L'ex convento di Santo Stefano") %>Negli anni, il nostro Liceo ha ottenuto numerose riconoscenze sia in ambito accademico che sportivo. I riconoscimenti ottenuti, elencati di seguito, sono conservati con orgoglio nella Bacheca d'Istituto, visitabile all'interno della nostra sede centrale.</p>
+
+<h2>Primati accademici</h2>
+<p>I nostri studenti si sono distinti negli anni in numerosi ambiti accademici. Anche grazie al supporto dei nostri professori, possiamo vantare numerosi trofei come:
+<ul>
+	<li>Premio matematica</li>
+</ul>
+</p>
+</div>

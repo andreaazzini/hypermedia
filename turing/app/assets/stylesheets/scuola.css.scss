@@ -3,45 +3,76 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .story {
-  margin-top: 20px;
-  height: 100%;
-  width: 100%;
-  vertical-align: top;
+	margin-top: 20px;
+	height: 100%;
+	width: 100%;
+	vertical-align: top;
 }
 
 .story p {
-  margin: 0px;
-  margin-bottom: 15px;
-  padding: 0px;
-  text-align: justify;
-  float: left;
+	margin: 0px;
+	margin-bottom: 15px;
+	padding: 0px;
+	padding-left: 1px;
+	padding-right: 15px;
+	text-align: justify;
+	float: left;
 }
 
 .story img {
-  padding: 0;
-  margin: 15px;
-  margin-top: 0;
-  float: right;
+	padding: 0;
+	margin-left: 15px;
+	margin-bottom: 10px;
+	margin-top: 4px;
+	float: right;
 }
 
 .obiettivi {
-  margin-top: 20px;
-  height: 100%;
-  width: 100%;
-  vertical-align: top;
+	margin-top: 20px;
+	height: 100%;
+	width: 100%;
+	vertical-align: top;
 }
 
 .obiettivi p {
-  margin: 0px;
-  margin-bottom: 15px;
-  padding: 0px;
-  text-align: justify;
-  float: left;
+	margin: 0px;
+	margin-bottom: 15px;
+	padding: 0px;
+	padding-left: 1px;
+	padding-right: 15px;
+	text-align: justify;
+	float: left;
 }
 
 .obiettivi img {
-  padding: 0;
-  margin: 15px;
-  margin-top: 0;
-  float: right;
+	padding: 0;
+	margin-left: 15px;
+	margin-bottom: 10px;
+	margin-top: 4px;
+	float: right;
+}
+
+.successes {
+	margin-top: 20px;
+	height: 100%;
+	width: 100%;
+	vertical-align: top;
+}
+
+.successes p {
+	margin: 0px;
+	margin-bottom: 15px;
+	padding: 0px;
+	padding-left: 1px;
+	padding-right: 15px;
+	text-align: justify;
+	float: left;
+}
+
+.succeses img {
+	padding: 0;
+	margin-left: 15px;
+	margin-bottom: 10px;
+	margin-top: 4px;
+	float: right;
 }

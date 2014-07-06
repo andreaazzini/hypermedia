@@ -1,6 +1,8 @@
 <% content_for :title, "Scuola • Obiettivi" %>
-<% content_for :aside, print_aside(ScuolaController.new.aside) %>
-
+<% content_for :aside do %>
+	<h1>In <%= params[:controller].capitalize %>...</h1>
+	<%= print_aside(ScuolaController.new.aside) %>
+<% end %>
 <h1>Obiettivi</h1>
 <div class="obiettivi">
 <p><%= image_tag("mission.jpg", size: "340x226", alt: "Mission", title: "Mission") %>L'obiettivo di ogni scuola &egrave; il medesimo: preparare al meglio i propri studenti. &Egrave; dalla formazione scolastica che crescono gli uomini adulti che in futuro saranno la colonna portante della nostra societ&agrave;. Oltre a ci&ograve;, la vera mission del Liceo Alan Turing &egrave; quella di fornire ai propri studenti un percorso di studi innovativo, che sia il connubio di ci&ograve; che di buono aveva l'antico sistema di istruzione con la modernit&agrave; del nuovo bagaglio tecnico-scientifico sviluppato negli ultimi anni. All'atto di fondazione del nostro Liceo, il punto principale &egrave; stato quello di non ricadere negli errori del passato. Per consentire ai ragazzi di godere di un percorso formativo, &egrave; opportuno e necessario consentire loro di imparare qualcosa di concreto, che li avvicini sempre di pi&ugrave; all'esperienza universitaria.</p>
