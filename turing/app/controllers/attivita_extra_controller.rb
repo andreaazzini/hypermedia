@@ -13,6 +13,12 @@ class AttivitaExtraController < ApplicationController
   def tutte_le_attivita
     activities = Activity.count
 
+    if params.has_key?(:surname)
+      surname = params[:surname]
+
+      activities = Teacher.where(:surname => surname)[0].activities.count
+    end
+
     if activities % 2 != 0
       activities = (activities / 2) + 1
     else
