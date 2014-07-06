@@ -1,5 +1,8 @@
 <% content_for :title, "Classe • " + complete_class_name %>
-<% content_for :aside, print_aside(classe_aside) %>
+<% content_for :aside do %>
+	<h1><%= "Classe " + params[:year].to_s.capitalize + " " + params[:section].to_s.capitalize %></h1>
+	<%= print_aside(classe_aside) %>
+<% end %>
 
 <%= create_class_path %>
 

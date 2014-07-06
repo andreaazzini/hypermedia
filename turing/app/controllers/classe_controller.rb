@@ -77,7 +77,7 @@ class ClasseController < ApplicationController
   # name
   def classe_aside
     return [[dinamic_path("bacheca"), "Bacheca"],
-            [dinamic_path("coordinamento_e_consiglio_di_classe"), "Coordinamento e Consiglio di Classe"],
+            [dinamic_path("coordinamento_e_consiglio_di_classe"), "Coordinamento"],
             [dinamic_path("materiale"), "Materiale"],
             [dinamic_path("orario"), "Orario"]]
   end

@@ -110,21 +110,22 @@ nav ul li a:active {
 
 nav ul li a.active,
 nav ul li a:hover {
-    text-decoration: underline;
+    font-weight: 600;
 }
 
 nav ul ul {
 	position: absolute;
 	top: 100%;
+	visibility: hidden;
 	opacity: 0;
-	-webkit-transition: opacity 0.5s ease-in-out;
-	   -moz-transition: opacity 0.5s ease-in-out;
-	     -o-transition: opacity 0.5s ease-in-out;
-	        transition: opacity 0.5s ease-in-out;
+	-webkit-transition: opacity 0.3s ease-in-out;
+	   -moz-transition: opacity 0.3s ease-in-out;
+	     -o-transition: opacity 0.3s ease-in-out;
+	        transition: opacity 0.3s ease-in-out;
 }
 
 nav ul ul li {
-    min-width: 124px;
+    min-width: 129px;
     z-index: 9999;
 }
 
@@ -137,10 +138,11 @@ nav ul ul li a:active {
 }
 
 nav ul ul li a:hover {
-    text-decoration: underline;
+    font-weight: 600;
 }
 
 nav ul li:hover > ul {
+	visibility: visible;
 	opacity: 0.9;
 }
 
@@ -174,8 +176,6 @@ aside ul li {
     margin: 0px;
     width: 100%;
     min-height: 30px;
-    line-height: 30px;
-    vertical-align: middle;
 }
 
 aside ul li a,
@@ -192,7 +192,7 @@ aside ul li a:visited {
 
 aside ul li a.active,
 aside ul li a:hover {
-    text-decoration: underline;
+    font-weight: 600;
 }
 
 section {
@@ -237,7 +237,7 @@ footer nav ul li a:active {
 }
 
 footer nav ul li a:hover {
-    text-decoration: underline;
+    font-weight: 600;
 }
 
 footer nav span a,
@@ -246,21 +246,21 @@ footer nav span a:visited,
 footer nav span a:active {
     color: $blu_nav;
     text-decoration: none;
-}
-
-footer nav span a:hover {
-    text-decoration: underline;
+	font-weight: 600;
 }
 
 .path,
 .back_to_index {
     margin: 0px;
     padding: 0px;
-    color: #000;
+    color: $blu_nav;
+	font-weight: 600;
+	font-size: 12px;
 }
 
 .path {
-    margin-top: 10px;
+    margin-top: 20px;
+	line-height: 25px;
 }
 
 .path a,
@@ -272,11 +272,13 @@ footer nav span a:hover {
 .back_to_index a:visited,
 .back_to_index a:active {
     text-decoration: none;
-    color: #00f;;
+    color: $blu_nav;
+	font-weight: 600;
+	font-size: 12px;
 }
 
 .path a:hover,
 .back_to_index a:hover {
-    color: #09f;
+    color: $blu_nav;
     text-decoration: underline;
 }
