@@ -42,7 +42,7 @@ class ClasseController < ApplicationController
 
 
       if (surname)
-        old = Teacher.where(:surname => surname)[0].school_classes.order(:year, :section).pluck(:year)[0]
+        old = Teacher.where(:surname => surname)[0].school_classes.order(:year, :section).pluck(:year)[school_classes * column]
       else
         old = SchoolClass.order(:year, :section).pluck(:year)[school_classes * column]
       end
