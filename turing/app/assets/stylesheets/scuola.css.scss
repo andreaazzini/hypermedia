@@ -69,10 +69,42 @@
 	float: left;
 }
 
-.succeses img {
+.successes img {
 	padding: 0;
 	margin-left: 15px;
 	margin-bottom: 10px;
 	margin-top: 4px;
 	float: right;
+}
+
+.bureau {
+	margin-top: 20px;
+	height: 100%;
+	width: 100%;
+	vertical-align: top;
+}
+
+.bureau p {
+	margin: 0px;
+	margin-bottom: 15px;
+	padding: 0px;
+	padding-left: 1px;
+	padding-right: 15px;
+	text-align: justify;
+}
+
+.rules {
+	margin-top: 20px;
+	height: 100%;
+	width: 100%;
+	vertical-align: top;
+}
+
+.rules p {
+	margin: 0px;
+	margin-bottom: 15px;
+	padding: 0px;
+	padding-left: 1px;
+	padding-right: 15px;
+	text-align: justify;
 }
