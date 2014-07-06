@@ -7,10 +7,10 @@ class ApplicationController < ActionController::Base
   # name
   # 0 normal li, 1 has children, 2 last child
   def header_nav
-    return [["/scuola/storia", "La Scuola", 1],
+    return [["/scuola/storia", "La Scuola &#x25BE;", 1],
             ["#", "Personale", 0],
             ["#", "Servizi di Supporto", 2],
-            ["#", "Offerta Formativa", 1],
+            ["#", "Offerta Formativa &#x25BE;", 1],
             ["#", "Modulistica", 0],
             ["#", "Calendario", 2],
             ["/classe/tutte_le_classi", "Classi", 0],
@@ -64,4 +64,21 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :complete_name
+
+  def dinamic_path(action)
+    str = request.path
+    if params.has_key?(:action)
+      str.slice! params[:action]
+    else
+      str += "/"
+    end
+    str += "/"
+    str += action
+
+    str.gsub! %r{/+}, '/'
+    return str
+  end
+
+  helper_method :dinamic_path
+
 end

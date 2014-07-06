@@ -21,108 +21,112 @@ $blu_nav: rgb(28, 39, 79);
 $width_page: 940px;
 
 html {
-	height: 100%;
+    height: 100%;
 }
 
 body {
-	font-family: 'Roboto', sans-serif;
-	position: relative;
-	margin: 0 auto;
-	width: $width_page;
-	vertical-align: top;
-	border-left: 2px solid $light_grey;
-	border-right: 2px solid $light_grey;
-	box-shadow: 0px -5px 50px $light_grey;
-	min-height: 100%;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    margin: 0 auto;
+    width: $width_page;
+    vertical-align: top;
+    border-left: 2px solid $light_grey;
+    border-right: 2px solid $light_grey;
+    box-shadow: 0px -5px 50px $light_grey;
+    min-height: 100%;
 }
 
 h1 {
-	font-size: 25px;
-	color: $blu_nav;
+    font-size: 25px;
+    color: $blu_nav;
 }
 
 h2 {
-	font-size: 20px;
-	color: $blu_nav;
+    font-size: 20px;
+    color: $blu_nav;
 }
 
 p, li {
-	font-size: 13px;
-	color: $blu_nav;
+    font-size: 13px;
+    color: $blu_nav;
 }
 
 nav {
-	font-size: 13px;
-	color: $blu_nav;
+    font-size: 13px;
+    color: $blu_nav;
 }
 
 header {
-	height: 232px;
-	background: image-url("highSchool.png") no-repeat;
-	position: relative;
+    height: 232px;
+    background: image-url("highSchool.png") no-repeat;
+    position: relative;
 }
 
 header nav {
-	position: absolute;
-	bottom: 1px;
-	min-width: 100%;
-	height: 30px;
-	margin: 0px;
-	padding: 0px;
-	border-bottom: 1px solid $light_grey;
-	background: $blu_nav;
+    position: absolute;
+    bottom: 1px;
+    min-width: 100%;
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+    border-bottom: 1px solid $light_grey;
+    background: $blu_nav;
 }
 
 nav ul,
 nav ul li,
 nav ul ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	z-index: 5;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 5;
 }
 
 nav ul {
-	float: left;
+    float: left;
 }
 
 nav ul li {
 	float: left;
 	min-height: 30px;
 	line-height: 30px;
+	position: relative;
 }
 
 nav ul li:hover {
-	position: relative;
+    position: relative;
 }
 
 nav ul li a,
 nav ul li a:link,
 nav ul li a:visited,
 nav ul li a:active {
-	display: block;
-	padding-right: 10px;
-	padding-left: 10px;
-	min-height: 30px;
-	color: #fff;
-	text-decoration: none;
+    display: block;
+    padding-right: 10px;
+    padding-left: 10px;
+    min-height: 30px;
+    color: #fff;
+    text-decoration: none;
 }
 
 nav ul li a.active,
 nav ul li a:hover {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 nav ul ul {
-	visibility: hidden;
 	position: absolute;
 	top: 100%;
-	min-width: 100%;
+	opacity: 0;
+	-webkit-transition: opacity 0.5s ease-in-out;
+	   -moz-transition: opacity 0.5s ease-in-out;
+	     -o-transition: opacity 0.5s ease-in-out;
+	        transition: opacity 0.5s ease-in-out;
 }
 
 nav ul ul li {
-	min-width: 124px;
-	z-index: 9999;
+    min-width: 124px;
+    z-index: 9999;
 }
 
 nav ul ul li a,
@@ -131,140 +135,133 @@ nav ul ul li a:visited,
 nav ul ul li a:active {
 	background: $blu_nav;
 	color: #fff;
-	opacity: 0.9;
 }
 
 nav ul ul li a:hover {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 nav ul li:hover > ul {
-	visibility: visible;
+	opacity: 0.9;
 }
 
 main {
-	overflow: hidden;
-	padding-bottom: 32px;
-	height: 100%;
+    overflow: hidden;
+    padding-bottom: 32px;
+    height: 100%;
 }
 
 aside {
-	float: left;
-	width: 189px;
-	min-height: 1px;
-	padding-top: 10px;
+    float: left;
+    width: 189px;
+    min-height: 1px;
+    padding-top: 10px;
 }
 
 aside h1 {
-	font-size: 20px;
-	margin-left: 10px;
+    font-size: 20px;
+    margin-left: 10px;
 }
 
 aside ul {
-	padding: 0px;
-	margin: 0px;
-	list-style: none;
-	width: 100%;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    width: 100%;
 }
 
 aside ul li {
-	padding: 0px;
-	margin: 0px;
-	width: 100%;
-	min-height: 30px;
-	line-height: 30px;
-	vertical-align: middle;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    min-height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
 }
 
 aside ul li a,
 aside ul li a:link,
 aside ul li a:active,
 aside ul li a:visited {
-	display: block;
-	font-size: 12px;
-	padding-left: 10px;
-	width: 180px;
-	color: #000;
-	text-decoration: none;
+    display: block;
+    font-size: 12px;
+    padding-left: 10px;
+    width: 180px;
+    color: #000;
+    text-decoration: none;
 }
 
 aside ul li a.active,
 aside ul li a:hover {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 section {
-	float: left;
-	width: 731px;
-	padding-left: 15px;
-	padding-bottom: 20px;
-	border-left: 1px solid $light_grey;
+    float: left;
+    width: 731px;
+    padding-left: 15px;
+    padding-bottom: 20px;
+    border-left: 1px solid $light_grey;
 }
 
 section h1 {
-	margin: 0px;
-	margin-top: 20px;
-	padding: 0px;
+    margin: 0px;
+    margin-top: 20px;
+    padding: 0px;
 }
 
 footer {
-	clear: both;
-	height: 32px;
-	width: $width_page;
-	position: absolute;
-	bottom: 0;
+    clear: both;
+    height: 32px;
+    width: $width_page;
+    position: absolute;
+    bottom: 0;
 }
 
 footer nav {
-	border-top: 1px solid $light_grey;
+    border-top: 1px solid $light_grey;
 }
 
 footer nav span {
-	float: right;
-	margin-right: 10px;
-	line-height: 30px;
-	vertical-align: middle;
+    float: right;
+    margin-right: 10px;
+    line-height: 30px;
+    vertical-align: middle;
 }
 
 footer nav ul li a,
 footer nav ul li a:link,
 footer nav ul li a:visited,
 footer nav ul li a:active {
-	color: #000;
-	text-decoration: none;
+    color: #000;
+    text-decoration: none;
 }
 
 footer nav ul li a:hover {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 footer nav span a,
 footer nav span a:link,
 footer nav span a:visited,
 footer nav span a:active {
-	color: $blu_nav;
-	text-decoration: none;
+    color: $blu_nav;
+    text-decoration: none;
 }
 
 footer nav span a:hover {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 .path,
 .back_to_index {
-	margin: 0px;
-	padding: 0px;
-	color: #000;
+    margin: 0px;
+    padding: 0px;
+    color: #000;
 }
 
 .path {
-	margin-top: 10px;
-}
-
-.back_to_index {
-	position: absolute;
-	bottom: 0px;
-	margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .path a,
@@ -275,12 +272,12 @@ footer nav span a:hover {
 .back_to_index a:link,
 .back_to_index a:visited,
 .back_to_index a:active {
-	text-decoration: none;
-	color: #00f;;
+    text-decoration: none;
+    color: #00f;;
 }
 
 .path a:hover,
 .back_to_index a:hover {
-	color: #09f;
-	text-decoration: underline;
+    color: #09f;
+    text-decoration: underline;
 }
