@@ -45,13 +45,13 @@ school_classes_list = [
         <div class='prima-ora'><p>
         Ed. Fisica</p></div><div class='seconda-ora'><p>
         Ed. Fisica</p></div><div class='terza-ora'><p>
-        Filosofia</p></div><div class='quarta-ora'><p>
+        Geografia</p></div><div class='quarta-ora'><p>
         Lettere</p></div><div class='quinta-ora'><p>
         Lettere</p></div></div>
         
         <div class='timetable-column'><div class='day'><h2>
         Mercoled&igrave;</h2></div><div class='prima-ora'><p>
-        Filosofia</p></div><div class='seconda-ora'><p>
+        Geografia</p></div><div class='seconda-ora'><p>
         Latino</p></div><div class='terza-ora'><p>
         Latino</p></div><div class='quarta-ora'><p>
         Matematica</p></div><div class='quinta-ora'><p>
@@ -78,7 +78,7 @@ school_classes_list = [
         <div class='timetable-column'><div class='day'><h2>
         Sabato</h2></div><div class='prima-ora'><p>
         Storia</p></div><div class='seconda-ora'><p>
-        Filosofia</p></div><div class='terza-ora'><p>
+        Geografia</p></div><div class='terza-ora'><p>
         Scienze</p></div><div class='quarta-ora'><p>
         Inglese</p></div><div class='quinta-ora'><p>
         Informatica</p></div></div>",
@@ -116,6 +116,18 @@ teaching_list = [
     [1, 0, 1, "matematica", 0],
     [2, 0, 3, "matematica", 0],
     [3, 0, 4, "matematica", 0],
+]
+
+material_list = [
+    [0, "Matematica.blu 1", "9788808111777", "Zanichelli"],
+    [1, "Path Ways", "97888478111777", "Oxford Line"],
+    [2, "Sulle Spalle Dei Giganti", "9733208111757", "Scuola Editore"],
+    [3, "Geografia 1", "9788803411734", "Zanichelli"],
+    [4, "La Fisica Di Amaldi", "9788808392847", "Zanichelli"],
+    [5, "Biologia 1", "9793825911777", "Zanichelli"],
+    [6, "Fondamenti di Informatica per il Liceo", "97888083282856", "Nuova Editrice"],
+    [7, "Lettere antiche e moderne", "97888027294756", "Nuova Editrice"],
+    [8, "Nova", "97888083292745", "Scuola Editore"]
 ]
 
 board_list = [
@@ -176,6 +188,12 @@ teaching_list.each do |id, teacher_id, school_class_id, subject, coordinator|
 
     Teaching.create(id: id, :teacher => teacher, :school_class => school_class, subject: subject, coordinator: coordinator)
   end
+end
+
+material_list.each do |id, name, isbn, publisher|
+    if !Material.find_by_id(id)
+      Material.create(id: id, name: name, isbn: isbn, publisher: publisher)
+    end
 end
 
 board_list.each do |id, school_class_id, date, description|

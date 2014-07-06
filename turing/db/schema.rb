@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140706160143) do
+ActiveRecord::Schema.define(version: 20140706175236) do
 
   create_table "activities", force: true do |t|
     t.integer  "structure_id"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 20140706160143) do
     t.integer  "school_class_id"
     t.date     "date"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "book_lists", force: true do |t|
+    t.integer  "material_id"
+    t.integer  "school_class_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -61,14 +68,6 @@ ActiveRecord::Schema.define(version: 20140706160143) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "materials_school_classes", id: false, force: true do |t|
-    t.integer "school_class_id", null: false
-    t.integer "material_id",     null: false
-  end
-
-  add_index "materials_school_classes", ["material_id"], name: "index_materials_school_classes_on_material_id"
-  add_index "materials_school_classes", ["school_class_id"], name: "index_materials_school_classes_on_school_class_id"
 
   create_table "office_hours", force: true do |t|
     t.integer  "teacher_id"

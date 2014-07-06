@@ -16,6 +16,15 @@ class ClasseController < ApplicationController
   end
 
   def materiale
+      @s = ""
+      books = SchoolClass.where(:year => params[:year], :section => params[:section])[0].materials
+      (0..books.count-1).step(1) do |n|
+          @s += '<h2>' + books[n].name + '</h2>'
+          @s += '<p class="isbn">' + books[n].isbn + '</p>'
+          @s += '<p class="publisher">' + books[n].publisher + '</p>'
+      end
+      
+      @s = @s.html_safe
   end
 
   def orario
