@@ -171,6 +171,11 @@ aside ul {
     width: 100%;
 }
 
+aside ul.group_link {
+	border-top: 1px solid $light_grey;
+	padding-top: 8px;
+}
+
 aside ul li {
     padding: 0px;
     margin: 0px;

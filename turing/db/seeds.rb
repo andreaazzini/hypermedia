@@ -27,10 +27,14 @@ school_classes_list = [
         "<p>Il Consiglio di Classe della classe Prima A, in attivit&agrave 
         dal 2 ottobre 2013 e per tutto l'Anno Scolastico 2013-2014, &egrave; 
         composto dai 2 alunni di seguito.</p><div class='student-1'></div>
-        <div class='student'><h2>Gianluigi Buffon</h2><blockquote>
-        </blockquote></div>
+        <div class='student'><h2>Gianluigi Buffon</h2><blockquote>Ogni buona 
+        classe deve essere tutelata nei suoi diritti da una persona che sia 
+        volenterosa di fare bene. Io sono quella persona.</blockquote></div>
         <div class='student-2'></div>
-        <div class='student'><h2>Ilaria D'Amico</h2></div>"],
+        <div class='student'><h2>Ilaria D'Amico</h2><blockquote>L'organizzazione 
+        di una classe dipende principalmente dalla comunicazione degli 
+        studenti con i professori. Sar&agrave; questo l'aspetto su cui 
+        lavorer&ograve; maggiormente.</blockquote></div>"],
     [1, 1, 'B', "", ""],
     [2, 1, 'C', "", ""],
     [3, 2, 'A', "", ""],

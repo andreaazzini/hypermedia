@@ -51,8 +51,16 @@ $light_grey: #eee;
 	border-bottom: 0
 }
 
+.coordinamento h1 {
+	margin-top: 0;
+}
+
 .coordinamento p {
 	clear: both;
+}
+
+.coordinamento blockquote {
+	font-style: italic;
 }
 
 .student-1,
@@ -81,6 +89,7 @@ $light_grey: #eee;
 }
 
 div.student {
+	margin-top: 20px;
 	width: 800px;
 	height: 120px;
 }

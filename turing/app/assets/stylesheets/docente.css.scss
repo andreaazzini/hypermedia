@@ -2,24 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.column {
-  margin: 0px;
-  padding: 0px;
+$blu_nav: rgb(28, 39, 79);
+$light_grey: #eee;
 
-  margin-top: 20px;
-  margin-right: 20px;
-  float: left;
-  width: 310px;
+.column {
+	margin: 0px;
+	padding: 0px;
+
+	margin-top: 20px;
+	margin-right: 20px;
+	float: left;
+	width: 310px;
 }
 
 .column a,
 .column a:link,
 .column a:visited,
 .column a:active {
-  text-decoration: underline;
-  color: #00f;
+	text-decoration: none;
+	color: $blu_nav;
 }
 
 .column a:hover {
-  color: #09f;
+	color: $blu_nav;
+  	font-weight: 600;
 }
