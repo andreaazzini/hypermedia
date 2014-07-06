@@ -37,4 +37,14 @@ module ClasseHelper
     s += "</a></div>"
     return s.html_safe
   end
+
+  def print_link_teachers
+    if !params.has_key?(:surname)
+      s = "<ul class='group_link'><li><a href='/classe/"
+      s += params[:year] + "/" + params[:section]
+      s += "/docenti_della_classe'>Docenti della classe</a></li></ul>"
+
+      return s.html_safe
+    end
+  end
 end

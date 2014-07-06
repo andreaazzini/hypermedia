@@ -35,4 +35,14 @@ module DocenteHelper
     return s.html_safe
   end
 
+  def print_link_school_classes
+    if !(params.has_key?(:year) && params.has_key?(:section))
+      s = "<ul class='group_link'><li><a href='/docente/"
+      s += params[:surname]
+      s += "/classi_in_cui_insegna'>Classi in cui insegna</a></li></ul>"
+
+      return s.html_safe
+    end
+  end
+
 end

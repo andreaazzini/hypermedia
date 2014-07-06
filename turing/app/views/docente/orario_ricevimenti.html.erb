@@ -1,7 +1,9 @@
 <% content_for :title, "Docenti • " + complete_name(params[:surname]) %>
 <% content_for :aside do %>
-	<h1><%= "Prof. " + params[:surname].to_s.capitalize %></h1>
-	<%= print_aside(docente_aside) %>
+    <h1><%= "Prof. " + params[:surname].to_s.capitalize %></h1>
+    <%= print_aside(docente_aside) %>
+
+    <%= print_link_school_classes %>
 <% end %>
 
 <%= create_teacher_path %>
