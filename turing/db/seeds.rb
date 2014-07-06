@@ -40,11 +40,11 @@ school_classes_list = [
     [14, 5, 'C', "", ""],
 ]
 
-school_classes_teachers_list = [
-    [0, 0, "matematica", 1],
-    [0, 1, "matematica", 0],
-    [0, 3, "matematica", 0],
-    [0, 4, "matematica", 0],
+teaching_list = [
+    [0, 0, 0, "matematica", 1],
+    [1, 0, 1, "matematica", 0],
+    [2, 0, 3, "matematica", 0],
+    [3, 0, 4, "matematica", 0],
 ]
 
 teachers_list.each do |id, name, surname, age, photo_url, curriculum|
@@ -67,9 +67,11 @@ school_classes_list.each do |id, yaer, section, timetable, council|
   end
 end
 
-school_classes_teachers_list.each do |teacher_id, school_class_id, subject, coordinator|
-  if !SchoolClassTeacher.find_by_id(teacher_id)
-    SchoolClassTeacher.create(teacher_id: teacher_id, school_class_id: school_class_id,
-                              subject: subject, coordinator: coordinator)
+teaching_list.each do |id, teacher_id, school_class_id, subject, coordinator|
+  if !Teaching.find_by_id(id)
+    teacher = Teacher.find_by_id(teacher_id)
+    school_class = SchoolClass.find_by_id(school_class_id)
+
+    Teaching.create(id: id, :teacher => teacher, :school_class => school_class, subject: subject, coordinator: coordinator)
   end
 end
