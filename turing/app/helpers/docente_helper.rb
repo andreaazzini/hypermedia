@@ -43,21 +43,19 @@ module DocenteHelper
     return s.html_safe
   end
 
-  def print_link_school_classes
+  def print_link_group_link
     if !(params.has_key?(:year) || params.has_key?(:section) || params.has_key?(:id))
-      s = "<ul class='group_link'><li><a href='/docente/"
-      s += params[:surname]
-      s += "/classi_in_cui_insegna'>Classi in cui insegna</a></li></ul>"
+      s = "<ul class='group_link'>"
 
-      return s.html_safe
-    end
-  end
-
-  def print_link_activities
-    if !(params.has_key?(:year) || params.has_key?(:section) || params.has_key?(:id))
-      s = "<ul class='group_link'><li><a href='/docente/"
+      s +="<li><a href='/docente/"
       s += params[:surname]
-      s += "/attivita_che_coordina'>Attivit&agrave; che coordina</a></li></ul>"
+      s += "/classi_in_cui_insegna'>Classi in cui insegna</a></li>"
+
+      s += "<li><a href='/docente/"
+      s += params[:surname]
+      s += "/attivita_che_coordina'>Attivit&agrave; che coordina</a></li>"
+
+      s += "</ul>"
 
       return s.html_safe
     end
