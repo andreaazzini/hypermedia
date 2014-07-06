@@ -22,7 +22,7 @@ module ClasseHelper
   end
 
   def complete_class_name
-    return params[:year] + " " + params[:section]
+    return "Classe " + year_to_s(params[:year]) + " " + params[:section]
   end
 
   def back_to_index_classe
