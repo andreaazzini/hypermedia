@@ -11,6 +11,8 @@ class ClasseController < ApplicationController
   end
 
   def coordinamento_e_consiglio_di_classe
+      @s = SchoolClass.where(:year => params[:year], :section => params[:section])[0].council
+      @s = @s.html_safe
   end
 
   def materiale

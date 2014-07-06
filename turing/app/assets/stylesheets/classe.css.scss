@@ -2,24 +2,62 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.column {
-  margin: 0px;
-  padding: 0px;
+$blu_nav: rgb(28, 39, 79);
+$light_grey: #eee;
 
-  margin-top: 20px;
-  margin-right: 20px;
-  float: left;
-  width: 310px;
+.column {
+	margin: 0px;
+	padding: 0px;
+
+	margin-top: 20px;
+	margin-right: 20px;
+	float: left;
+	width: 310px;
 }
 
 .column a,
 .column a:link,
 .column a:visited,
 .column a:active {
-  text-decoration: underline;
-  color: #00f;
+	text-decoration: none;
+	color: $blu_nav;
 }
 
 .column a:hover {
-  color: #09f;
+	color: $blu_nav;
+  	font-weight: 600;
+}
+
+.board {
+	margin-top: 5px;
+}
+
+.board span.date {
+	color: $blu_nav;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.board p {
+	margin-right: 15px;
+	padding: 0px;
+	padding-left: 1px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid $light_grey;
+	text-align: justify;
+}
+
+.board p:last-child {
+	border-bottom: 0
+}
+
+.circular {
+	width: 160px;
+	height: 160px;
+	-webkit-border-radius: 80px;
+	   -moz-border-radius: 80px;
+	        border-radius: 80px;
+	background: url(student-1.jpg) no-repeat;
+	background-position: center;
+	background-size: 300px;
 }
