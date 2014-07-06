@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140706130234) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "activities_teachers", id: false, force: true do |t|
