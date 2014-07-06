@@ -24,8 +24,8 @@ office_hours_list = [
 
 school_classes_list = [
     [0, 1, 'A', "",
-        "Il Consiglio di Classe della classe Prima A, in attivit&agrave
-        dal 2 ottobre 2013 e per tutto l'Anno Scolastico 2013-2014, &egrave;
+        "Il Consiglio di Classe della classe Prima A, in attivit&agrave 
+        dal 2 ottobre 2013 e per tutto l'Anno Scolastico 2013-2014, &egrave; 
         composto dai 2 alunni di seguito.<br /><div class='circular'></div>"],
     [1, 1, 'B', "", ""],
     [2, 1, 'C', "", ""],
@@ -60,15 +60,15 @@ board_list = [
         Genova. La giornata prevista per l'occasione &egrave; il giorno
         19 marzo 2014, con partenza alle ore 7:00 dalla Sede Centrale e
         arrivo previsto per le 9:30. Durante il prossimo Consiglio di Classe
-        saranno decise le tappe in maniera definitiva. Il costo totale
+        saranno decise le tappe in maniera definitiva. Il costo totale 
         verr&agrave; comunicato in tale occasione."],
     [2, 0, "23-12-2013", "La Dirigenza, unitamente con i Professori e gli
         altri dipendenti del Liceo Alan Turing, augura a tutti gli alunni
         Buon Natale e Felice Anno Nuovo."],
-    [3, 0, "05-10-2013", "Il Consiglio di Classe ricorda che in data 17
-        ottobre 2013, gli alunni della classe Prima A sono tenuti a
-        partecipare alle elezioni del nuovo Consiglio d'Istituto. Per questo
-        motivo, i genitori sono avvisati della sospensione delle lezioni
+    [3, 0, "05-10-2013", "Il Consiglio di Classe ricorda che in data 17 
+        ottobre 2013, gli alunni della classe Prima A sono tenuti a 
+        partecipare alle elezioni del nuovo Consiglio d'Istituto. Per questo 
+        motivo, i genitori sono avvisati della sospensione delle lezioni 
         nella stessa data dalle ore 11:10 alle 13:15."],
 ]
 
