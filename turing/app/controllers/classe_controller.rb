@@ -1,5 +1,13 @@
 class ClasseController < ApplicationController
   def bacheca
+      @s = ""
+      boards = SchoolClass.where(:year => params[:year], :section => params[:section])[0].boards
+      (0..boards.count-1).step(1) do |n|
+          @s += '<span class="date">' + boards[n].date.to_s + '</span>'
+          @s += '<p>' + boards[n].description + '</p>'
+      end
+      
+      @s = @s.html_safe
   end
 
   def coordinamento_e_consiglio_di_classe

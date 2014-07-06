@@ -47,6 +47,25 @@ teaching_list = [
     [3, 0, 4, "matematica", 0],
 ]
 
+board_list = [
+    [0, 0, "2014-02-03", "Si ricorda che l'ultima rata di iscrizione al
+        corrente Anno Scolastico deve essere versata entro e non oltre il
+        giorno 04 marzo 2014, pena la non iscrizione all'anno scolastico
+        successivo."],
+    [1, 0, "2014-02-03", "Si ricorda che l'ultima rata di iscrizione al
+        corrente Anno Scolastico deve essere versata entro e non oltre il
+        giorno 04 marzo 2014, pena la non iscrizione all'anno scolastico
+        successivo."],
+    [2, 0, "2014-02-03", "Si ricorda che l'ultima rata di iscrizione al
+        corrente Anno Scolastico deve essere versata entro e non oltre il
+        giorno 04 marzo 2014, pena la non iscrizione all'anno scolastico
+        successivo."],
+    [3, 0, "2014-02-03", "Si ricorda che l'ultima rata di iscrizione al
+        corrente Anno Scolastico deve essere versata entro e non oltre il
+        giorno 04 marzo 2014, pena la non iscrizione all'anno scolastico
+        successivo."],
+]
+
 teachers_list.each do |id, name, surname, age, photo_url, curriculum|
   if !Teacher.find_by_id(id)
     Teacher.create(id: id, name: name, surname: surname, age: age,
@@ -73,5 +92,12 @@ teaching_list.each do |id, teacher_id, school_class_id, subject, coordinator|
     school_class = SchoolClass.find_by_id(school_class_id)
 
     Teaching.create(id: id, :teacher => teacher, :school_class => school_class, subject: subject, coordinator: coordinator)
+  end
+end
+
+board_list.each do |id, school_class_id, date, description|
+  if !Board.find_by_id(id)
+    school_class = SchoolClass.find_by_id(school_class_id)
+    Board.create(id: id, :school_class => school_class, date: date, description: description)
   end
 end
