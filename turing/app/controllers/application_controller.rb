@@ -64,4 +64,21 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :complete_name
+
+  def dinamic_path(action)
+    str = request.path
+    if params.has_key?(:action)
+      str.slice! params[:action]
+    else
+      str += "/"
+    end
+    str += "/"
+    str += action
+
+    str.gsub! %r{/+}, '/'
+    return str
+  end
+
+  helper_method :dinamic_path
+
 end

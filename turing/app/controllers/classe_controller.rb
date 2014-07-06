@@ -75,11 +75,12 @@ class ClasseController < ApplicationController
 
   # url
   # name
-  def aside(year, section)
-    class_name = year + "/" + section
-    return [["/classe/" + class_name + "/bacheca", "Bacheca"],
-            ["/classe/" + class_name + "/coordinamento_e_consiglio_di_classe", "Coordinamento e Consiglio di Classe"],
-            ["/classe/" + class_name + "/materiale", "Materiale"],
-            ["/classe/" + class_name + "/orario", "Orario"]]
+  def classe_aside
+    return [[dinamic_path("bacheca"), "Bacheca"],
+            [dinamic_path("coordinamento_e_consiglio_di_classe"), "Coordinamento e Consiglio di Classe"],
+            [dinamic_path("materiale"), "Materiale"],
+            [dinamic_path("orario"), "Orario"]]
   end
+
+  helper_method :classe_aside
 end

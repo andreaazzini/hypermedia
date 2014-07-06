@@ -69,9 +69,11 @@ class DocenteController < ApplicationController
 
   # url
   # name
-  def aside(surname)
-    return [["/docente/" + surname + "/curriculum", "Curriculum"],
-            ["/docente/" + surname + "/orario_ricevimenti", "Orario Ricevimento"]]
+  def docente_aside
+    return [[dinamic_path("curriculum"), "Curriculum"],
+            [dinamic_path("orario_ricevimenti"), "Orario Ricevimento"]]
   end
+
+  helper_method :docente_aside
 
 end
