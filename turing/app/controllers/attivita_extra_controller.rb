@@ -11,47 +11,60 @@ class AttivitaExtraController < ApplicationController
   helper_method :attivita_aside
 
   def tutte_le_attivita
-    activities = Activity.count
+    if params.has_key?(:tpye) || params.has_key?(:surname)
+      if params.has_key?(:surname)
+        surname = params[:surname]
 
-    if params.has_key?(:surname)
-      surname = params[:surname]
+        activities = Teacher.where(:surname => surname)[0].activities.count
+      else
+        type = params[:type]
 
-      activities = Teacher.where(:surname => surname)[0].activities.count
-    end
+        activities = Activity.where(:type => type).count
+      end
 
-    if activities % 2 != 0
-      activities = (activities / 2) + 1
-    else
-      activities = activities / 2
-    end
+      if activities % 2 != 0
+        activities = (activities / 2) + 1
+      else
+        activities = activities / 2
+      end
 
-    s = ""
-    (0..1).step(1) do |column|
+      s = ""
+      (0..1).step(1) do |column|
 
-      old = Activity.order(:name).pluck(:name)[activities * column][0]
+        if surname
+          old = Teacher.where(:surname => surname)[0].activities.order(:surname).pluck(:surname)[teachers * column]
+        else
+          old = Activity.where(:type => type).order(:name).pluck(:name)[activities * column][0]
+        end
 
-      s += "<div class='column'>"
-      (0..activities - 1).step(1) do |n|
+        s += "<div class='column'>"
+        (0..activities - 1).step(1) do |n|
 
-        attivita = Activity.order(:name).pluck(:id, :name)[activities * column + n]
-
-        if attivita
-          current = attivita[1][0]
-          if current != old
-            s += "<br />"
-            old = current
+          if surname
+            attivita = Teacher.where(:surname => surname)[0].activities.order(:surname).pluck(:id)[teachers * column + n]
+          else
+            attivita = Activity.where(:type => type).order(:name).pluck(:id, :name)[activities * column + n]
           end
 
-          s += "<a href='/attivita/" + attivita[0] + "'>"
-          s += attivita[1]
-          s += "</a><br />"
-        end
-      end
-      s += "</div>\n"
-    end
+          if attivita
+            current = attivita[1][0]
+            if current != old
+              s += "<br />"
+              old = current
+            end
 
-    return s.html_safe
+            s += "<a href='/attivita/" + attivita[0] + "'>"
+            s += attivita[1]
+            s += "</a><br />"
+          end
+        end
+        s += "</div>\n"
+      end
+
+      return s.html_safe
+    end
   end
 
   helper_method :tutte_le_attivita
+
 end

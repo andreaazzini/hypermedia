@@ -1,7 +1,13 @@
-<% content_for :title, "Attività Extra" %>
+<% content_for :title, "Attività Extracurricolari" %>
 
-<h1>Tutte le Attivit&agrave; Extra</h1>
+<h1>Tutte le Attivit&agrave; Extracurricolari</h1>
 
 <div>
-  <%= tutte_le_attivita %>
+  <% if params.has_key?(:tpye) || params.has_key?(:surname) %>
+      <%= tutte_le_attivita %>
+  <% else %>
+      INSERIRE QUI I TIPI DI ATTIVIT&Agrave; : SPORTIVE, SCIENTIFICHE, CONFERENZE
+  <% end %>
 </div>
+
+<%= back_to_index_attivita %>
