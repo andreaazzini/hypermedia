@@ -23,18 +23,78 @@ office_hours_list = [
 ]
 
 school_classes_list = [
-    [0, 1, 'A', "",
+    [0, 1, 'A', 
+        "<div id='hours' class='timetable-column'><div class='day'><h2>
+        </h2></div><div class='prima-ora'><h2>
+        08:20-09:15</h2></div><div class='seconda-ora'><h2>
+        09:15-10:10</h2></div><div class='terza-ora'><h2>
+        10:10-11:05</h2></div><div class='quarta-ora'><h2>
+        11:20-12:15</h2></div><div class='quinta-ora'><h2>
+        12:15-13:10</h2></div></div>
+        
+        <div class='timetable-column'><div class='day'><h2>
+        Luned&igrave;</h2></div><div class='prima-ora'><p>
+        Matematica</p></div><div class='seconda-ora'><p>
+        Matematica</p></div><div class='terza-ora'><p>
+        Storia</p></div><div class='quarta-ora'><p>
+        Informatica</p></div><div class='quinta-ora'><p>
+        Informatica</p></div></div>
+        
+        <div class='timetable-column'><div class='day'><h2>
+        Marted&igrave;</h2></div>
+        <div class='prima-ora'><p>
+        Ed. Fisica</p></div><div class='seconda-ora'><p>
+        Ed. Fisica</p></div><div class='terza-ora'><p>
+        Filosofia</p></div><div class='quarta-ora'><p>
+        Lettere</p></div><div class='quinta-ora'><p>
+        Lettere</p></div></div>
+        
+        <div class='timetable-column'><div class='day'><h2>
+        Mercoled&igrave;</h2></div><div class='prima-ora'><p>
+        Filosofia</p></div><div class='seconda-ora'><p>
+        Latino</p></div><div class='terza-ora'><p>
+        Latino</p></div><div class='quarta-ora'><p>
+        Matematica</p></div><div class='quinta-ora'><p>
+        Fisica</p></div></div>
+        
+        <div class='timetable-column'><div class='day'><h2>
+        Gioved&igrave;</h2></div>
+        <div class='prima-ora'><p>
+        Inglese</p></div><div class='seconda-ora'><p>
+        Matematica</p></div><div class='terza-ora'><p>
+        Fisica</p></div><div class='quarta-ora'><p>
+        Informatica</p></div><div class='quinta-ora'><p>
+        Scienze</p></div></div>
+        
+        <div class='timetable-column'><div class='day'><h2>
+        Venerd&igrave;</h2></div>
+        <div class='prima-ora'><p>
+        Scienze</p></div><div class='seconda-ora'><p>
+        Inglese</p></div><div class='terza-ora'><p>
+        Storia</p></div><div class='quarta-ora'><p>
+        Lettere</p></div><div class='quinta-ora'><p>
+        Latino</p></div></div>
+        
+        <div class='timetable-column'><div class='day'><h2>
+        Sabato</h2></div><div class='prima-ora'><p>
+        Storia</p></div><div class='seconda-ora'><p>
+        Filosofia</p></div><div class='terza-ora'><p>
+        Scienze</p></div><div class='quarta-ora'><p>
+        Inglese</p></div><div class='quinta-ora'><p>
+        Informatica</p></div></div>",
         "<p>Il Consiglio di Classe della classe Prima A, in attivit&agrave 
         dal 2 ottobre 2013 e per tutto l'Anno Scolastico 2013-2014, &egrave; 
         composto dai 2 alunni di seguito.</p><div class='student-1'></div>
         <div class='student'><h2>Gianluigi Buffon</h2><blockquote>Ogni buona 
         classe deve essere tutelata nei suoi diritti da una persona che sia 
-        volenterosa di fare bene. Io sono quella persona.</blockquote></div>
+        volenterosa di fare bene. Io sono quella persona.
+        </blockquote></div>
         <div class='student-2'></div>
         <div class='student'><h2>Ilaria D'Amico</h2><blockquote>L'organizzazione 
         di una classe dipende principalmente dalla comunicazione degli 
-        studenti con i professori. Sar&agrave; questo l'aspetto su cui 
-        lavorer&ograve; maggiormente.</blockquote></div>"],
+        studenti con i professori. Sar&agrave; questo l'aspetto su cui lavorer&ograve; 
+        maggiormente.
+        </blockquote></div>"],
     [1, 1, 'B', "", ""],
     [2, 1, 'C', "", ""],
     [3, 2, 'A', "", ""],

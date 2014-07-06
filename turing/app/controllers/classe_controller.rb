@@ -19,6 +19,8 @@ class ClasseController < ApplicationController
   end
 
   def orario
+      @s = SchoolClass.where(:year => params[:year], :section => params[:section])[0].timetable
+      @s = @s.html_safe
   end
 
 

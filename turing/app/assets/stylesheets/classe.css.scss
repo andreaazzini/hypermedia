@@ -52,7 +52,7 @@ $light_grey: #eee;
 }
 
 .coordinamento h1 {
-	margin-top: 0;
+	margin-top: 5px;
 }
 
 .coordinamento p {
@@ -92,4 +92,52 @@ div.student {
 	margin-top: 20px;
 	width: 800px;
 	height: 120px;
+}
+
+.timetable h1 {
+	margin-top: 5px;
+}
+
+.timetable-column {
+	float: left;
+	width: 107px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.timetable-column:first-child {
+	width: 80px;
+}
+
+.timetable-column:last-child {
+	border-right: 1px solid $light_grey;;
+}
+
+.timetable-column h2,
+.timetable-column p {
+	display: block;
+	font-size: 15px;
+	text-align: center;
+	height: 30px;
+	margin: 0;
+	border-bottom: 1px solid $light_grey;
+	border-left: 1px solid $light_grey;
+	padding-top: 7px;
+}
+
+.timetable-column:first-child h2 {
+	font-size: 12px;
+	padding-top: 7px;
+}
+
+.timetable-column div:first-child {
+	border-top: 1px solid $light_grey;
+}
+
+.timetable-column:hover {
+	background-color: rgba(0, 0, 255, 0.1);
+}
+
+.back_to_index {
+	clear: both;
 }
