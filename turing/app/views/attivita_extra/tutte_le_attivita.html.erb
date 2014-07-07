@@ -6,7 +6,15 @@
   <% if params.has_key?(:type) || params.has_key?(:surname) %>
       <%= tutte_le_attivita %>
   <% else %>
-      INSERIRE QUI I TIPI DI ATTIVIT&Agrave; : SPORTIVE, SCIENTIFICHE, CONFERENZE
+  	<a href='/attivita_extra/sportive'><div id='sport' class='activity'>
+  		<h1>Attivit&agrave; Sportive</h1>
+  	</div></a>
+  	<a href='/attivita_extra/scientifiche'><div id='scientific' class='activity'>
+  		<h1>Attivit&agrave; Scientifiche</h1>
+  	</div></a>
+  	<a href='/attivita_extra/conferenze'><div id='conference' class='activity'>
+  		<h1>Conferenze</h1>
+  	</div></a>
   <% end %>
 </div>
 
