@@ -5,12 +5,31 @@ class AreaRiservataController < ApplicationController
   def comunicazioniPersonali
   end
 
+  def gestionRecord
+  end
+
   def login
   end
 
   def check_session
     if !session.has_key?(:user)
       redirect_to :controller => "area_riservata", :action => "login"
+    else
+      type_user = User.where(:username => session[:user])[0].type_user
+      case type_user
+        when 0
+          if params[:action] != "gestioneRecord"
+            redirect_to :controller => "area_riservata", :action => "gestioneRecord"
+          end
+        when 1
+          if params[:action] != "registroElettronico" && params[:action] != "comunicazioniPersonali"
+            redirect_to :controller => "area_riservata", :action => "comunicazioniPersonali"
+          end
+        when 2
+          if params[:action] != "registroElettronico" && params[:action] != "comunicazioniPersonali"
+            redirect_to :controller => "area_riservata", :action => "comunicazioniPersonali"
+          end
+      end
     end
   end
 
@@ -35,17 +54,8 @@ class AreaRiservataController < ApplicationController
     end
   end
 
-  def insert_votation
-
-  end
-
-  def read_votation
-
-  end
-
   helper_method :check_session
   helper_method :check_login
   helper_method :log_out
-  helper_method :insert_votation
-  helper_method :read_votation
+
 end
