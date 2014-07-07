@@ -1,10 +1,17 @@
-<% log_out %>
+<% if params.has_key?(:username) && params.has_key?(:password)
+     check_login
+   else
+     log_out
+   end %>
 
 <% content_for :title, "Area Riservata" %>
 
 <div class="Sign_Form">
   <h1>Login</h1>
-  <%= form_for(:user, :url => {:controller => 'area_riservata', :action => 'comunicazioniPersonali'}) do |f| %>
+
+  <h3><%= flash[:message] %></h3>
+
+  <%= form_for(:user, :url => {:controller => 'area_riservata', :action => 'login'}) do |f| %>
       <p> Username:</br> <%= f.text_field :username %> </p>
 
       <p> Password:</br> <%= f.password_field :password %></p>

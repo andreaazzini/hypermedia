@@ -9,11 +9,12 @@ class AreaRiservataController < ApplicationController
   end
 
   def check_session
-    #TODO
+  end
+
+  def check_login
   end
 
   def log_out
-    #TODO
   end
 
   def insert_votation
@@ -25,6 +26,7 @@ class AreaRiservataController < ApplicationController
   end
 
   helper_method :check_session
+  helper_method :check_login
   helper_method :log_out
   helper_method :insert_votation
   helper_method :read_votation

@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
+  get 'users/new'
+
+  get 'errors/not_found'
+
+  get 'errors/exception'
+
   get 'attivita_extra', to: 'attivita_extra#tutte_le_attivita'
   get 'attivita_extra/tutte_le_attivita'
   get 'attivita_extra/:type', to: 'attivita_extra#tutte_le_attivita'
@@ -42,8 +52,7 @@ Rails.application.routes.draw do
   get 'area_riservata/comunicazioni_personali', to: 'area_riservata#comunicazioniPersonali'
   get 'area_riservata/login'
 
-  post 'area_riservata/comunicazioniPersonali'
-  post 'area_riservata/comunicazioni_personali', to: 'area_riservata#comunicazioniPersonali'
+  post 'area_riservata/login'
 
   get 'scuola', to: 'scuola#storia'
   get 'scuola/storia'
