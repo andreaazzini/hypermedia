@@ -37,14 +37,59 @@ module AttivitaExtraHelper
       s += "<a href='/attivita_extra'>Attivit&agrave; Extracurriculari</a> &gt; "
 
       s += "<a href='/attivita_extra/" + Activity.find_by_id(params[:id]).type + "'>"
-      s += "Attivit&agrave; Extracurricolari "
-      s += Activity.find_by_id(params[:id]).type
+      s += "Attivit&agrave; Extracurricolari " + Activity.find_by_id(params[:id]).type
       s += "</a> &gt; "
 
       s += Activity.find_by_id(params[:id]).name
     end
 
     s += "</div>"
+    return s.html_safe
+  end
+
+  def create_attivita_next_previous
+    id_prev = ""
+    id_next = ""
+    id = params[:id]
+
+    url = ""
+
+    if params.has_key?(:surname)
+      activities = Teacher.where(:surname => params[:surname])[0].activities
+      url = "/docente/" + params[:surname] + "/"
+    else
+      type = Activity.find_by_id(id).type
+      activities = Activity.where(:type => type)
+      url = "/attivita_extra/" + type + "/"
+    end
+
+    n = 0
+    while n < activities.count do
+      if activities[n].id == id
+        break
+      end
+    end
+
+    if n > 0
+      id_prev = activities[n - 1].id
+    end
+
+    if n < activities.count - 1
+      id_next = activities[n + 1].id
+    end
+
+    s = ""
+
+    if id_prev != ""
+      s += "<div class='prev'><a href='" + url + id_prev
+      s += "'>Attivit&agrave; Precedente</a></div>"
+    end
+
+    if id_next != ""
+      s += "<div class='next'><a href='" + url + id_next
+      s += "'>Attivit&agrave; Seguente</a></div>"
+    end
+
     return s.html_safe
   end
 
