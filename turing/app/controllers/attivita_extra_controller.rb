@@ -32,7 +32,7 @@ class AttivitaExtraController < ApplicationController
         if surname
           old = Teacher.where(:surname => surname)[0].activities.order(:surname).pluck(:surname)[teachers * column]
         else
-          old = Activity.where(:activity_type => activity_type).order(:name).pluck(:name)[activities * column][0]
+          old = Activity.where(:activity_type => activity_type).order(:name).pluck(:name)[activities * column]
         end
 
         s += "<div class='column'>"
@@ -51,7 +51,7 @@ class AttivitaExtraController < ApplicationController
               old = current
             end
 
-            s += "<a href='/attivita/" + attivita[0] + "'>"
+            s += "<a href='/attivita_extra/" + attivita[0].to_s + "/descrizione'>"
             s += attivita[1]
             s += "</a><br />"
           end

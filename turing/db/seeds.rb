@@ -14,11 +14,10 @@ structure_list = [
 
 activity_list = [
     [0, 0, "sportive", 
-        "<div class='description'><h1>Allenamento Calcio a 5</h1>
-        <p>Data la tradizione vincente in ambito calcistico, il nostro 
+        "Data la tradizione vincente in ambito calcistico, il nostro 
         Liceo organizza sessioni di allenamento pomeridiano di Calcio a 
         5. L'attivit&agrave; viene organizzata nel caso in cui gli iscritti 
-        siano pi&ugrave; di 10.</p>"]
+        siano pi&ugrave; di 10.", "Allenamento Calcio a 5"]
 ]
 
 teachers_list = [
@@ -212,13 +211,17 @@ structure_list.each do |id, room, description|
   end
 end
 
-activity_list.each do |id, structure_id, activity_type, description|
+activity_list.each do |id, structure_id, activity_type, description, name|
   if !Activity.find_by_id(id)
-    Activity.create(id: id, structure_id: structure_id, activity_type: activity_type, description: description)
+    Activity.create(id: id, structure_id: structure_id, activity_type: activity_type, description: description, name: name)
   else
       if !Activity.find_by(description: description)
           activity = Activity.find_by_id(id)
           activity.update(description: description)
+      end
+      if !Activity.find_by(name: name)
+          activity = Activity.find_by_id(id)
+          activity.update(name: name)
       end
   end
 end

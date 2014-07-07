@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707155941) do
+ActiveRecord::Schema.define(version: 20140707231645) do
 
   create_table "activities", force: true do |t|
     t.integer  "structure_id"
-    t.string   "type"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "activity_type"
   end
 
   create_table "activities_teachers", id: false, force: true do |t|
