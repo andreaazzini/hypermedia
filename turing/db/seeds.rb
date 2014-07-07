@@ -6,6 +6,21 @@
 #   eate([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(namcities = City.cre: 'Emanuel', city: cities.first)
 
+structure_list = [
+    [0, "Campo Paolo Rossi", ""],
+    [1, "Laboratorio A1", ""],
+    [2, "Aula Magna", ""]
+]
+
+activity_list = [
+    [0, 0, "sportive", 
+        "<div class='description'><h1>Allenamento Calcio a 5</h1>
+        <p>Data la tradizione vincente in ambito calcistico, il nostro 
+        Liceo organizza sessioni di allenamento pomeridiano di Calcio a 
+        5. L'attivit&agrave; viene organizzata nel caso in cui gli iscritti 
+        siano pi&ugrave; di 10.</p>"]
+]
+
 teachers_list = [
     [0, 'Francesca', 'Febbo', 32, 'febbo.jpg',
         'Francesca Febbo si diploma nel 2001 al Liceo Scientifico Enrico 
@@ -190,6 +205,23 @@ user_list = [
     [2, 'Buffon Gianluigi', 'buffon_gianluigi', 'buffon_gianluigi_00@hotmail.it', 2],
     [3, 'D.amico Ilaria', 'd.amico_ilaria', 'ila4ever_2000@libero.it', 2],
 ]
+
+structure_list.each do |id, room, description|
+  if !Structure.find_by_id(id)
+    Structure.create(id: id, room: room, description: description)
+  end
+end
+
+activity_list.each do |id, structure_id, activity_type, description|
+  if !Activity.find_by_id(id)
+    Activity.create(id: id, structure_id: structure_id, activity_type: activity_type, description: description)
+  else
+      if !Activity.find_by(description: description)
+          activity = Activity.find_by_id(id)
+          activity.update(description: description)
+      end
+  end
+end
 
 teachers_list.each do |id, name, surname, age, photo_url, curriculum|
   if !Teacher.find_by_id(id)
