@@ -6,10 +6,10 @@ module AttivitaExtraHelper
     if params.has_key?(:surname)
       s += "<a href='/docente/" + params[:surname] + "'>Torna al docente</a>"
     elsif params.has_key?(:activity_type)
-      s += "<a href='/attivita'>Torna a Tutte le Attivit&agrave; Extracurricolari</a>"
+      s += "<a href='/attivita_extra'>Torna a Tutte le Attivit&agrave; Extracurricolari</a>"
     elsif params.has_key?(:id)
       activity_type = Activity.find_by_id(params[:id]).activity_type
-      s += "<a href='/attivita/" + activity_type + "'>Torna a Tutte le Attivit&agrave; " + activity_type + "</a>"
+      s += "<a href='/attivita_extra/" + activity_type + "'>Torna a Tutte le Attivit&agrave; " + activity_type + "</a>"
     end
 
     s += "</div>"
