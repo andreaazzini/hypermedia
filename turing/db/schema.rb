@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20140707155941) do
 
   create_table "activities", force: true do |t|
     t.integer  "structure_id"
-    t.string   "activity_type"
+    t.string   "type"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"

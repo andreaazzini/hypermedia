@@ -3,7 +3,7 @@
 <h1>Tutte le Attivit&agrave; Extracurricolari</h1>
 
 <div>
-  <% if params.has_key?(:type) || params.has_key?(:surname) %>
+  <% if params.has_key?(:activity_type) || params.has_key?(:surname) %>
       <%= tutte_le_attivita %>
   <% else %>
   	<a href='/attivita_extra/sportive'><div id='sport' class='activity'>

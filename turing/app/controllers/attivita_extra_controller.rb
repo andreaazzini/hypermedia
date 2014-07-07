@@ -9,15 +9,15 @@ class AttivitaExtraController < ApplicationController
   end
 
   def tutte_le_attivita
-    if params.has_key?(:type) || params.has_key?(:surname)
+    if params.has_key?(:activity_type) || params.has_key?(:surname)
       if params.has_key?(:surname)
         surname = params[:surname]
 
         activities = Teacher.where(:surname => surname)[0].activities.count
       else
-        type = params[:type]
+        activity_type = params[:activity_type]
 
-        activities = Activity.where(:type => type).count
+        activities = Activity.where(:activity_type => activity_type).count
       end
 
       if activities % 2 != 0
@@ -32,7 +32,7 @@ class AttivitaExtraController < ApplicationController
         if surname
           old = Teacher.where(:surname => surname)[0].activities.order(:surname).pluck(:surname)[teachers * column]
         else
-          old = Activity.where(:type => type).order(:name).pluck(:name)[activities * column][0]
+          old = Activity.where(:activity_type => activity_type).order(:name).pluck(:name)[activities * column][0]
         end
 
         s += "<div class='column'>"
@@ -41,7 +41,7 @@ class AttivitaExtraController < ApplicationController
           if surname
             attivita = Teacher.where(:surname => surname)[0].activities.order(:surname).pluck(:id)[teachers * column + n]
           else
-            attivita = Activity.where(:type => type).order(:name).pluck(:id, :name)[activities * column + n]
+            attivita = Activity.where(:activity_type => activity_type).order(:name).pluck(:id, :name)[activities * column + n]
           end
 
           if attivita

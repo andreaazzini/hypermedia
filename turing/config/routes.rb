@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   get 'attivita_extra', to: 'attivita_extra#tutte_le_attivita'
   get 'attivita_extra/tutte_le_attivita'
-  get 'attivita_extra/:type', to: 'attivita_extra#tutte_le_attivita'
-  get 'attivita_extra/:type/tutte_le_attivita', to: 'attivita_extra#tutte_le_attivita'
+  get 'attivita_extra/:activity_type', to: 'attivita_extra#tutte_le_attivita'
+  get 'attivita_extra/:activity_type/tutte_le_attivita', to: 'attivita_extra#tutte_le_attivita'
   get 'attivita_extra/:id/descrizione', to: 'attivita_extra#descrizione'
 
   get 'attivita_extra/:id/:surname', to: 'docente#curriculum'

@@ -5,11 +5,11 @@ module AttivitaExtraHelper
 
     if params.has_key?(:surname)
       s += "<a href='/docente/" + params[:surname] + "'>Torna al docente</a>"
-    elsif params.has_key?(:type)
+    elsif params.has_key?(:activity_type)
       s += "<a href='/attivita'>Torna a Tutte le Attivit&agrave; Extracurricolari</a>"
     elsif params.has_key?(:id)
-      type = Activity.find_by_id(params[:id]).type
-      s += "<a href='/attivita/" + type + "'>Torna a Tutte le Attivit&agrave; " + type + "</a>"
+      activity_type = Activity.find_by_id(params[:id]).activity_type
+      s += "<a href='/attivita/" + activity_type + "'>Torna a Tutte le Attivit&agrave; " + activity_type + "</a>"
     end
 
     s += "</div>"
@@ -36,8 +36,8 @@ module AttivitaExtraHelper
     else
       s += "<a href='/attivita_extra'>Attivit&agrave; Extracurriculari</a> &gt; "
 
-      s += "<a href='/attivita_extra/" + Activity.find_by_id(params[:id]).type + "'>"
-      s += "Attivit&agrave; Extracurricolari " + Activity.find_by_id(params[:id]).type
+      s += "<a href='/attivita_extra/" + Activity.find_by_id(params[:id]).activity_type + "'>"
+      s += "Attivit&agrave; Extracurricolari " + Activity.find_by_id(params[:id]).activity_type
       s += "</a> &gt; "
 
       s += Activity.find_by_id(params[:id]).name
@@ -58,9 +58,9 @@ module AttivitaExtraHelper
       activities = Teacher.where(:surname => params[:surname])[0].activities
       url = "/docente/" + params[:surname] + "/"
     else
-      type = Activity.find_by_id(id).type
-      activities = Activity.where(:type => type)
-      url = "/attivita_extra/" + type + "/"
+      activity_type = Activity.find_by_id(id).activity_type
+      activities = Activity.where(:activity_type => activity_type)
+      url = "/attivita_extra/" + activity_type + "/"
     end
 
     n = 0
