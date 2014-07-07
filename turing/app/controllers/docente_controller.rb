@@ -6,7 +6,15 @@ class DocenteController < ApplicationController
   end
 
   def orario_ricevimenti
-      
+      @teacher = Teacher.where(:surname => correct_surname(params[:surname]))[0]
+      @of = @teacher.office_hours[0]
+      if params.has_key?(:office_hour)
+          if params[:office_hour][:nome] == '' || params[:office_hour][:cognome] == ''
+              flash[:message] = 'Nome e cognome sono richiesti per prenotare un appuntamento'
+          else
+              flash[:message] = 'Grazie ' + params[:office_hour][:nome] + ' ' + params[:office_hour][:cognome] + '! Appuntamento prenotato.'
+          end
+      end
   end
 
   def tutti_i_docenti

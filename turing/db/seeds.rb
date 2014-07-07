@@ -34,11 +34,11 @@ teachers_list = [
 ]
 
 office_hours_list = [
-    [0, 0, 'Monday', 10, 15],
-    [1, 1, 'Wednesday', 11, 30],
-    [2, 2, 'Friday', 17, 00],
-    [3, 3, 'Tuesday', 10, 15],
-    [4, 4, 'Monday', 10, 45],
+    [0, 0, 'Lunedì', 10, 15],
+    [1, 1, 'Mercoledì', 11, 30],
+    [2, 2, 'Venerdì', 17, 00],
+    [3, 3, 'Martedì', 10, 15],
+    [4, 4, 'Lunedì', 10, 45],
 ]
 
 school_classes_list = [
@@ -210,6 +210,11 @@ end
 office_hours_list.each do |id, teacher_id, day, hour, minute|
   if !OfficeHour.find_by_id(id)
     OfficeHour.create(id: id, teacher_id: teacher_id, day: day, hour: hour, minute: minute)
+  else
+      if !OfficeHour.find_by(day: day)
+          office_hour = OfficeHour.find_by_id(id)
+          office_hour.update(day: day)
+      end
   end
 end
 

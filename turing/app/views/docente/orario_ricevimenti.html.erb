@@ -9,6 +9,12 @@
 <%= create_teacher_path %>
 
 <div class='office-hour'>
+	<h1>Orario Ricevimenti</h1>
+	<h2><%= flash[:message] %></h2>
+	
+	<p><%= @teacher.name + ' ' + @teacher.surname + ' riceve ogni ' + @of.day + ' alle ore ' + @of.hour.to_s + ':' + @of.minute.to_s %></p>
+	<p>Compila il form in basso per prenotare un appuntamento.</p>
+	
   <%= form_for(:office_hour, :url => {:controller => 'docente', :surname => params[:surname], :action => 'orario_ricevimenti'}) do |f| %>
       <p>Nome:</br> <%= f.text_field :nome %> </p>
       <p>Cognome:</br> <%= f.text_field :cognome %></p>
