@@ -34,7 +34,7 @@ class AttivitaExtraController < ApplicationController
         if surname
           old = Teacher.where(:surname => surname)[0].activities.order(:surname).pluck(:surname)[teachers * column]
         else
-          old = Activity.where(:type => type).order(:name).pluck(:name)[activities * column][0]
+          old = Activity.where(:type => type).order(:name).pluck(:name)[activities * column]
         end
 
         s += "<div class='column'>"

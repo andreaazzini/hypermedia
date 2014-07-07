@@ -1,3 +1,5 @@
+<% check_if_exist %>
+
 <% content_for :title, "Docenti • " + complete_name(params[:surname]) %>
 <% content_for :aside do %>
     <h1><%= "Prof. " + params[:surname].to_s.capitalize %></h1>

@@ -57,7 +57,7 @@ module ApplicationHelper
     end
 
     if params.has_key?(:surname)
-      surname = params[:surname]
+      surname = correct_surname(params[:surname])
       if Teacher.where(:surname => surname).count == 0
         redirect = true
       end
