@@ -6,6 +6,17 @@ class AreaRiservataController < ApplicationController
   end
 
   def gestionRecord
+    if params.has_key?(:docente)
+      if params[:docente][:azione] == "cancella"
+        teacher = Teacher.find_by_id(params[:docente][:id])
+        Teacher.destroy(teacher)
+
+        flash[:message] = "Docente rimosso con successo"
+      end
+    end
+  end
+
+  def docente
   end
 
   def login
@@ -18,7 +29,7 @@ class AreaRiservataController < ApplicationController
       type_user = User.where(:username => session[:user])[0].type_user
       case type_user
         when 0
-          if params[:action] != "gestioneRecord"
+          if params[:action] != "gestioneRecord" && params[:action] != "docente" && params[:action] != "classe"
             redirect_to :controller => "area_riservata", :action => "gestioneRecord"
           end
         when 1

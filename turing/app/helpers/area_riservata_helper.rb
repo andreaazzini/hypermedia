@@ -5,7 +5,11 @@ module AreaRiservataHelper
     s = "<div class='all_record'>"
 
     (0..teachers.count - 1).step(1) do |n|
-      s += ""
+      s += "<div class='record'>"
+      s += teachers[n].name + " " + teachers[n].surname
+      s += print_teacher_modify(teachers[n].id)
+      s += print_teacher_delete(teachers[n].id)
+      s += "</div>"
     end
 
     s += "</div>"
@@ -13,23 +17,25 @@ module AreaRiservataHelper
     return s.html_safe
   end
 
-  def print_teacher_delete
-    s = ""
-    form_for(:docente, :url => {:controller => 'area_riservata', :action => 'gestioneRecord'}) do |f|
-      s += f.hidden_field_tag(:username, session[:user])
-      s += f.hidden_field_tag(:azione, "cancella")
-      s += f.submit :Cancella
-    end
+  def print_teacher_delete(id)
+    s = "<form name='docente' action='/area_riservata/gestioneRecord' method='post' onsubmit='"
+    s += "return confirm('Sei sicuro di voler cancellare il docente?')"
+    s += "'>"
+    s += "<input type='hidden' name='azione' value='cancella' />"
+    s += "<input type='hidden' name='id' value='" + id.to_s + "' />"
+    s += "<input type='submit' value='Cancella' />"
+    s += "</form>"
+
     return s.html_safe
   end
 
-  def print_teacher_modify
-    s = ""
-    form_for(:docente, :url => {:controller => 'area_riservata', :action => 'modifica_docente'}) do |f|
-      s += f.hidden_field_tag(:username, session[:user])
-      s += f.hidden_field_tag(:azione, "modifica")
-      s += f.submit :Modifica
-    end
+  def print_teacher_modify(id)
+    s = "<form name='docente' action='/area_riservata/modifica_docente' method='post'>"
+    s += "<input type='hidden' name='azione' value='modifica' />"
+    s += "<input type='hidden' name='id' value='" + id.to_s + "' />"
+    s += "<input type='submit' value='Modifica' />"
+    s += "</form>"
+
     return s.html_safe
   end
 
