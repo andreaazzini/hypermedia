@@ -68,6 +68,7 @@ module AttivitaExtraHelper
       if activities[n].id == id
         break
       end
+      n += 1
     end
 
     if n > 0

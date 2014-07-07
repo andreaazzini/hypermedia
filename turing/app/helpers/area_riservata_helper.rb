@@ -27,8 +27,7 @@ module AreaRiservataHelper
   end
 
   def print_teacher_modify(id)
-    s = ""
-    form_for(:docente, :url => {:controller => 'area_riservata', :action => 'docente'}) do |f|
+    s = form_for(:docente, :url => {:controller => 'area_riservata', :action => 'docente'}) do |f|
       s += f.hidden_field(:username, :value => id)
       s += f.hidden_field(:azione, :value => "modifica")
       s += f.submit :Modifica
