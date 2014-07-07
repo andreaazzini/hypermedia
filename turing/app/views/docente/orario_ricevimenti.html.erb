@@ -8,4 +8,13 @@
 
 <%= create_teacher_path %>
 
+<div class='office-hour'>
+  <%= form_for(:office_hour, :url => {:controller => 'docente', :surname => params[:surname], :action => 'orario_ricevimenti'}) do |f| %>
+      <p>Nome:</br> <%= f.text_field :nome %> </p>
+      <p>Cognome:</br> <%= f.text_field :cognome %></p>
+	  <p>Commenti: </br> <%= f.text_area :commenti %></p>
+      <%= f.submit :Prenota %>
+  <% end %>
+</div>
+
 <%= back_to_index_docente %>

@@ -7,7 +7,26 @@
 #   Mayor.create(namcities = City.cre: 'Emanuel', city: cities.first)
 
 teachers_list = [
-    [0, 'Francesca', 'Febbo', 32, '#', ''],
+    [0, 'Francesca', 'Febbo', 32, 'febbo.jpg',
+        'Francesca Febbo si diploma nel 2001 al Liceo Scientifico Enrico 
+        Fermi di Padova e si laurea nel 2006 in Scienze Matematiche presso 
+        l\'Universit&agrave; degli Studi di Padova con la valutazione di 
+        110 e lode. Dedicatasi inizialmente 
+        ad attivit&agrave; accademiche, rinuncia al Dottorato di Ricerca in 
+        corso per iniziare la carriera da insegnante. Diventa docente di ruolo 
+        nel 2011 e nel 2012, dopo una breve attivit&agrave; di supplenza, 
+        viene assunta come insegnante di ruolo di Matematica e Fisica per le 
+        classi del biennio. I feedback da parte degli studenti sono molto 
+        positivi. La Prof.ssa Febbo dimostra, oltre alle capacit&agrave; 
+        didattiche, anche disponibilit&agrave; e passione per le materie 
+        che insegna. Gli stessi genitori hanno espresso pareri positivi sulla 
+        gentilezza e disponibilit&agrave; al dialogo della Prof.ssa Febbo.
+        Dal 2011 &egrave; inoltre impegnata in attivit&agrave; di ricerca 
+        in collaborazione con l\'Universit&agrave; degli Studi di Milano 
+        riguardanti la statistica demografica. Francesca Febbo conosce 
+        tre lingue, oltre all\'italiano: inglese, francese e tedesco. Per 
+        queste sue competenze, &egrave; spesso contattata dal Politecnico di 
+        Milano per collaborazioni in ambito di Reasearch & Development.'],
     [1, 'Umberto', 'Di Fabrizio', 41, '#', ''],
     [2, 'Francesco', 'Corsini', 38, '#', ''],
     [3, 'Francesco', 'Angelo', 50, '#', ''],
@@ -176,6 +195,15 @@ teachers_list.each do |id, name, surname, age, photo_url, curriculum|
   if !Teacher.find_by_id(id)
     Teacher.create(id: id, name: name, surname: surname, age: age,
                    photo_url: photo_url, curriculum: curriculum)
+  else
+    if !Teacher.find_by(photo_url: photo_url)
+        teacher = Teacher.find_by_id(id)
+        teacher.update(photo_url: photo_url)
+    end
+    if !Teacher.find_by(curriculum: curriculum)
+        teacher = Teacher.find_by_id(id)
+        teacher.update(curriculum: curriculum)
+    end
   end
 end
 

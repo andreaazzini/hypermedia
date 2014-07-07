@@ -27,3 +27,30 @@ $light_grey: #eee;
 	color: $blu_nav;
   	font-weight: 600;
 }
+
+.curriculum h1 {
+	margin-top: 5px;
+	margin-bottom: 15px;
+}
+
+.curriculum img {
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
+	float: left;
+	margin-right: 20px;
+}
+
+.curriculum p {
+	display: block;
+	float: left;
+	width: 710px;
+	margin-top: 0;
+	margin-right: 20px;
+	text-align: justify;
+}
+
+.back_to_index {
+	clear: both;
+	padding-top: 30px;
+}

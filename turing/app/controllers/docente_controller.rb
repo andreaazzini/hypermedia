@@ -1,8 +1,12 @@
 class DocenteController < ApplicationController
   def curriculum
+      @teacher = Teacher.where(:surname => correct_surname(params[:surname]))[0]
+      @s = '<p>' + ActionController::Base.helpers.image_tag(@teacher.photo_url, size: "200x200", alt: @teacher.surname, title: @teacher.surname) + @teacher.curriculum + '</p>'
+      @s = @s.html_safe
   end
 
   def orario_ricevimenti
+      
   end
 
   def tutti_i_docenti
