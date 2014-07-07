@@ -45,42 +45,4 @@ module ApplicationHelper
     return s.html_safe
   end
 
-  def check_if_exist
-    redirect = false
-
-    if params.has_key?(:year) && params.has_key?(:section)
-      year = params[:year]
-      section = params[:section]
-      if SchoolClass.where(:year => year, :section => section).count == 0
-        redirect = true
-      end
-    end
-
-    if params.has_key?(:surname)
-      surname = correct_surname(params[:surname])
-      if Teacher.where(:surname => surname).count == 0
-        redirect = true
-      end
-    end
-
-    if params.has_key?(:type)
-      type = params[:type]
-      if Activity.where(:type => type).count == 0
-        redirect = true
-      end
-    end
-
-    if params.has_key?(:id)
-      id = params[:id]
-      if Activity.where(:id => id).count == 0
-        redirect = true
-      end
-    end
-
-    if redirect
-      raise ActionController::RoutingError.new('Not Found')
-    end
-
-  end
-
 end

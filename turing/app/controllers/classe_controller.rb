@@ -1,38 +1,38 @@
 class ClasseController < ApplicationController
   def bacheca
-      @s = ""
-      boards = SchoolClass.where(:year => params[:year], :section => params[:section])[0].boards
-      (0..boards.count-1).step(1) do |n|
-          @s += '<span class="date">' + boards[n].date.to_s + '</span>'
-          @s += '<p>' + boards[n].description + '</p>'
-      end
-      
-      @s = @s.html_safe
+    @s = ""
+    boards = SchoolClass.where(:year => params[:year], :section => params[:section])[0].boards
+    (0..boards.count-1).step(1) do |n|
+      @s += '<span class="date">' + boards[n].date.to_s + '</span>'
+      @s += '<p>' + boards[n].description + '</p>'
+    end
+
+    @s = @s.html_safe
   end
 
   def coordinamento_e_consiglio_di_classe
-      @s = SchoolClass.where(:year => params[:year], :section => params[:section])[0].council
-      @s = @s.html_safe
+    @s = SchoolClass.where(:year => params[:year], :section => params[:section])[0].council
+    @s = @s.html_safe
   end
 
   def materiale
-      @s = "<ul>"
-      books = SchoolClass.where(:year => params[:year], :section => params[:section])[0].materials
-      (0..books.count-1).step(1) do |n|
-          @s += '<li>'
-          @s += '<h2>' + books[n].name + '</h2>'
-          @s += '<p class="isbn">Isbn: ' + books[n].isbn + '</p>'
-          @s += '<p class="publisher">Editore: ' + books[n].publisher + '</p>'
-          @s += '</li>'
-      end
-      @s += '</ul>'
-      
-      @s = @s.html_safe
+    @s = "<ul>"
+    books = SchoolClass.where(:year => params[:year], :section => params[:section])[0].materials
+    (0..books.count-1).step(1) do |n|
+      @s += '<li>'
+      @s += '<h2>' + books[n].name + '</h2>'
+      @s += '<p class="isbn">Isbn: ' + books[n].isbn + '</p>'
+      @s += '<p class="publisher">Editore: ' + books[n].publisher + '</p>'
+      @s += '</li>'
+    end
+    @s += '</ul>'
+
+    @s = @s.html_safe
   end
 
   def orario
-      @s = SchoolClass.where(:year => params[:year], :section => params[:section])[0].timetable
-      @s = @s.html_safe
+    @s = SchoolClass.where(:year => params[:year], :section => params[:section])[0].timetable
+    @s = @s.html_safe
   end
 
 
