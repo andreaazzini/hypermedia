@@ -72,9 +72,31 @@ class ApplicationController < ActionController::Base
     return str
   end
 
+  def print_session
+    if session.has_key?(:user)
+      user = User.where(:username => session[:user])[0]
+      s = "<span class='session_name'>"
+
+      case user.type_user
+        when 0
+          s += user.username
+        when 1
+          s += complete_name(user.username)
+        when 2
+          s += user.username
+      end
+
+      s += "</span>"
+      s += "<span class='session_logout'><a href='/area_riservata/logout'>Logout</a></span>"
+
+      return s.html_safe
+    end
+  end
+
   helper_method :year_to_s
   helper_method :correct_surname
   helper_method :complete_name
   helper_method :dinamic_path
+  helper_method :print_session
 
 end

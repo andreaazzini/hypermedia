@@ -51,6 +51,7 @@ Rails.application.routes.draw do
   get 'area_riservata/registro_elettronico', to: 'area_riservata#registroElettronico'
   get 'area_riservata/comunicazioni_personali', to: 'area_riservata#comunicazioniPersonali'
   get 'area_riservata/login'
+  get 'area_riservata/logout', to: 'area_riservata#login'
 
   post 'area_riservata/login'
 

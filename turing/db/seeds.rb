@@ -166,10 +166,10 @@ board_list = [
 
 
 user_list = [
-    [0, 'admin', 'admin', 'admin@liceoalanturin.it', 0],
-    [1, 'febbo', 'febbo', 'francesca.febbo@liceoalanturin.it', 1],
-    [2, 'buffon_gianluigi', 'buffon_gianluigi', 'buffon_gianluigi_00@hotmail.it', 2],
-    [3, 'd.amico_ilaria', 'd.amico_ilaria', 'ila4ever_2000@libero.it', 2],
+    [0, 'admin', 'admin', 'admin@liceoalanturing.it', 0],
+    [1, 'febbo', 'febbo', 'francesca.febbo@liceoalanturing.it', 1],
+    [2, 'Buffon Gianluigi', 'buffon_gianluigi', 'buffon_gianluigi_00@hotmail.it', 2],
+    [3, 'D.amico Ilaria', 'd.amico_ilaria', 'ila4ever_2000@libero.it', 2],
 ]
 
 teachers_list.each do |id, name, surname, age, photo_url, curriculum|
@@ -258,5 +258,8 @@ user_list.each do |id, username, password, email, type_user|
   if !User.find_by_id(id)
     User.create(id: id, :username => username, password: password,
                 email: email, :type_user => type_user)
+  else
+    user = User.find_by_id(id)
+    user.update(:username => username, password: password, email: email, :type_user => type_user)
   end
 end
