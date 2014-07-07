@@ -47,14 +47,12 @@ Rails.application.routes.draw do
   get 'area_riservata/gestioneRecord', to: 'area_riservata#gestioneRecord'
   get 'area_riservata/login'
   get 'area_riservata/logout', to: 'area_riservata#login'
-  get 'area_riservata/modifica_docente', to: 'area_riservata#docente'
-  get 'area_riservata/nuovo_docente', to: 'area_riservata#docente'
+  get 'area_riservata/docente'
 
   post 'area_riservata/login'
   post 'area_riservata/gestioneRecord'
   post 'area_riservata/gestione_record', to: 'area_riservata#gestioneRecord'
-  post 'area_riservata/modifica_docente', to: 'area_riservata#docente'
-  post 'area_riservata/nuovo_docente', to: 'area_riservata#docente'
+  post 'area_riservata/docente'
 
   get 'scuola', to: 'scuola#storia'
   get 'scuola/storia'

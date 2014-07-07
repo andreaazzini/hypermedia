@@ -14,9 +14,34 @@ class AreaRiservataController < ApplicationController
         flash[:message] = "Docente rimosso con successo"
       end
     end
+
+    if params.has_key?(:classe)
+      if params[:classe][:azione] == "cancella"
+        school_classes = SchoolClass.find_by_id(params[:classe][:id])
+        SchoolClass.destroy(school_classes)
+
+        flash[:message] = "Classe rimossa con successo"
+      end
+    end
   end
 
   def docente
+    if params.has_key?(:docente)
+      if params[:docente][:azione] == "current_nuovo"
+        if params[:docente][:nome] == "" || params[:docente][:cognome] == "" || params[:docente][:curriculum] == ""
+          flash[:message] = "Tutti i moduli devono essere riempiti"
+        else
+          Teacher.create(:name => params[:docente][:nome], :surname => params[:docente][:cognome], :curriculum => params[:docente][:curriculum])
+        end
+      elsif params[:docente][:azione] == "current_modifica"
+        if params[:docente][:nome] == "" || params[:docente][:cognome] == "" || params[:docente][:curriculum] == ""
+          flash[:message] = "Tutti i moduli devono essere riempiti"
+        else
+          teacher = Teacher.find_by_id(params[:docente][:id])
+          teacher.update(:name => params[:docente][:nome], :surname => params[:docente][:cognome], :curriculum => params[:docente][:curriculum])
+        end
+      end
+    end
   end
 
   def login
