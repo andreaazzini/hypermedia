@@ -118,6 +118,18 @@ teaching_list = [
     [3, 0, 4, "matematica", 0],
 ]
 
+book_list_list = [
+    [0, 0, 0],
+    [1, 1, 0],
+    [2, 2, 0],
+    [3, 3, 0],
+    [4, 4, 0],
+    [5, 5, 0],
+    [6, 6, 0],
+    [7, 7, 0],
+    [8, 8, 0],
+]
+
 material_list = [
     [0, "Matematica.blu 1", "9788808111777", "Zanichelli"],
     [1, "Path Ways", "97888478111777", "Oxford Line"],
@@ -190,9 +202,31 @@ teaching_list.each do |id, teacher_id, school_class_id, subject, coordinator|
   end
 end
 
+book_list_list.each do |id, material_id, school_class_id|
+    if !BookList.find_by_id(id)
+        material = Material.find_by_id(material_id)
+        school_class = SchoolClass.find_by_id(school_class_id)
+        
+        BookList.create(id: id, :material => material, :school_class => school_class)
+    end
+end
+
 material_list.each do |id, name, isbn, publisher|
     if !Material.find_by_id(id)
       Material.create(id: id, name: name, isbn: isbn, publisher: publisher)
+    else
+        if !Material.find_by(name: name)
+            material = Material.find_by_id(id)
+            material.update(name: name)
+        end
+        if !Material.find_by(isbn: isbn)
+            material = Material.find_by_id(id)
+            material.update(isbn: isbn)
+        end
+        if !Material.find_by(publisher: publisher)
+            material = Material.find_by_id(id)
+            material.update(publisher: publisher)
+        end
     end
 end
 

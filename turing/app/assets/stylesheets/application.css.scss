@@ -45,7 +45,12 @@ h2 {
     color: $blu_nav;
 }
 
-p, li {
+p {
+    font-size: 14px;
+    color: $blu_nav;
+}
+
+li a {
     font-size: 13px;
     color: $blu_nav;
 }

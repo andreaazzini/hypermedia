@@ -16,13 +16,16 @@ class ClasseController < ApplicationController
   end
 
   def materiale
-      @s = ""
+      @s = "<ul>"
       books = SchoolClass.where(:year => params[:year], :section => params[:section])[0].materials
       (0..books.count-1).step(1) do |n|
+          @s += '<li>'
           @s += '<h2>' + books[n].name + '</h2>'
-          @s += '<p class="isbn">' + books[n].isbn + '</p>'
-          @s += '<p class="publisher">' + books[n].publisher + '</p>'
+          @s += '<p class="isbn">Isbn: ' + books[n].isbn + '</p>'
+          @s += '<p class="publisher">Editore: ' + books[n].publisher + '</p>'
+          @s += '</li>'
       end
+      @s += '</ul>'
       
       @s = @s.html_safe
   end

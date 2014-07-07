@@ -38,6 +38,11 @@ $light_grey: #eee;
 	font-weight: 600;
 }
 
+.board h1 {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
 .board p {
 	margin-right: 15px;
 	padding: 0px;
@@ -140,4 +145,5 @@ div.student {
 
 .back_to_index {
 	clear: both;
+	margin-top: 20px;
 }
