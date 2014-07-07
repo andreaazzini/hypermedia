@@ -1,4 +1,13 @@
+<% log_out %>
+
 <% content_for :title, "Area Riservata" %>
 
-<h1>AreaRiservata#login</h1>
-<p>Find me in app/views/area_riservata/login.html.erb</p>
+<div class="Sign_Form">
+  <h1>Login</h1>
+  <%= form_for(:user, :url => {:controller => 'area_riservata', :action => 'comunicazioniPersonali'}) do |f| %>
+      <p> Username:</br> <%= f.text_field :username %> </p>
+
+      <p> Password:</br> <%= f.password_field :password %></p>
+      <%= f.submit :Login %>
+  <% end %>
+</div>

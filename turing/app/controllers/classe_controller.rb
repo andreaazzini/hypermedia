@@ -95,8 +95,6 @@ class ClasseController < ApplicationController
     return s.html_safe
   end
 
-  helper_method :tutte_le_classi
-
   # url
   # name
   def classe_aside
@@ -106,5 +104,6 @@ class ClasseController < ApplicationController
             [dinamic_path("orario"), "Orario"]]
   end
 
+  helper_method :tutte_le_classi
   helper_method :classe_aside
 end

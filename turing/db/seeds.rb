@@ -23,8 +23,8 @@ office_hours_list = [
 ]
 
 school_classes_list = [
-    [0, 1, 'A', 
-        "<div id='hours' class='timetable-column'><div class='day'><h2>
+    [0, 1, 'A',
+     "<div id='hours' class='timetable-column'><div class='day'><h2>
         </h2></div><div class='prima-ora'><h2>
         08:20-09:15</h2></div><div class='seconda-ora'><h2>
         09:15-10:10</h2></div><div class='terza-ora'><h2>
@@ -82,7 +82,7 @@ school_classes_list = [
         Scienze</p></div><div class='quarta-ora'><p>
         Inglese</p></div><div class='quinta-ora'><p>
         Informatica</p></div></div>",
-        "<p>Il Consiglio di Classe della classe Prima A, in attivit&agrave 
+     "<p>Il Consiglio di Classe della classe Prima A, in attivit&agrave
         dal 2 ottobre 2013 e per tutto l'Anno Scolastico 2013-2014, &egrave; 
         composto dai 2 alunni di seguito.</p><div class='student-1'></div>
         <div class='student'><h2>Gianluigi Buffon</h2><blockquote>Ogni buona 
@@ -164,6 +164,14 @@ board_list = [
         nella stessa data dalle ore 11:10 alle 13:15."],
 ]
 
+
+user_list = [
+    [0, 'admin', 'admin', 'admin@liceoalanturin.it', 0],
+    [1, 'febbo', 'febbo', 'francesca.febbo@liceoalanturin.it', 1],
+    [2, 'buffon_gianluigi', 'buffon_gianluigi', 'buffon_gianluigi_00@hotmail.it', 2],
+    [3, 'd.amico_ilaria', 'd.amico_ilaria', 'ila4ever_2000@libero.it', 2],
+]
+
 teachers_list.each do |id, name, surname, age, photo_url, curriculum|
   if !Teacher.find_by_id(id)
     Teacher.create(id: id, name: name, surname: surname, age: age,
@@ -179,17 +187,17 @@ end
 
 school_classes_list.each do |id, yaer, section, timetable, council|
   if !SchoolClass.find_by_id(id)
-      SchoolClass.create(id: id, year: yaer, section: section,
-                         timetable: timetable, council: council)
+    SchoolClass.create(id: id, year: yaer, section: section,
+                       timetable: timetable, council: council)
   else
-      if !SchoolClass.find_by(timetable: timetable)
-          board = SchoolClass.find_by_id(id)
-          board.update(timetable: timetable)
-      end
-      if !SchoolClass.find_by(council: council)
-          board = SchoolClass.find_by_id(id)
-          board.update(council: council)
-      end
+    if !SchoolClass.find_by(timetable: timetable)
+      board = SchoolClass.find_by_id(id)
+      board.update(timetable: timetable)
+    end
+    if !SchoolClass.find_by(council: council)
+      board = SchoolClass.find_by_id(id)
+      board.update(council: council)
+    end
   end
 end
 
@@ -203,45 +211,52 @@ teaching_list.each do |id, teacher_id, school_class_id, subject, coordinator|
 end
 
 book_list_list.each do |id, material_id, school_class_id|
-    if !BookList.find_by_id(id)
-        material = Material.find_by_id(material_id)
-        school_class = SchoolClass.find_by_id(school_class_id)
-        
-        BookList.create(id: id, :material => material, :school_class => school_class)
-    end
+  if !BookList.find_by_id(id)
+    material = Material.find_by_id(material_id)
+    school_class = SchoolClass.find_by_id(school_class_id)
+
+    BookList.create(id: id, :material => material, :school_class => school_class)
+  end
 end
 
 material_list.each do |id, name, isbn, publisher|
-    if !Material.find_by_id(id)
-      Material.create(id: id, name: name, isbn: isbn, publisher: publisher)
-    else
-        if !Material.find_by(name: name)
-            material = Material.find_by_id(id)
-            material.update(name: name)
-        end
-        if !Material.find_by(isbn: isbn)
-            material = Material.find_by_id(id)
-            material.update(isbn: isbn)
-        end
-        if !Material.find_by(publisher: publisher)
-            material = Material.find_by_id(id)
-            material.update(publisher: publisher)
-        end
+  if !Material.find_by_id(id)
+    Material.create(id: id, name: name, isbn: isbn, publisher: publisher)
+  else
+    if !Material.find_by(name: name)
+      material = Material.find_by_id(id)
+      material.update(name: name)
     end
+    if !Material.find_by(isbn: isbn)
+      material = Material.find_by_id(id)
+      material.update(isbn: isbn)
+    end
+    if !Material.find_by(publisher: publisher)
+      material = Material.find_by_id(id)
+      material.update(publisher: publisher)
+    end
+  end
 end
 
 board_list.each do |id, school_class_id, date, description|
-    school_class = SchoolClass.find_by_id(school_class_id)
-    if !Board.find_by_id(id)
-        Board.create(id: id, :school_class => school_class, date: date, description: description)
-    else
-        if !Board.find_by(description: description)
-            board = Board.find_by_id(id)
-            board.update(description: description)
-        end
-        if !Board.find_by(date: date)
-            board = Board.find_by_id(id)
-            board.update(date: date)
-        end
+  school_class = SchoolClass.find_by_id(school_class_id)
+  if !Board.find_by_id(id)
+    Board.create(id: id, :school_class => school_class, date: date, description: description)
+  else
+    if !Board.find_by(description: description)
+      board = Board.find_by_id(id)
+      board.update(description: description)
     end
+    if !Board.find_by(date: date)
+      board = Board.find_by_id(id)
+      board.update(date: date)
+    end
+  end
+end
+
+user_list.each do |id, username, password, email, type_user|
+  if !User.find_by_id(id)
+    User.create(id: id, :username => username, password: password,
+                email: email, :type_user => type_user)
+  end
 end

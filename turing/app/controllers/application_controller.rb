@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   # name
   # 0 normal li, 1 has children, 2 last child
   def footer_nav
-    return [["/area_riservata/comunicazioniPersonali", "Area Riservata", 0],
+    return [["/area_riservata/comunicazioni_personali", "Area Riservata", 0],
             ["#", "Contatti", 0],
             ["#", "Informazioni Legali", 0]]
   end
@@ -44,9 +44,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :year_to_s
-
-
   def correct_surname(string)
     str = string.split("_")
     for s in str
@@ -55,15 +52,11 @@ class ApplicationController < ActionController::Base
     return str.join(" ")
   end
 
-  helper_method :correct_surname
-
   def complete_name(surname)
     s = correct_surname(surname)
     teacher = Teacher.where(surname: s)
     return teacher[0].name + " " + teacher[0].surname
   end
-
-  helper_method :complete_name
 
   def dinamic_path(action)
     str = request.path
@@ -79,6 +72,9 @@ class ApplicationController < ActionController::Base
     return str
   end
 
+  helper_method :year_to_s
+  helper_method :correct_surname
+  helper_method :complete_name
   helper_method :dinamic_path
 
 end

@@ -38,9 +38,12 @@ Rails.application.routes.draw do
   get 'docente/:surname/:year/:section/materiale', to: 'classe#materiale'
   get 'docente/:surname/:year/:section/orario', to: 'classe#orario'
 
-  get 'area_riservata/registroElettronico'
-  get 'area_riservata/comunicazioniPersonali'
+  get 'area_riservata/registro_elettronico', to: 'area_riservata#registroElettronico'
+  get 'area_riservata/comunicazioni_personali', to: 'area_riservata#comunicazioniPersonali'
   get 'area_riservata/login'
+
+  post 'area_riservata/comunicazioniPersonali'
+  post 'area_riservata/comunicazioni_personali', to: 'area_riservata#comunicazioniPersonali'
 
   get 'scuola', to: 'scuola#storia'
   get 'scuola/storia'

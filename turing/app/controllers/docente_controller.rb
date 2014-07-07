@@ -67,8 +67,6 @@ class DocenteController < ApplicationController
     return s.html_safe
   end
 
-  helper_method :tutti_i_docenti
-
   # url
   # name
   def docente_aside
@@ -76,6 +74,7 @@ class DocenteController < ApplicationController
             [dinamic_path("orario_ricevimenti"), "Orario Ricevimento"]]
   end
 
+  helper_method :tutti_i_docenti
   helper_method :docente_aside
 
 end

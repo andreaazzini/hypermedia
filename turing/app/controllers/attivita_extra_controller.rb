@@ -8,8 +8,6 @@ class AttivitaExtraController < ApplicationController
     return [[dinamic_path("descrizione"), "Descrizione"]]
   end
 
-  helper_method :attivita_aside
-
   def tutte_le_attivita
     if params.has_key?(:type) || params.has_key?(:surname)
       if params.has_key?(:surname)
@@ -34,7 +32,7 @@ class AttivitaExtraController < ApplicationController
         if surname
           old = Teacher.where(:surname => surname)[0].activities.order(:surname).pluck(:surname)[teachers * column]
         else
-          old = Activity.where(:type => type).order(:name).pluck(:name)[activities * column]
+          old = Activity.where(:type => type).order(:name).pluck(:name)[activities * column][0]
         end
 
         s += "<div class='column'>"
@@ -65,6 +63,7 @@ class AttivitaExtraController < ApplicationController
     end
   end
 
+  helper_method :attivita_aside
   helper_method :tutte_le_attivita
 
 end
