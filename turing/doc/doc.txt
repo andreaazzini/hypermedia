@@ -1,0 +1,25 @@
+GEMME UTILIZZATE
+
+Prima di eseguire rails server, eseguire bundle install per installare le gemme mancanti. È stata utilizzata la gem normalize per normalizzare il CSS così da standardizzarlo per tutti i browser web.
+
+FRAMMENTO IMPLEMENTATO
+
+- Home Page
+- Single Topic "Scuola" completo in tutti i suoi dialogue act
+- Multiple Topic "Classe", di cui è completamente visualizzabile la classe Prima A
+- Multiple Topic "Docente", di cui è completamente visualizzabile il docente Francesca Febbo
+- Multiple Topic "Attività Extra"
+- Group Of Topic "Classe"
+- Group Of Topic "Docente"
+- Multiple Group Of Topic "Attività Extra"
+- Pagine di interfaccia editoriale accessibili dal landmark "Area Riservata" in fondo ad ogni pagina
+- Connessioni complete tra tutti i multiple topic (e i rispettivi group e multiple group) implementati
+
+FUNZIONALITà AGGIUNTIVE
+
+- Breadcrumps intelligenti, che ricordino il percorso di arrivo ad una determinata sezione dell'applicativo (due percorsi diversi generano due breadcrumps diversi)
+- Piccola animazione del dropdown menu nell'header, con i sottomenù che variano la propria opacità e visibilità con un'animazione (è stata utilizzata una trasformazione in puro CSS3 per rendere meno pesante il progetto)
+
+INTERFACCIA EDITORIALE
+
+Per accedere all'interfaccia editoriale, è sufficiente cliccare il link "Area Riservata" in fondo ad ogni pagina. Da lì sarà possibile aggiungere, aggiornare o eliminare un record relativo ad un docente, classe o attività extra
