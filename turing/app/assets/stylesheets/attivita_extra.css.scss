@@ -1,3 +1,47 @@
 // Place all the styles related to the AttivitaExtra controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+a {
+	text-decoration: none;
+}
+
+.activity {
+	height: 250px;
+	margin-top: 15px;
+	margin-right: 15px;
+}
+
+.activity h1 {
+	display: block;
+	color: #fff;
+	padding-top: 15px;
+	margin-left: 15px;
+}
+
+#sport {
+	background: url(sport.jpg) no-repeat;
+	opacity: 0.9;
+}
+
+#sport:hover {
+	opacity: 1;
+}
+
+#scientific {
+	background: url(scientific.jpg) no-repeat;
+	opacity: 0.9;
+}
+
+#scientific:hover {
+	opacity: 1;
+}
+
+#conference {
+	background: url(conference.jpg) no-repeat;
+	opacity: 0.9;
+}
+
+#conference:hover {
+	opacity: 1;
+}
