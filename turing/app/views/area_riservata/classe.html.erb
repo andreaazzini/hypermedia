@@ -17,13 +17,6 @@
           <%= f.submit(:Modifica) %>
       <% end %>
 
-      <%= form_for(:classe, :url => {:controller => 'area_riservata', :action => 'classe'}) do |f| %>
-          <%= f.hidden_field(:id, :value => classe.id.to_s) %>
-          <%= f.hidden_field(:azione, :value => "cancella") %>
-          <%= f.submit(:Cancella) %>
-      <% end %>
-
-
   <% else %>
       <h1>Nuova classe</h1>
       <%= form_for(:classe, :url => {:controller => 'area_riservata', :action => 'classe'}) do |f| %>

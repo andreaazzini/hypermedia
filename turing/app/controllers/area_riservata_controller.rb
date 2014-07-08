@@ -59,11 +59,6 @@ class AreaRiservataController < ApplicationController
           flash[:message] = "Classe aggiornata correttamente"
           redirect_to :controller => "area_riservata", :action => "gestioneRecord"
         end
-      elsif params[:classe][:azione] == "cancella"
-        school_class = SchoolClass.find_by_id(params[:classe][:id])
-        SchoolClass.destroy(school_class)
-        flash[:message] = "Classe cancellata correttamente"
-        redirect_to :controller => "area_riservata", :action => "gestioneRecord"
       end
     end
   end
