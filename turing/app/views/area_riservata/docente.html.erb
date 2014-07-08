@@ -4,32 +4,32 @@
 
 <%= flash[:message] %>
 <div class="form_docente">
-  <% if params.has_key?(:docente)
+  <% if !params[:docente].nil?
        docente = Teacher.find_by_id(params[:docente][:id])
   %>
       <h1>Modifica docente</h1>
       <%= form_for(:docente, :url => {:controller => 'area_riservata', :action => 'docente'}) do |f| %>
-          <p>Nome:</br> <%= f.text_field :nome, :value => docente.name %> </p>
+          <p>Nome:</br> <%= f.text_field(:nome, :value => docente.name) %> </p>
 
-          <p>Cognome:</br> <%= f.text_field :cognome, :value => docente.surname %></p>
+          <p>Cognome:</br> <%= f.text_field(:cognome, :value => docente.surname) %></p>
 
-          <p>Curriculum:</br> <%= f.text_area :curriculum, :value => docente.curriculum %></p>
+          <p>Curriculum:</br> <%= f.text_area(:curriculum, :value => docente.curriculum) %></p>
 
-          <%= f.hidden_field_tag :id, docente.id.to_s %>
-          <%= f.hidden_field_tag :azione, :value => "current_modifica" %>
-          <%= f.submit :Modidica %>
+          <%= f.hidden_field_tag(:id, docente.id.to_s) %>
+          <%= f.hidden_field_tag(:azione, :value => "current_modifica") %>
+          <%= f.submit(:Modidica) %>
       <% end %>
   <% else %>
       <h1>Nuovo docente</h1>
       <%= form_for(:docente, :url => {:controller => 'area_riservata', :action => 'docente'}) do |f| %>
-          <p>Nome:</br> <%= f.text_field :nome %> </p>
+          <p>Nome:</br> <%= f.text_field(:nome) %> </p>
 
-          <p>Cognome:</br> <%= f.text_field :cognome %></p>
+          <p>Cognome:</br> <%= f.text_field(:cognome) %></p>
 
-          <p>Curriculum:</br> <%= f.text_area :curriculum %></p>
+          <p>Curriculum:</br> <%= f.text_area(:curriculum) %></p>
 
           <%= f.hidden_field(:azione, :value => "current_nuovo") %>
-          <%= f.submit :Crea %>
+          <%= f.submit(:Crea) %>
       <% end %>
   <% end %>
 </div>

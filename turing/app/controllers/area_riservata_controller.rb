@@ -30,15 +30,21 @@ class AreaRiservataController < ApplicationController
       if params[:docente][:azione] == "current_nuovo"
         if params[:docente][:nome] == "" || params[:docente][:cognome] == "" || params[:docente][:curriculum] == ""
           flash[:message] = "Tutti i moduli devono essere riempiti"
+          params[:docente] = nil
         else
           Teacher.create(:name => params[:docente][:nome], :surname => params[:docente][:cognome], :curriculum => params[:docente][:curriculum])
+          flash[:message] = "Docente inserito correttamente"
+          redirect_to :controller => "area_riservata", :action => "gestioneRecord"
         end
       elsif params[:docente][:azione] == "current_modifica"
         if params[:docente][:nome] == "" || params[:docente][:cognome] == "" || params[:docente][:curriculum] == ""
           flash[:message] = "Tutti i moduli devono essere riempiti"
+          params[:docente] = nil
         else
           teacher = Teacher.find_by_id(params[:docente][:id])
           teacher.update(:name => params[:docente][:nome], :surname => params[:docente][:cognome], :curriculum => params[:docente][:curriculum])
+          flash[:message] = "Docente aggiornato correttamente"
+          redirect_to :controller => "area_riservata", :action => "gestioneRecord"
         end
       end
     end

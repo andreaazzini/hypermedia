@@ -18,21 +18,25 @@ module AreaRiservataHelper
   end
 
   def print_teacher_delete(id)
-    s = form_for(:docente, :url => {:controller => 'area_riservata', :action => 'gestioneRecord'}) do |f|
-      s += f.hidden_field(:username, :value => id)
-      s += f.hidden_field(:azione, :value => "cancella")
-      s += f.submit :Cancella
+    a = form_for(:docente, :url => {:controller => 'area_riservata', :action => 'gestioneRecord'}) do |f|
+      a += f.hidden_field(:id, :value => id)
+      a += f.hidden_field(:azione, :value => "cancella")
+      a += f.submit(:Cancella)
     end
-    return s.html_safe
+
+    s = a.html_safe
+    return s
   end
 
   def print_teacher_modify(id)
-    s = form_for(:docente, :url => {:controller => 'area_riservata', :action => 'docente'}) do |f|
-      s += f.hidden_field(:username, :value => id)
-      s += f.hidden_field(:azione, :value => "modifica")
-      s += f.submit :Modifica
+    a = form_for(:docente, :url => {:controller => 'area_riservata', :action => 'docente'}) do |f|
+      a += f.hidden_field(:id, :value => id)
+      a += f.hidden_field(:azione, :value => "modifica")
+      a += f.submit(:Modifica)
     end
-    return s.html_safe
+
+    s = a.html_safe
+    return s
   end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707235544) do
+ActiveRecord::Schema.define(version: 20140708010305) do
 
   create_table "activities", force: true do |t|
     t.integer  "structure_id"
@@ -21,14 +21,6 @@ ActiveRecord::Schema.define(version: 20140707235544) do
     t.string   "name"
     t.string   "activity_type"
   end
-
-  create_table "activities_teachers", id: false, force: true do |t|
-    t.integer "teacher_id",  null: false
-    t.integer "activity_id", null: false
-  end
-
-  add_index "activities_teachers", ["activity_id"], name: "index_activities_teachers_on_activity_id"
-  add_index "activities_teachers", ["teacher_id"], name: "index_activities_teachers_on_teacher_id"
 
   create_table "boards", force: true do |t|
     t.integer  "school_class_id"
