@@ -3,7 +3,9 @@ module AttivitaExtraHelper
   def back_to_index_attivita
     s = "<div class='back_to_index'>"
 
-    if params.has_key?(:surname)
+    if params.has_key?(:surname) && params.has_key?(:id)
+      s += "<a href='/docente/" + params[:surname] + "/attivita_che_coordina'>Torna alle Attivit&agrave; che coordina</a>"
+    elsif params.has_key?(:surname)
       s += "<a href='/docente/" + params[:surname] + "'>Torna al docente</a>"
     elsif params.has_key?(:activity_type)
       s += "<a href='/attivita_extra'>Torna a Tutte le Attivit&agrave; Extracurricolari</a>"
@@ -55,7 +57,7 @@ module AttivitaExtraHelper
     url = ""
 
     if params.has_key?(:surname)
-      activities = Teacher.where(:surname => params[:surname])[0].activities
+      activities = Teacher.where(:surname => correct_surname(params[:surname]))[0].activities
       url = "/docente/" + params[:surname] + "/"
     else
       activity_type = Activity.find_by_id(id).activity_type

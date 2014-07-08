@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   get 'docente/:surname/orario_ricevimenti', to: 'docente#orario_ricevimenti'
   get 'docente/:surname/classi_in_cui_insegna', to: 'classe#tutte_le_classi'
   get 'docente/:surname/attivita_che_coordina', to: 'attivita_extra#tutte_le_attivita'
-  get 'docente/:surname/:id', to: 'attivita_extra#descrizione'
+  get 'docente/:surname/:id/descrizione', to: 'attivita_extra#descrizione'
 
   post 'docente/:surname/orario_ricevimenti', to: 'docente#orario_ricevimenti'
 

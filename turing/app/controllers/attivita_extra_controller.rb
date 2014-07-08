@@ -18,7 +18,7 @@ class AttivitaExtraController < ApplicationController
       if params.has_key?(:surname)
         surname = params[:surname]
 
-        activities = Teacher.where(:surname => surname)[0].activities.count
+        activities = Teacher.where(:surname => correct_surname(surname))[0].activities.count
       else
         activity_type = params[:activity_type]
 
@@ -35,7 +35,7 @@ class AttivitaExtraController < ApplicationController
       (0..1).step(1) do |column|
 
         if surname
-          old = Teacher.where(:surname => surname)[0].activities.order(:surname).pluck(:surname)[teachers * column]
+          old = Teacher.where(:surname => correct_surname(surname))[0].activities.order(:name).pluck(:name)[activities * column]
         else
           old = Activity.where(:activity_type => activity_type).order(:name).pluck(:name)[activities * column]
         end
@@ -44,7 +44,7 @@ class AttivitaExtraController < ApplicationController
         (0..activities - 1).step(1) do |n|
 
           if surname
-            attivita = Teacher.where(:surname => surname)[0].activities.order(:surname).pluck(:id)[teachers * column + n]
+            attivita = Teacher.where(:surname => correct_surname(surname))[0].activities.order(:name).pluck(:id, :name)[activities * column + n]
           else
             attivita = Activity.where(:activity_type => activity_type).order(:name).pluck(:id, :name)[activities * column + n]
           end
@@ -55,10 +55,16 @@ class AttivitaExtraController < ApplicationController
               s += "<br />"
               old = current
             end
-
-            s += "<a href='/attivita_extra/" + attivita[0].to_s + "/descrizione'>"
-            s += attivita[1]
-            s += "</a><br />"
+            
+            if surname
+                s += "<a href='/docente/" + surname + "/" + attivita[0].to_s + "/descrizione'>"
+                s += attivita[1]
+                s += "</a><br />"
+            else
+                s += "<a href='/attivita_extra/" + attivita[0].to_s + "/descrizione'>"
+                s += attivita[1]
+                s += "</a><br />"
+            end
           end
         end
         s += "</div>\n"
