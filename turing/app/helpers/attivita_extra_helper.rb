@@ -85,12 +85,12 @@ module AttivitaExtraHelper
 
     if id_prev != ""
       s += "<div class='prev'><a href='" + url + id_prev.to_s
-      s += "'>Attivit&agrave; Precedente</a></div>"
+      s += "/descrizione'>Attivit&agrave; Precedente</a></div>"
     end
 
     if id_next != ""
       s += "<div class='next'><a href='" + url + id_next.to_s
-      s += "'>Attivit&agrave; Seguente</a></div>"
+      s += "/descrizione'>Attivit&agrave; Seguente</a></div>"
     end
 
     return s.html_safe
