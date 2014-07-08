@@ -5,29 +5,12 @@ class AreaRiservataController < ApplicationController
   def comunicazioniPersonali
   end
 
-  def gestionRecord
-    if params.has_key?(:docente)
-      if params[:docente][:azione] == "cancella"
-        teacher = Teacher.find_by_id(params[:docente][:id])
-        Teacher.destroy(teacher)
-
-        flash[:message] = "Docente rimosso con successo"
-      end
-    end
-
-    if params.has_key?(:classe)
-      if params[:classe][:azione] == "cancella"
-        school_classes = SchoolClass.find_by_id(params[:classe][:id])
-        SchoolClass.destroy(school_classes)
-
-        flash[:message] = "Classe rimossa con successo"
-      end
-    end
+  def gestioneRecord
   end
 
   def docente
     if params.has_key?(:docente)
-      if params[:docente][:azione] == "current_nuovo"
+      if params[:docente][:azione] == "nuovo"
         if params[:docente][:nome] == "" || params[:docente][:cognome] == "" || params[:docente][:curriculum] == ""
           flash[:message] = "Tutti i moduli devono essere riempiti"
           params[:docente] = nil
@@ -36,7 +19,7 @@ class AreaRiservataController < ApplicationController
           flash[:message] = "Docente inserito correttamente"
           redirect_to :controller => "area_riservata", :action => "gestioneRecord"
         end
-      elsif params[:docente][:azione] == "current_modifica"
+      elsif params[:docente][:azione] == "modifica"
         if params[:docente][:nome] == "" || params[:docente][:cognome] == "" || params[:docente][:curriculum] == ""
           flash[:message] = "Tutti i moduli devono essere riempiti"
           params[:docente] = nil
@@ -46,6 +29,11 @@ class AreaRiservataController < ApplicationController
           flash[:message] = "Docente aggiornato correttamente"
           redirect_to :controller => "area_riservata", :action => "gestioneRecord"
         end
+      elsif params[:docente][:azione] == "cancella"
+        teacher = Teacher.find_by_id(params[:docente][:id])
+        Teacher.destroy(teacher)
+        flash[:message] = "Docente cancellato correttamente"
+        redirect_to :controller => "area_riservata", :action => "gestioneRecord"
       end
     end
   end
