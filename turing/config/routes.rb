@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   get 'docente/:surname/:id/descrizione', to: 'attivita_extra#descrizione'
 
   post 'docente/:surname/orario_ricevimenti', to: 'docente#orario_ricevimenti'
+  post 'classe/:year/:section/:surname/orario_ricevimenti', to: 'docente#orario_ricevimenti'
 
   get 'docente/:surname/:year/:section', to: 'classe#bacheca'
   get 'docente/:surname/:year/:section/bacheca', to: 'classe#bacheca'
