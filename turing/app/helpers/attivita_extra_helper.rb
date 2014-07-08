@@ -35,7 +35,7 @@ module AttivitaExtraHelper
       s += "<a href='/docente/" + params[:surname] + "/attivita_che_coordina'>Attivita che Coordina</a> &gt; "
 
       s += Activity.find_by_id(params[:id]).name
-    else
+    elsif params.has_key?(:activity_type)
       s += "<a href='/attivita_extra'>Attivit&agrave; Extracurriculari</a> &gt; "
 
       s += "<a href='/attivita_extra/" + Activity.find_by_id(params[:id]).activity_type + "'>"

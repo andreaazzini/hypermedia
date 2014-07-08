@@ -1,26 +1,34 @@
 <% content_for :title, "Attività Extracurricolari" %>
 
+<%= create_attivita_path %>
+
 <div>
   <% if params.has_key?(:activity_type) || params.has_key?(:surname) %>
-  <% if params[:activity_type] == 'sportive' %>
-  <h1>Attivit&agrave; Sportive</h1>
-  <% elsif params[:activity_type] == 'scientifiche' %>
-  <h1>Attivit&agrave; Scientifiche</h1>
-  <% else %>
-  <h1>Conferenze</h1>
-  <% end %>
+      <% if params[:activity_type] == 'sportive' %>
+          <h1>Attivit&agrave; Sportive</h1>
+      <% elsif params[:activity_type] == 'scientifiche' %>
+          <h1>Attivit&agrave; Scientifiche</h1>
+      <% else %>
+          <h1>Conferenze</h1>
+      <% end %>
       <%= tutte_le_attivita %>
   <% else %>
-  	<h1>Tutte le Attivit&agrave; Extracurricolari</h1>
-  	<a href='/attivita_extra/sportive'><div id='sport' class='activity'>
-  		<h1>Attivit&agrave; Sportive</h1>
-  	</div></a>
-  	<a href='/attivita_extra/scientifiche'><div id='scientific' class='activity'>
-  		<h1>Attivit&agrave; Scientifiche</h1>
-  	</div></a>
-  	<a href='/attivita_extra/conferenze'><div id='conference' class='activity'>
-  		<h1>Conferenze</h1>
-  	</div></a>
+      <h1>Tutte le Attivit&agrave; Extracurricolari</h1>
+      <a href='/attivita_extra/sportive'>
+        <div id='sport' class='activity'>
+          <h1>Attivit&agrave; Sportive</h1>
+        </div>
+      </a>
+      <a href='/attivita_extra/scientifiche'>
+        <div id='scientific' class='activity'>
+          <h1>Attivit&agrave; Scientifiche</h1>
+        </div>
+      </a>
+      <a href='/attivita_extra/conferenze'>
+        <div id='conference' class='activity'>
+          <h1>Conferenze</h1>
+        </div>
+      </a>
   <% end %>
 </div>
 
