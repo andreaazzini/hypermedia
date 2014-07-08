@@ -25,7 +25,7 @@ module AttivitaExtraHelper
   def create_attivita_path
     s = "<div class='path'>"
 
-    if params.has_key?(:surname)
+    if params.has_key?(:surname) && params.has_key?(:id)
       s += "<a href='/docente'>Docente</a> &gt; "
 
       s += "<a href='/docente/" + params[:surname] + "'>"
@@ -35,7 +35,14 @@ module AttivitaExtraHelper
       s += "<a href='/docente/" + params[:surname] + "/attivita_che_coordina'>Attivita che Coordina</a> &gt; "
 
       s += Activity.find_by_id(params[:id]).name
-    elsif params.has_key?(:activity_type)
+    elsif params.has_key?(:surname)
+      s += "<a href='/docente'>Docente</a> &gt; "
+
+      s += "<a href='/docente/" + params[:surname] + "'>"
+      s += complete_name(params[:surname])
+      s += "</a> &gt; Attivit&agrave; che coordina"
+
+    elsif params.has_key?(:id)
       s += "<a href='/attivita_extra'>Attivit&agrave; Extracurriculari</a> &gt; "
 
       s += "<a href='/attivita_extra/" + Activity.find_by_id(params[:id]).activity_type + "'>"
@@ -43,6 +50,9 @@ module AttivitaExtraHelper
       s += "</a> &gt; "
 
       s += Activity.find_by_id(params[:id]).name
+    elsif params.has_key?(:activity_type)
+      s += "<a href='/attivita_extra'>Attivit&agrave; Extracurriculari</a> &gt; "
+      s += "Attivit&agrave; Extracurricolari " + params[:activity_type].capitalize
     end
 
     s += "</div>"

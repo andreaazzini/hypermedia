@@ -1,9 +1,10 @@
 module ClasseHelper
 
   def create_class_path
-    s = "<div class='path'>"
+    s = ""
 
-    if params.has_key?(:surname)
+    if params.has_key?(:surname) && params.has_key?(:year) && params.has_key?(:section)
+      s = "<div class='path'>"
       s += "<a href='/docente'>Docenti</a> &gt; "
 
       s += "<a href='/docente/" + params[:surname] + "'>"
@@ -12,12 +13,22 @@ module ClasseHelper
 
       s += "<a href='/docente/" + params[:surname] + "/classi_in_cui_insegna'>Classi in cui Insegna</a> &gt; "
       s += complete_class_name
-    else
+      s += "</div>"
+    elsif params.has_key?(:surname)
+      s = "<div class='path'>"
+      s += "<a href='/docente'>Docenti</a> &gt; "
+
+      s += "<a href='/docente/" + params[:surname] + "'>"
+      s += complete_name(params[:surname])
+      s += "</a> &gt; Classi in cui insegna"
+      s += "</div>"
+    elsif params.has_key?(:year) && params.has_key?(:section)
+      s = "<div class='path'>"
       s += "<a href='/classe'>Classi</a> &gt; "
       s += complete_class_name
+      s += "</div>"
     end
 
-    s += "</div>"
     return s.html_safe
   end
 
@@ -26,15 +37,22 @@ module ClasseHelper
   end
 
   def back_to_index_classe
-    s = "<div class='back_to_index'><a href='"
+    s = ""
 
-    if params.has_key?(:surname)
+    if params.has_key?(:surname) && params.has_key?(:year) && params.has_key?(:section)
+      s = "<div class='back_to_index'><a href='"
       s += "/docente/" + params[:surname] + "/classi_in_cui_insegna'>Torna a Classi in cui insegna"
-    else
+      s += "</a></div>"
+    elsif params.has_key?(:surname)
+      s = "<div class='back_to_index'><a href='"
+      s += "/docente/" + params[:surname] + "'>Torna al Docente"
+      s += "</a></div>"
+    elsif params.has_key?(:year) && params.has_key?(:section)
+      s = "<div class='back_to_index'><a href='"
       s += "/classe'>Torna a Tutte le classi"
+      s += "</a></div>"
     end
 
-    s += "</a></div>"
     return s.html_safe
   end
 

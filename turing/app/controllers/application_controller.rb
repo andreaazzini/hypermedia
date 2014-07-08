@@ -86,8 +86,7 @@ class ApplicationController < ActionController::Base
         when 1
           s += complete_name(user.username)
         when 2
-          s += user.username
-      end
+          s += user.loginmeDisconnetti end
 
       s += "&nbsp;&nbsp;|</span>"
 

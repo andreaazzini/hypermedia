@@ -4,13 +4,15 @@
 
 <div>
   <% if params.has_key?(:activity_type) || params.has_key?(:surname) %>
+
       <% if params[:activity_type] == 'sportive' %>
           <h1>Attivit&agrave; Sportive</h1>
       <% elsif params[:activity_type] == 'scientifiche' %>
           <h1>Attivit&agrave; Scientifiche</h1>
-      <% else %>
+      <% elsif params[:activity_type] == 'conferenze'  %>
           <h1>Conferenze</h1>
       <% end %>
+
       <%= tutte_le_attivita %>
   <% else %>
       <h1>Tutte le Attivit&agrave; Extracurricolari</h1>
