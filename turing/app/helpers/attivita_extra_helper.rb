@@ -62,7 +62,7 @@ module AttivitaExtraHelper
     else
       activity_type = Activity.find_by_id(id).activity_type
       activities = Activity.where(:activity_type => activity_type)
-      url = "/attivita_extra/" + activity_type + "/"
+      url = "/attivita_extra/"
     end
 
     n = 0
