@@ -20,6 +20,7 @@ FUNZIONALITà AGGIUNTIVE
 
 - Breadcrumps intelligenti, che ricordino il percorso di arrivo ad una determinata sezione dell'applicativo (due percorsi diversi generano due breadcrumps diversi)
 - Piccola animazione del dropdown menu nell'header, con i sottomenù che variano la propria opacità e visibilità con un'animazione (è stata utilizzata una trasformazione in puro CSS3 per rendere meno pesante il progetto)
+- Gestione avanzata delle sessioni di login/logout, con inserimento, aggiornamento ed eliminazione delle entry da database
 
 INTERFACCIA EDITORIALE
 
