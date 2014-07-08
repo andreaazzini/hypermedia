@@ -1,16 +1,18 @@
 <% content_for :title, "Attività Extra • " + complete_activity_name %>
 <% content_for :aside do %>
     <h1><%= complete_activity_name %></h1>
-	<%= print_aside(attivita_aside) %>
+    <%= print_aside(attivita_aside) %>
 <% end %>
 <%= create_attivita_path %>
 
 <div class='attivita'>
-	<%= @s %>
+  <%= @s %>
 </div>
 
-<h2>Docenti responsabili</h2>
-<%= @t %>
+<% if !params.has_key?(:surname) %>
+    <h2>Docenti responsabili</h2>
+    <%= @t %>
+<% end %>
 
 <%= create_attivita_next_previous %>
 

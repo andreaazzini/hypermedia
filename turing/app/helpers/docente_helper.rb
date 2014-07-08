@@ -20,6 +20,16 @@ module DocenteHelper
       s += year_to_s(params[:year])
       s += " " + params[:section].upcase
       s += "</a> &gt; Docenti della Classe"
+    elsif params.has_key?(:surname) && params.has_key?(:id)
+      s += "<a href='/attivita_extra'>Attivit&agrave; Extracurricolari</a> &gt; "
+
+      s += "<a href='/attivita_extra/" + Activity.find_by_id(params[:id]).activity_type + "'>"
+      s += "Attivit&agrave; Extracurricolari " + Activity.find_by_id(params[:id]).activity_type + "</a> &gt; "
+
+      s += "<a href='/attivita_extra/" + params[:id] + "/descrizione'>"
+      s += Activity.find_by_id(params[:id]).name + "</a> &gt; "
+
+      s += complete_name(params[:surname])
     elsif params.has_key?(:surname)
       s += "<a href='/docente'>Docenti</a> &gt; "
       s += complete_name(params[:surname])
@@ -45,9 +55,13 @@ module DocenteHelper
       s = "<div class='back_to_index'><a href='"
       s += "/classe/" + params[:year] + "/" + params[:section] + "'>Torna alla classe"
       s += "</a></div>"
+    elsif params.has_key?(:id) && params.has_key?(:surname)
+      s = "<div class='back_to_index'><a href='"
+      s += "/attivita_extra/" + params[:id] + "/descrizione'>Torna all'attivit&agrave;: " + Activity.find_by_id(params[:id]).name
+      s += "</a></div>"
     elsif params.has_key?(:id)
       s = "<div class='back_to_index'><a href='"
-      s += "/attivita_extra/" + params[:id] + "'>Torna all'attivit&agrave;: " + Activity.find_by_id(params[:id]).name
+      s += "/attivita_extra/" + params[:id] + "/descrizione'>Torna all'attivit&agrave;: " + Activity.find_by_id(params[:id]).name
       s += "</a></div>"
     elsif params.has_key?(:surname)
       s = "<div class='back_to_index'><a href='"
