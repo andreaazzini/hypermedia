@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$blu_nav: rgb(28, 39, 79);
+
 a {
 	text-decoration: none;
 }
@@ -44,4 +46,28 @@ a {
 
 #conference:hover {
 	opacity: 1;
+}
+
+.attivita {
+	margin-right: 15px;
+}
+
+.attivita p {
+	text-align: justify;
+}
+
+.prev a,
+.next a {
+	font-size: 12px;
+	font-weight: 600;
+	color: $blu_nav;
+}
+
+.prev a:hover,
+.next a:hover {
+	text-decoration: underline;
+};
+
+.back_to_index {
+	margin-top: 20px;
 }

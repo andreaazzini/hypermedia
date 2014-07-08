@@ -1,5 +1,10 @@
 class AttivitaExtraController < ApplicationController
+  include AttivitaExtraHelper
   def descrizione
+      @s = '<h1>' + complete_activity_name + '</h1>'
+      @activity = Activity.where(:id => params[:id])[0]
+      @s += '<p>' + @activity.description + '</p>'
+      @s = @s.html_safe
   end
 
   # url

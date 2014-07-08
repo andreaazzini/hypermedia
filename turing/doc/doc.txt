@@ -8,10 +8,11 @@ FRAMMENTO IMPLEMENTATO
 - Single Topic "Scuola" completo in tutti i suoi dialogue act
 - Multiple Topic "Classe", di cui è completamente visualizzabile la classe Prima A
 - Multiple Topic "Docente", di cui è completamente visualizzabile il docente Francesca Febbo
-- Multiple Topic "Attività Extra"
+- Multiple Topic "Attività Extra", di cui sono visualizzabili completamente tutti i contenuti del guided tour
 - Group Of Topic "Classe"
 - Group Of Topic "Docente"
-- Multiple Group Of Topic "Attività Extra"
+- Group Of Topic "Attività Sportive" del Multiple Group Of Topic "Tutte le Attività Extra"
+- Multiple Group Of Topic "Tutte le Attività Extra"
 - Pagine di interfaccia editoriale accessibili dal landmark "Area Riservata" in fondo ad ogni pagina
 - Connessioni complete tra tutti i multiple topic (e i rispettivi group e multiple group) implementati
 

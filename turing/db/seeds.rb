@@ -6,6 +6,10 @@
 #   eate([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(namcities = City.cre: 'Emanuel', city: cities.first)
 
+organizer_list = [
+    [0, 0, 0]
+]
+
 structure_list = [
     [0, "Campo Paolo Rossi", ""],
     [1, "Laboratorio A1", ""],
@@ -17,7 +21,24 @@ activity_list = [
         "Data la tradizione vincente in ambito calcistico, il nostro 
         Liceo organizza sessioni di allenamento pomeridiano di Calcio a 
         5. L'attivit&agrave; viene organizzata nel caso in cui gli iscritti 
-        siano pi&ugrave; di 10.", "Allenamento Calcio a 5"]
+        siano pi&ugrave; di 10.",
+        "Allenamento Calcio a 5"],
+    [1, 0, "sportive",
+        "Per gli amatori dello sport pi&ugrave; amato d'Italia, viene 
+        organizzato il ricorrento Torneo di Calcio per le classi di tutto 
+        il nostro Liceo. Le due categorie si dividono in Torneo del Biennio e 
+        Torneo del Triennio, con premi previsti per le squadre che si 
+        piazzeranno sul podio nei rispettivi tornei. La partecipazione al 
+        Torneo &egrave; completamente gratuita.",
+        "Torneo di Calcio"],
+    [2, 0, "sportive",
+        "C'&egrave; chi vuole essere il nuovo Roger Federer, chi desidera 
+        correre in campo come Rafa Nadal, o chi vuole alzare trofei come 
+        Novak Djokovic. In tutti i casi, per tutti gli studenti amanti 
+        del tennis, viene organizzato per la prima volta quest'anno il 
+        Torneo di Tennis del Liceo. Non fatevi sfuggire l'occasione di 
+        diventare i primi eroi tennistici della nostra Scuola!",
+        "Torneo di Tennis"]
 ]
 
 teachers_list = [
@@ -204,6 +225,12 @@ user_list = [
     [2, 'Buffon Gianluigi', 'buffon_gianluigi', 'buffon_gianluigi_00@hotmail.it', 2],
     [3, 'D.amico Ilaria', 'd.amico_ilaria', 'ila4ever_2000@libero.it', 2],
 ]
+
+organizer_list.each do |id, teacher_id, activity_id|
+  if !Organizer.find_by_id(id)
+    Organizer.create(id: id, teacher_id: teacher_id, activity_id: activity_id)
+  end
+end
 
 structure_list.each do |id, room, description|
   if !Structure.find_by_id(id)

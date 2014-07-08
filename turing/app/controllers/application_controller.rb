@@ -75,7 +75,10 @@ class ApplicationController < ActionController::Base
   def print_session
     if session.has_key?(:user)
       user = User.where(:username => session[:user])[0]
-      s = "<span class='session_name'>"
+      
+      s = "<span class='session_logout'><a href='/area_riservata/logout'>Logout</a></span>"
+      
+      s += "<span class='session_name'>"
 
       case user.type_user
         when 0
@@ -86,8 +89,7 @@ class ApplicationController < ActionController::Base
           s += user.username
       end
 
-      s += "</span>"
-      s += "<span class='session_logout'><a href='/area_riservata/logout'>Logout</a></span>"
+      s += "&nbsp;&nbsp;|</span>"
 
       return s.html_safe
     end

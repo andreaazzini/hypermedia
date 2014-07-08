@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707231645) do
+ActiveRecord::Schema.define(version: 20140707235544) do
 
   create_table "activities", force: true do |t|
     t.integer  "structure_id"
@@ -80,9 +80,9 @@ ActiveRecord::Schema.define(version: 20140707231645) do
 
   create_table "organizers", force: true do |t|
     t.integer  "teacher_id"
-    t.integer  "school_class_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "activity_id"
   end
 
   create_table "school_classes", force: true do |t|
