@@ -5,6 +5,15 @@ class AttivitaExtraController < ApplicationController
       @activity = Activity.where(:id => params[:id])[0]
       @s += '<p>' + @activity.description + '</p>'
       @s = @s.html_safe
+      
+      @t = '<ul>'
+      teachers = Activity.find_by_id(params[:id]).teachers
+      (0..teachers.count - 1).step(1) do |n|
+          @t += '<li><a href="/attivita_extra/' + params[:id] + '/' + teachers[n].surname.downcase.split(' ').join('_') + '">'
+          @t += complete_name(teachers[n].surname) + '</a></li>'
+      end
+      @t += '</ul>'
+      @t = @t.html_safe
   end
 
   # url

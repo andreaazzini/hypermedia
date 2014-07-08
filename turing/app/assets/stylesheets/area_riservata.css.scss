@@ -1,3 +1,30 @@
 // Place all the styles related to the AreaRiservata controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$blu_nav: rgb(28, 39, 79);
+
+a {
+	color: $blu_nav;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.link_to_new {
+	margin-bottom: 15px;
+	text-decoration: underline;
+}
+
+.all_record .record:last-child {
+	margin-bottom: 15px;
+}
+
+.all_record .record a {
+	display: block;
+	float: right;
+	margin-right: 175px;
+}
+
+.all_record .record a:hover {
+	font-weight: 600;
+}
