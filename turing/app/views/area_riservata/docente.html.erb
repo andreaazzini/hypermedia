@@ -2,7 +2,6 @@
 
 <% content_for :title, "Area Riservata" %>
 
-<%= flash[:message] %>
 <div class="form_docente">
   <% if !params[:id].nil?
        docente = Teacher.find_by_id(params[:id])

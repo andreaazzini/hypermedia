@@ -1,0 +1,38 @@
+<% check_session %>
+
+<% content_for :title, "Area Riservata" %>
+
+<div class="form_classe">
+  <% if !params[:id].nil?
+       classe = SchoolClass.find_by_id(params[:id])
+  %>
+      <h1>Modifica classe</h1>
+      <%= form_for(:classe, :url => {:controller => 'area_riservata', :action => 'classe'}) do |f| %>
+          <p>Anno:</br> <%= f.text_field(:anno, :value => classe.year.to_s) %> </p>
+
+          <p>Sezione:</br> <%= f.text_field(:sezione, :value => classe.section) %></p>
+
+          <%= f.hidden_field(:id, :value => classe.id.to_s) %>
+          <%= f.hidden_field(:azione, :value => "modifica") %>
+          <%= f.submit(:Modifica) %>
+      <% end %>
+
+      <%= form_for(:classe, :url => {:controller => 'area_riservata', :action => 'classe'}) do |f| %>
+          <%= f.hidden_field(:id, :value => classe.id.to_s) %>
+          <%= f.hidden_field(:azione, :value => "cancella") %>
+          <%= f.submit(:Cancella) %>
+      <% end %>
+
+
+  <% else %>
+      <h1>Nuova classe</h1>
+      <%= form_for(:classe, :url => {:controller => 'area_riservata', :action => 'classe'}) do |f| %>
+          <p>Anno:</br> <%= f.text_field(:anno) %> </p>
+
+          <p>Sezione:</br> <%= f.text_field(:sezione) %></p>
+
+          <%= f.hidden_field(:azione, :value => "nuovo") %>
+          <%= f.submit(:Crea) %>
+      <% end %>
+  <% end %>
+</div>

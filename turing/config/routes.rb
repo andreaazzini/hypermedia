@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'area_riservata/classe'
+
   get 'attivita_extra', to: 'attivita_extra#tutte_le_attivita'
   get 'attivita_extra/tutte_le_attivita'
   get 'attivita_extra/:activity_type', to: 'attivita_extra#tutte_le_attivita'
@@ -50,13 +52,15 @@ Rails.application.routes.draw do
   get 'area_riservata/logout', to: 'area_riservata#login'
   get 'area_riservata/docente'
   get 'area_riservata/docente/modifica/:id', to: 'area_riservata#docente'
-  get '/area_riservata/gestione_record/elimina/:id', to: 'area_riservata#gestioneRecord'
+  get 'area_riservata/classe/modifica/:id', to: 'area_riservata#classe'
 
   post 'area_riservata/login'
   post 'area_riservata/gestioneRecord'
   post 'area_riservata/gestione_record', to: 'area_riservata#gestioneRecord'
   post 'area_riservata/docente'
   post '/area_riservata/docente/modifica/:id', to: 'area_riservata#docente'
+  post 'area_riservata/classe'
+  post '/area_riservata/classe/modifica/:id', to: 'area_riservata#classe'
 
   get 'scuola', to: 'scuola#storia'
   get 'scuola/storia'

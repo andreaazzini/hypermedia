@@ -38,6 +38,36 @@ class AreaRiservataController < ApplicationController
     end
   end
 
+  def classe
+    if params.has_key?(:classe)
+      if params[:classe][:azione] == "nuovo"
+        if params[:classe][:anno] == "" || params[:classe][:sezione] == ""
+          flash[:message] = "Tutti i moduli devono essere riempiti"
+          params[:classe] = nil
+        else
+          SchoolClass.create(:year => params[:classe][:anno], :section => params[:classe][:sezione])
+          flash[:message] = "Classe inserita correttamente"
+          redirect_to :controller => "area_riservata", :action => "gestioneRecord"
+        end
+      elsif params[:classe][:azione] == "modifica"
+        if params[:classe][:year] == "" || params[:classe][:section] == ""
+          flash[:message] = "Tutti i moduli devono essere riempiti"
+          params[:classe] = nil
+        else
+          school_class = SchoolClass.find_by_id(params[:classe][:id])
+          school_class.update(:year => params[:classe][:anno], :section => params[:classe][:sezione])
+          flash[:message] = "Classe aggiornata correttamente"
+          redirect_to :controller => "area_riservata", :action => "gestioneRecord"
+        end
+      elsif params[:classe][:azione] == "cancella"
+        school_class = SchoolClass.find_by_id(params[:classe][:id])
+        SchoolClass.destroy(school_class)
+        flash[:message] = "Classe cancellata correttamente"
+        redirect_to :controller => "area_riservata", :action => "gestioneRecord"
+      end
+    end
+  end
+
   def login
   end
 
