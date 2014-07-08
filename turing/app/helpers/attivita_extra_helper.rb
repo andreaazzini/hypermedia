@@ -67,7 +67,7 @@ module AttivitaExtraHelper
 
     n = 0
     while n < activities.count do
-      if activities[n].id == id
+      if activities[n].id.to_s == id.to_s
         break
       end
       n += 1

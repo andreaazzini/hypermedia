@@ -43,9 +43,9 @@ activity_list = [
 
 teachers_list = [
     [0, 'Francesca', 'Febbo', 32, 'febbo.jpg',
-        'Francesca Febbo si diploma nel 2001 al Liceo Scientifico Enrico 
+        "Francesca Febbo si diploma nel 2001 al Liceo Scientifico Enrico
         Fermi di Padova e si laurea nel 2006 in Scienze Matematiche presso 
-        l\'Universit&agrave; degli Studi di Padova con la valutazione di 
+        l'Universit&agrave; degli Studi di Padova con la valutazione di
         110 e lode. Dedicatasi inizialmente 
         ad attivit&agrave; accademiche, rinuncia al Dottorato di Ricerca in 
         corso per iniziare la carriera da insegnante. Diventa docente di ruolo 
@@ -57,11 +57,11 @@ teachers_list = [
         che insegna. Gli stessi genitori hanno espresso pareri positivi sulla 
         gentilezza e disponibilit&agrave; al dialogo della Prof.ssa Febbo.
         Dal 2011 &egrave; inoltre impegnata in attivit&agrave; di ricerca 
-        in collaborazione con l\'Universit&agrave; degli Studi di Milano 
+        in collaborazione con l'Universit&agrave; degli Studi di Milano
         riguardanti la statistica demografica. Francesca Febbo conosce 
-        tre lingue, oltre all\'italiano: inglese, francese e tedesco. Per 
+        tre lingue, oltre all'italiano: inglese, francese e tedesco. Per
         queste sue competenze, &egrave; spesso contattata dal Politecnico di 
-        Milano per collaborazioni in ambito di Reasearch & Development.'],
+        Milano per collaborazioni in ambito di Reasearch & Development."],
     [1, 'Umberto', 'Di Fabrizio', 41, '#', ''],
     [2, 'Francesco', 'Corsini', 38, '#', ''],
     [3, 'Francesco', 'Angelo', 50, '#', ''],
